@@ -11,16 +11,15 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 import os
+import environs 
 from pathlib import Path
 
-import environs
-
+# Initialise environment variables
 env = environs.Env()
 env.read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
@@ -49,7 +48,11 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
 
+    'cart',
+    'checkout',
     'home',
+    'profiles',
+    'store',
 ]
 
 MIDDLEWARE = [
@@ -80,6 +83,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media',
             ],
         },
     },
@@ -107,8 +111,6 @@ LOGIN_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = '/'
 
 WSGI_APPLICATION = 'the_stave.wsgi.application'
-
-
 
 
 # Database
@@ -161,6 +163,7 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field

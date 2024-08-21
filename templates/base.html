@@ -1,0 +1,110 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% block meta %}
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {% endblock %}
+        {% block extra_meta %}
+        {% endblock %}
+
+        {% block corecss %}
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+            <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+            
+            <link rel="stylesheet" href="{% static 'css/base.css' %}">
+        {% endblock %}
+        {% block extra_css %}
+        {% endblock %}
+
+        {% block corejs %}
+        {% endblock %}
+        {% block extra_js %}
+        {% endblock %}
+
+        <title>The Stave {% block extra_title %}{% endblock %}</title>
+    </head>
+
+    <body>
+        <header>
+            <nav id="navbar">
+                <div id="mainbar">
+                    <div id="mainbar-store">
+                        <ul class="nav-ul">
+                            <li class='nav-link' class="nav-li"><a href="{% url 'store' %}">Store</a></li>
+                        </ul>
+                    </div>
+                    <div id="mainbar-title">
+                        <a id="main-logo" href="{% url 'home' %}">The Stave</a>
+                    </div>
+                    <div id="mainbar-support">
+                        <ul class="nav-ul">
+                            <li class='nav-link' class="nav-li"><a href="#">About Us</a></li>
+                            <li class='nav-link' class="nav-li"><a href="#">Contact Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="subbar">
+                    <div>
+                        <a class='subbar-link' href="{% url 'profile' %}"><img src="{% static 'images/bxs-user-account.svg' %}" alt="My Account"></a>
+                        <a class='subbar-link' href="{% url 'cart' %}"><img src="{% static 'images/bx-shopping-bag.svg' %}" alt="Shopping Bag"></a>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <div class="page-body"></div>
+            {% block content %}
+            {% endblock %}
+        </div>
+
+        <footer>
+            <div id="footer-content">
+                <div id="footer-company">
+                    <h3>Company</h3>
+                    <a href="#" class="about">About Us</a>
+                    <a href="#" class="careers">Careers</a>
+                    <a href="#" class="privacy">Privacy Policy</a>
+                    <a href="#" class="cookies">Cookie Policy</a>
+                    <a href="#" class="contact">Contact Us</a>
+                </div>
+                <div id="footer-technology">
+                    <h3>Technology</h3>
+                    <a href="#" class="lifetime">Lifetime</a>
+                    <a href="#" class="guarantee">Guarantee</a>
+                </div>
+                <div id="footer-support">
+                    <h3>Support</h3>
+                    <a href="#" class="recall">Product Recall</a>
+                    <a href="#" class="registration">Product Registration</a>
+                    <a href="#" class="warranty">Warranty</a>
+                    <a href="#" class="parts-and-tools">Parts & Tools</a>
+                    <a href="#" class="returns">Webstore Returns</a>
+                    <a href="#" class="return">Start a Webstore Return</a>
+                    <a href="#" class="faq">FAQ</a>
+                </div>
+                <div id="footer-experience">
+                    <h3>Experience</h3>
+                    <a href="#" class="retailers">Find a retailer</a>
+                    <a href="#" class="shop">Shop</a>
+                    <a href="#" class="stories">Stories</a>
+                </div>
+            </div>
+            <div id="footer-media">
+                <div id="footer-media-content">
+                    <a href="#">F</a>
+                    <a href="#">X</a>
+                    <a href="#">I</a>
+                    <a href="#">Y</a>
+                    <a href="#">E</a>
+                </div>
+            </div>
+        </footer>
+
+        {% block postloadjs %}
+        {% endblock %}
+    </body>
+</html>
