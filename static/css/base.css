@@ -39,7 +39,13 @@ nav {
 }
 
 #mainbar-title {
+    /* background: lightgoldenrodyellow; */
     width: unset;
+
+    font-family: "Cinzel", serif;
+    font-style: normal;
+    font-size: x-large;
+    text-align: center;
 }
 
 #main-logo {
@@ -70,10 +76,14 @@ nav {
 }
 
 .nav-link:hover {
-    background: #2F394D;
+    background: #38182F;
     color: white;
     padding: 10px;
     border-radius: 10px;
+}
+
+.nav-link:hover a {
+    color: white;
 }
 
 .subbar-link:hover {
@@ -82,7 +92,7 @@ nav {
 
 #subbar {
     display: flex;
-    background: #2F394D;
+    background: #38182F;
 }
 
 #subbar div {
@@ -127,10 +137,11 @@ footer {
     max-width: 105rem;
     margin-left: auto;
     margin-right: auto;
+    padding-bottom: 1rem;
     padding-left: 1.875rem;
     padding-right: 1.875rem;
 
-    background: #2F394D;
+    background: #38182F;
     color: white;
 }
 
@@ -155,6 +166,8 @@ footer {
     margin: 1rem auto;
     margin-right: auto;
     margin-left: auto;
+
+    
 }
 
 footer a {
@@ -186,10 +199,10 @@ footer a:hover {
 
 
 
-@media (max-width: 1200px) {
+@media screen and (max-width: 1200px) {
 }
 
-@media (max-width: 992px) {	
+@media screen and (max-width: 992px) {	
 }
 
 @media screen and (min-width: 768px) { 
@@ -204,7 +217,7 @@ footer a:hover {
     }
 }
 
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
     #footer-content {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -214,5 +227,5 @@ footer a:hover {
     }
 }
 
-@media (max-width: 640px) {
+@media screen and (max-width: 640px) {
 }

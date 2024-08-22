@@ -1,10 +1,32 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'store/css/style.css' %}">
+{% endblock %}
+
 {% block page_header %}
 {% endblock %}
 
 {% block content %}
+    <div class="categories">
+        <div class="category-select" id="store-category-strings">
+            Strings
+        </div>
+        <div class="category-select" id="store-category-brass">
+            Brass
+        </div>
+        <div class="category-select" id="store-category-woodwind">
+            Woodwind
+        </div>
+        <div class="category-select" id="store-category-percussion">
+            Percussion
+        </div>
+        <div class="category-select" id="store-category-keyboards">
+            Keyboards
+        </div>
+    </div>
+
     <div class="store-banner" id="store-banner">
         STORE
     </div>
