@@ -1,0 +1,66 @@
+[
+    {
+        "pk": 1,
+        "model": "products.category",
+        "fields": {
+            "name": "string_instruments",
+            "friendly_name": "String Instruments"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "products.category",
+        "fields": {
+            "name": "brass_instruments",
+            "friendly_name": "Brass Instruments"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "products.category",
+        "fields": {
+            "name": "woodwind_instruments",
+            "friendly_name": "Woodwind Instruments"
+        }
+    },
+    {
+        "pk": 4,
+        "model": "products.category",
+        "fields": {
+            "name": "percussion_instruments",
+            "friendly_name": "Percussion Instruments"
+        }
+    },
+    {
+        "pk": 5,
+        "model": "products.category",
+        "fields": {
+            "name": "keyboard_instruments",
+            "friendly_name": "Keyboards Instruments"
+        }
+    },
+    {
+        "pk": 6,
+        "model": "products.category",
+        "fields": {
+            "name": "accessories",
+            "friendly_name": "Accessories"
+        }
+    },
+    {
+        "pk": 7,
+        "model": "products.category",
+        "fields": {
+            "name": "auction",
+            "friendly_name": "Auction"
+        }
+    },
+    {
+        "pk": 8,
+        "model": "products.category",
+        "fields": {
+            "name": "rentals",
+            "friendly_name": "Rentals"
+        }
+    }
+]

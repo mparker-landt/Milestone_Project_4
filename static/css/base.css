@@ -29,6 +29,7 @@ nav {
     height: 70px;
     max-width: 1500px;
     margin: 0px auto;
+    padding: 10px 0;
 }
 
 #mainbar-store {
@@ -93,6 +94,7 @@ nav {
 #subbar {
     display: flex;
     background: #38182F;
+    padding: 5px 0;
 }
 
 #subbar div {
@@ -104,6 +106,10 @@ nav {
     width: 100%;
     padding: 0px 4rem;
     max-width: 1500px;
+}
+
+#subbar a {
+    padding: 0 5px;
 }
 
 ul li {

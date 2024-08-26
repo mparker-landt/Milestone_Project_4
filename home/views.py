@@ -8,6 +8,6 @@ def index(request):
 
 # Create your views here.
 def about(request):
-    """ A view to return the index page """
+    """ A view to return the about us webpage """
 
     return render(request, 'home/about.html')

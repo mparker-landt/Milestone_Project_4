@@ -1,11 +1,42 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'profiles/css/profiles.css' %}">
+{% endblock %}
+
 {% block page_header %}
 {% endblock %}
 
 {% block content %}
-    <div class="store-banner" id="profile-banner">
-        PROFILE
+    <div class="profile-container" id="profile-banner">
+        <div class="profile-information">
+            <h3>Profile</h3>
+
+            <div class="profile">
+                <p>First Name:</p>
+                <p>Surname:</p>
+                <p>Date of Birth:</p>
+            </div>
+
+            <div class="profile-shipping-address">
+                <h4>Shipping Address</h4>
+            </div>
+
+            <div class="profile-billing-address">
+                <h4>Billing Address</h4>
+            </div>
+        </div>
+        <div class="profile-order-history">
+            <h3>Order History</h3>
+
+            <div class="open-orders`">
+                <h4>Open Orders</h4>
+            </div>
+
+            <div class="closed-orders`">
+                <h4>Closed Orders</h4>
+            </div>
+        </div>
     </div>
 {% endblock %}
