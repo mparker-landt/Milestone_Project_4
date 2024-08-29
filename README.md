@@ -1,4 +1,9 @@
 # The Stave
+The Stave is a musical instrument webstore with a speciality in classical music instruments.\
+Instruments are grouped into their respective families; Strings, Woodwind, Brass, Percussion and Keyboards.\
+Users of the webstore are able to create a profile to fill in personal informaiton to make purchasing easier and see their order history.\
+A special part of the webstore is dedicated to the auction of antiques and special instruments.\
+The store also offers the services of rental of instruments and a notice board for lessons.\
 This project was created to meet the criteria of the Code Institute Milestone Project 4.
 
 ![AmIResponsive Screenshot](assets/images/amiresponsive.png)
@@ -65,23 +70,37 @@ Github: [mparker-landt](https://github.com/mparker-landt)
 - As a store owner I want to be able to add new products.
 - As a store owner I want to be able to edit and delete existing products.
 
-
 ### Design
 #### Wireframes
+TBC
 
 #### ERD Diagrams
+TBC
 
 #### Colour Scheme
+TBC
 
 #### Typography
+TBC
 
 #### Images
+TBC
 
 
 ## Features
 ### Functional Features
 
 ### Design Features
+#### Header
+#### Footer
+#### Homepage
+#### About Us Page
+#### FAQ Page
+#### Contact Us Page
+#### Store
+#### Shopping Cart Page
+#### Checkout Page
+#### Checkout Success Page
 
 ### Future Features
 

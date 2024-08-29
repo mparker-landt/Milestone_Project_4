@@ -13,11 +13,13 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 import os
 import dj_database_url
 import environs 
+from dotenv import load_dotenv
 from pathlib import Path
 
 # Initialise environment variables
-env = environs.Env()
-env.read_env()
+load_dotenv()
+# env = environs.Env()
+# env.read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -26,12 +28,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env('SECRET_KEY')
+SECRET_KEY = os.getenv('SECRET_KEY', '')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env('DEVELOPMENT')
+DEBUG = 'DEVELOPMENT' in os.environ
 
-ALLOWED_HOSTS = ['the-stave-420a5d9d634e.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = ['the-stave-420a5d9d634e.herokuapp.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -123,7 +125,7 @@ WSGI_APPLICATION = 'the_stave.wsgi.application'
 
 if 'DATABASE_URL' in os.environ:
     DATABASES = {
-        'default': dj_database_url.parse(env('DATABASE_URL'))
+        'default': dj_database_url.parse(os.getenv('DATABASE_URL'))
     }
 else:
     DATABASES = {
@@ -175,9 +177,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Stripe
 STRIPE_CURRENCY = 'GBP'
-STRIPE_PUBLIC_KEY = env('STRIPE_PUBLIC_KEY')
-STRIPE_SECRET_KEY = env('STRIPE_PRIVATE_KEY')
-STRIPE_WH_SECRET = env('STRIPE_WH_SECRET')
+STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', '')
+STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', '')
+STRIPE_WH_SECRET = os.getenv('STRIPE_WH_SECRET', '')
 
 
 # Default primary key field type
