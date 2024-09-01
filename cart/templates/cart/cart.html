@@ -9,7 +9,138 @@
 {% endblock %}
 
 {% block content %}
-    <div class="store-banner" id="cart-banner">
+    {% comment %} <div class="store-banner" id="cart-banner">
         CART
+    </div> {% endcomment %}
+
+    <div class="overlay"></div>
+    <div>
+        <div>
+            <div>
+                <hr>
+                <h2>Shopping Bag</h2>
+                <hr>
+            </div>
+        </div>
+
+        <div>
+            <div>
+                {% if cart_items %}
+                    <div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th scope="col">Product Info</th>
+                                    <th scope="col"></th>
+                                    <th scope="col">Price</th>
+                                    <th scope="col">Qty</th>
+                                    <th scope="col">Subtotal</th>
+                                </tr>
+                            </thead>
+
+                            {% for item in cart_items %}
+                                <tr>
+                                    <td>
+                                        {% if item.product.image %}
+                                            <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
+                                        {% else %}
+                                            <img src="{{ MEDIA_URL }}noimage.png" alt="{{ item.product.name }}">
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        <p><strong>{{ item.product.name }}</strong></p>
+                                        <p><strong>Size: </strong>{% if item.product.has_sizes %}{{ item.size|upper }}{% else %}N/A{% endif %}</p>
+                                        <p>SKU: {{ item.product.sku|upper }}</p>
+                                    </td>
+                                    <td>
+                                        <p>${{ item.product.price }}</p>
+                                    </td>
+                                    <td>
+                                        <form method="POST" action="{% url 'adjust_cart' item.item_id %}">
+                                            {% csrf_token %}
+                                            <div>
+                                                <div>
+                                                    <div>
+                                                        <button
+                                                            data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}">
+                                                            <span>
+                                                                <i class="fas fa-minus fa-sm"></i>
+                                                            </span>
+                                                        </button>
+                                                    </div>
+                                                    <input type="number"
+                                                        name="quantity" value="{{ item.quantity }}" min="1" max="99"
+                                                        data-item_id="{{ item.item_id }}"
+                                                        id="id_qty_{{ item.item_id }}">
+                                                    <div>
+                                                        <button
+                                                            data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}">
+                                                            <span>
+                                                                <i class="fas fa-plus fa-sm"></i>
+                                                            </span>
+                                                        </button>
+                                                    </div>
+                                                    {% if item.product.has_sizes %}
+                                                        <input type="hidden" name="product_size" value="{{ item.size }}">
+                                                    {% endif %}
+                                                </div>
+                                            </div>
+                                        </form>
+                                        <a><small>Update</small></a>
+                                        <a id="remove_{{ item.item_id }}" data-product_size="{{ item.size }}"><small>Remove</small></a>
+                                    </td>
+                                    <td>
+                                        {% comment %} <p>${{ item.product.price | calc_subtotal:item.quantity }}</p> {% endcomment %}
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            <tr>
+                                <td colspan="5">
+                                    {% comment %} <h6><strong>Bag Total: ${{ total|floatformat:2 }}</strong></h6> {% endcomment %}
+                                    {% comment %} <h6>Delivery: ${{ delivery|floatformat:2 }}</h6> {% endcomment %}
+                                    {% comment %} <h4 class="mt-4"><strong>Grand Total: ${{ grand_total|floatformat:2 }}</strong></h4> {% endcomment %}
+                                    {% comment %} {% if free_delivery_delta > 0 %}
+                                        <p class="mb-1 text-danger">
+                                            You could get free delivery by spending just <strong>${{ free_delivery_delta }}</strong> more!
+                                        </p>
+                                    {% endif %} {% endcomment %}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="5">
+                                    <a href="{% url 'store' %}">
+                                        <span>
+                                            <i class="fas fa-chevron-left"></i>
+                                        </span>
+                                        <span>Keep Shopping</span>
+                                    </a>
+                                    <a href="{% url 'checkout' %}">
+                                        <span>Secure Checkout</span>
+                                        <span>
+                                            <i class="fas fa-lock"></i>
+                                        </span>
+                                    </a>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                {% else %}
+                    <p>Your bag is empty.</p>
+                    <a href="{% url 'store' %}">
+                        <span>
+                            <i class="fas fa-chevron-left"></i>
+                        </span>
+                        <span class="text-uppercase">Keep Shopping</span>
+                    </a>
+
+                    <a href="{% url 'checkout' %}">
+                        <span>Secure Checkout</span>
+                        <span>
+                            <i class="fas fa-lock"></i>
+                        </span>
+                    </a>
+                {% endif %}
+            </div>
+        </div>
     </div>
 {% endblock %}

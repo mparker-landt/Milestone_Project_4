@@ -26,6 +26,7 @@
         {% endblock %}
 
         {% block corejs %}
+            <script src="https://kit.fontawesome.com/e9c73d7092.js" crossorigin="anonymous"></script>
             <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
             <!-- Stripe -->
             <script src="https://js.stripe/v3/"></script>
@@ -53,7 +54,7 @@
                     <div id="mainbar-support">
                         <ul class="nav-ul">
                             <li class='nav-link'><a href="{% url 'about' %}">About Us</a></li>
-                            <li class='nav-link'><a href="#">Contact Us</a></li>
+                            <li class='nav-link'><a href="{% url 'contact' %}">Contact Us</a></li>
                         </ul>
                     </div>
                 </div>
@@ -78,6 +79,9 @@
             </nav>
         </header>
 
+        {% block page_header %}
+        {% endblock %}
+
         <div class="page-body"></div>
             {% block content %}
             {% endblock %}
@@ -87,11 +91,11 @@
             <div id="footer-content">
                 <div id="footer-company">
                     <h3>Company</h3>
-                    <a href="#" class="about">About Us</a>
+                    <a href="{% url 'about' %}" class="about">About Us</a>
                     {% comment %} <a href="#" class="careers">Careers</a> {% endcomment %}
-                    <a href="#" class="privacy">Privacy Policy</a>
-                    <a href="#" class="cookies">Cookie Policy</a>
-                    <a href="#" class="contact">Contact Us</a>
+                    <a href="{% url 'privacy' %}" class="privacy">Privacy Policy</a>
+                    <a href="{% url 'cookies' %}" class="cookies">Cookie Policy</a>
+                    <a href="{% url 'contact' %}" class="contact">Contact Us</a>
                 </div>
                 <div id="footer-instruments">
                     <h3>Instruments</h3>
@@ -102,17 +106,17 @@
                     <h3>Support</h3>
                     {% comment %} <a href="#" class="recall">Product Recall</a> {% endcomment %}
                     {% comment %} <a href="#" class="registration">Product Registration</a> {% endcomment %}
-                    <a href="#" class="warranty">Warranty</a>
+                    <a href="{% url 'warranty' %}" class="warranty">Warranty</a>
                     {% comment %} <a href="#" class="parts-and-tools">Parts & Tools</a> {% endcomment %}
-                    <a href="#" class="returns">Webstore Returns</a>
-                    <a href="#" class="return">Start a Webstore Return</a>
-                    <a href="#" class="faq">FAQ</a>
+                    <a href="{% url 'returns' %}" class="returns">Webstore Returns</a>
+                    <a href="{% url 'returnstart' %}" class="return">Start a Webstore Return</a>
+                    <a href="{% url 'faq' %}" class="faq">FAQ</a>
                 </div>
                 <div id="footer-experience">
                     <h3>Experience</h3>
                     {% comment %} <a href="#" class="retailers">Find a retailer</a> {% endcomment %}
-                    <a href="#" class="shop">Shop</a>
-                    <a href="#" class="stories">Stories</a>
+                    <a href="{% url 'store' %}" class="shop">Shop</a>
+                    <a href="{% url 'stories' %}" class="stories">Stories</a>
                 </div>
             </div>
             <div id="footer-media">

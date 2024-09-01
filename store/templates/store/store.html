@@ -25,9 +25,75 @@
         <div class="category-select" id="store-category-keyboards">
             Keyboards
         </div>
+        <div class="category-select" id="store-category-accessories">
+            Accessories
+        </div>
     </div>
 
     <div class="store-banner" id="store-banner">
-        STORE
+        {% for product in products %}
+            <p>PRODUCT</p>
+            <div>
+                <div>
+                    {% if product.image %}
+                        <a href="{% url 'product_detail' product.id %}">
+                            <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                        </a>
+                    {% else %}
+                        <a href="{% url 'product_detail' product.id %}">
+                            <img src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                        </a>
+                    {% endif %}
+                    <div>
+                        <p>{{ product.name }}</p>
+                    </div>
+                    <div>
+                        <div>
+                            <div>
+                                <p>${{ product.price }}</p>
+                                {% if product.category %}
+                                    <p>
+                                        {% comment %} <a href="{% url 'products' %}?category={{ product.category.name }}">
+                                            <i class="fas fa-tag mr-1"></i>{{ product.category.friendly_name }}
+                                        </a> {% endcomment %}
+                                    </p>
+                                {% endif %}
+                                {% if product.rating %}
+                                    <small><i class="fas fa-star mr-1"></i>{{ product.rating }} / 5</small>
+                                {% else %}
+                                    <small>No Rating</small>
+                                {% endif %}
+                                {% if request.user.is_superuser %}
+                                    <small>
+                                        {% comment %} <a href="{% url 'edit_product' product.id %}">Edit</a> | 
+                                        <a href="{% url 'delete_product' product.id %}">Delete</a> {% endcomment %}
+                                    </small>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% comment %} {% if forloop.counter|divisibleby:1 %}
+                <div class="col-12 d-sm-none mb-5">
+                    <hr>
+                </div>
+            {% endif %}                        
+            {% if forloop.counter|divisibleby:2 %}
+                <div class="col-12 d-none d-sm-block d-md-block d-lg-none mb-5">
+                    <hr>
+                </div>
+            {% endif %}
+            {% if forloop.counter|divisibleby:3 %}
+                <div class="col-12 d-none d-lg-block d-xl-none mb-5">
+                    <hr>
+                </div>
+            {% endif %}
+            {% if forloop.counter|divisibleby:4 %}
+                <div class="col-12 d-none d-xl-block mb-5">
+                    <hr>
+                </div>
+            {% endif %} {% endcomment %}
+        {% endfor %}
     </div>
 {% endblock %}

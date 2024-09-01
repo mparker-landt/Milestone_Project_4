@@ -1,0 +1,19 @@
+[
+    {
+        "pk": 1,
+        "model": "store.product",
+        "fields": {
+            "sku": "TSSVN0101",
+            "name": "Violin",
+            "description": "Violin XS Pine",
+            "price": 77.89,
+            "has_sizes":true,
+            "size": "XS",
+            "acoustic_type": "acoustic",
+            "category": 1,
+            "image_url": "",
+            "image": "",
+            "purchased":false
+        }
+    }
+]
