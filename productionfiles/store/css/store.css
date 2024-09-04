@@ -1,0 +1,36 @@
+.categories {
+    /* width: 100%; */
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1rem;
+    margin: 2%;
+
+    text-align: center;
+}
+
+.category-select {
+    height: 150px;
+    width: 150px;
+    border: 1px solid #2F394D;
+
+    border-radius: 5px;
+} 
+
+.category-select:hover {
+    border: 2px solid #2F394D;
+} 
+
+@media screen and (max-width: 1200px) {
+}
+
+@media screen and (max-width: 992px) {	
+}
+
+@media screen and (min-width: 768px) { 
+}
+
+@media screen and (max-width: 768px) {
+}
+
+@media screen and (max-width: 640px) {
+}
