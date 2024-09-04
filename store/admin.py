@@ -17,7 +17,7 @@ class ProductAdmin(admin.ModelAdmin):
         'size',
         'acoustic_type',
         'image',
-        'purchased'
+        'stock'
     )
 
     ordering = ('sku',)

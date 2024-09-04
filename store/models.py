@@ -32,7 +32,8 @@ class Product(models.Model):
     size = models.CharField(max_length=254, null=True)
     image_url = models.URLField(max_length=1024, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
-    purchased = models.BooleanField(default=False, null=True, blank=True)
+    # purchased = models.BooleanField(default=False, null=True, blank=True)
+    stock = models.DecimalField(max_digits=6, decimal_places=0, default=0)
 
     def __str__(self):
         return self.name

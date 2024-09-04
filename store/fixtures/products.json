@@ -5,15 +5,1103 @@
         "fields": {
             "sku": "TSSVN0101",
             "name": "Violin",
-            "description": "Violin XS Pine",
+            "description": "Violin XS Spruce",
             "price": 77.89,
             "has_sizes":true,
-            "size": "XS",
-            "acoustic_type": "acoustic",
+            "size": "1/16",
+            "acoustic_type": "Acoustic",
             "category": 1,
             "image_url": "",
             "image": "",
-            "purchased":false
+            "stock":3
+        }
+    },
+    {
+        "pk": 2,
+        "model": "store.product",
+        "fields": {
+            "sku": "TSSVN0102",
+            "name": "Violin",
+            "description": "Violin XS Spruce",
+            "price": 77.89,
+            "has_sizes":true,
+            "size": "1/8",
+            "acoustic_type": "Acoustic",
+            "category": 1,
+            "image_url": "",
+            "image": "",
+            "stock":4
+        }
+    },
+    {
+        "pk": 3,
+        "model": "store.product",
+        "fields": {
+            "sku": "TSSVN0103",
+            "name": "Violin",
+            "description": "Violin XS Spruce",
+            "price": 77.89,
+            "has_sizes":true,
+            "size": "1/4",
+            "acoustic_type": "Acoustic",
+            "category": 1,
+            "image_url": "",
+            "image": "",
+            "stock":7
+        }
+    },
+    {
+        "pk": 4,
+        "model": "store.product",
+        "fields": {
+            "sku": "TSSVN0104",
+            "name": "Violin",
+            "description": "Violin XS Spruce",
+            "price": 77.89,
+            "has_sizes":true,
+            "size": "1/2",
+            "acoustic_type": "Acoustic",
+            "category": 1,
+            "image_url": "",
+            "image": "",
+            "stock":10
+        }
+    },
+    {
+        "pk": 5,
+        "model": "store.product",
+        "fields": {
+            "sku": "TSSVN0105",
+            "name": "Violin",
+            "description": "Violin XS Spruce",
+            "price": 77.89,
+            "has_sizes":true,
+            "size": "3/4",
+            "acoustic_type": "Acoustic",
+            "category": 1,
+            "image_url": "",
+            "image": "",
+            "stock":2
+        }
+    },
+    {
+        "pk": 6,
+        "model": "store.product",
+        "fields": {
+            "sku": "TSSVN0106",
+            "name": "Violin",
+            "description": "Violin XS Spruce",
+            "price": 77.89,
+            "has_sizes":true,
+            "size": "4/4",
+            "acoustic_type": "Acoustic",
+            "category": 1,
+            "image_url": "",
+            "image": "",
+            "stock":17
+        }
+    },
+    {
+        "pk": 7,
+        "model": "store.product",
+        "fields": {
+            "sku": "TSSVN0106",
+            "name": "Violin",
+            "description": "Violin XS Spruce",
+            "price": 77.89,
+            "has_sizes":true,
+            "size": "4/4",
+            "acoustic_type": "Electric",
+            "category": 1,
+            "image_url": "",
+            "image": "",
+            "stock":11
+        }
+    },
+    {
+        "pk": 8,
+        "model": "store.product",
+        "fields": {
+            "sku": "TSSVA0101",
+            "name": "Viola",
+            "description": "Violin XS Spruce",
+            "price": 77.89,
+            "has_sizes":true,
+            "size": "13\"",
+            "acoustic_type": "Acoustic",
+            "category": 1,
+            "image_url": "",
+            "image": "",
+            "stock":1
+        }
+    },
+    {
+        "pk": 9,
+        "model": "store.product",
+        "fields": {
+            "sku": "TSSVA0102",
+            "name": "Viola",
+            "description": "Violin XS Spruce",
+            "price": 77.89,
+            "has_sizes":true,
+            "size": "14\"",
+            "acoustic_type": "Acoustic",
+            "category": 1,
+            "image_url": "",
+            "image": "",
+            "stock":0
+        }
+    },
+    {
+        "pk": 10,
+        "model": "store.product",
+        "fields": {
+            "sku": "TSSVA0103",
+            "name": "Viola",
+            "description": "Violin XS Spruce",
+            "price": 77.89,
+            "has_sizes":true,
+            "size": "15\"",
+            "acoustic_type": "Acoustic",
+            "category": 1,
+            "image_url": "",
+            "image": "",
+            "stock":9
+        }
+    },
+    {
+        "pk": 11,
+        "model": "store.product",
+        "fields": {
+            "sku": "TSSVA0104",
+            "name": "Viola",
+            "description": "Violin XS Spruce",
+            "price": 77.89,
+            "has_sizes":true,
+            "size": "16\"",
+            "acoustic_type": "Electric",
+            "category": 1,
+            "image_url": "",
+            "image": "",
+            "stock":3
+        }
+    },
+    {
+        "pk": 12,
+        "model": "store.product",
+        "fields": {
+            "sku": "TSSCA0101",
+            "name": "Cello",
+            "description": "Violin XS Spruce",
+            "price": 77.89,
+            "has_sizes":true,
+            "size": "1/4",
+            "acoustic_type": "Acoustic",
+            "category": 1,
+            "image_url": "",
+            "image": "",
+            "stock":8
+        }
+    },
+    {
+        "pk": 13,
+        "model": "store.product",
+        "fields": {
+            "sku": "TSSCA0102",
+            "name": "Cello",
+            "description": "Violin XS Spruce",
+            "price": 77.89,
+            "has_sizes":true,
+            "size": "1/2",
+            "acoustic_type": "Acoustic",
+            "category": 1,
+            "image_url": "",
+            "image": "",
+            "stock":1
+        }
+    },
+    {
+        "pk": 14,
+        "model": "store.product",
+        "fields": {
+            "sku": "TSSCA0103",
+            "name": "Cello",
+            "description": "Violin XS Spruce",
+            "price": 77.89,
+            "has_sizes":true,
+            "size": "3/4",
+            "acoustic_type": "Acoustic",
+            "category": 1,
+            "image_url": "",
+            "image": "",
+            "stock":0
+        }
+    },
+    {
+        "pk": 15,
+        "model": "store.product",
+        "fields": {
+            "sku": "TSSCA0104",
+            "name": "Cello",
+            "description": "Violin XS Spruce",
+            "price": 77.89,
+            "has_sizes":true,
+            "size": "4/4",
+            "acoustic_type": "Acoustic",
+            "category": 1,
+            "image_url": "",
+            "image": "",
+            "stock":15
+        }
+    },
+    {
+        "pk": 16,
+        "model": "store.product",
+        "fields": {
+            "sku": "TSSCA0105",
+            "name": "Cello",
+            "description": "Violin XS Spruce",
+            "price": 77.89,
+            "has_sizes":true,
+            "size": "4/4",
+            "acoustic_type": "Electric",
+            "category": 1,
+            "image_url": "",
+            "image": "",
+            "stock":6
+        }
+    },
+    {
+        "pk": 17,
+        "model": "store.product",
+        "fields": {
+            "sku": "TSSDS0101",
+            "name": "Double Bass",
+            "description": "Violin XS Spruce",
+            "price": 77.89,
+            "has_sizes":true,
+            "size": "1/8",
+            "acoustic_type": "Acoustic",
+            "category": 1,
+            "image_url": "",
+            "image": "",
+            "stock":0
+        }
+    },
+    {
+        "pk": 18,
+        "model": "store.product",
+        "fields": {
+            "sku": "TSSDS0102",
+            "name": "Double Bass",
+            "description": "Violin XS Spruce",
+            "price": 77.89,
+            "has_sizes":true,
+            "size": "1/4",
+            "acoustic_type": "Acoustic",
+            "category": 1,
+            "image_url": "",
+            "image": "",
+            "stock":0
+        }
+    },
+    {
+        "pk": 19,
+        "model": "store.product",
+        "fields": {
+            "sku": "TSSDS0103",
+            "name": "Double Bass",
+            "description": "Violin XS Spruce",
+            "price": 77.89,
+            "has_sizes":true,
+            "size": "1/2",
+            "acoustic_type": "Acoustic",
+            "category": 1,
+            "image_url": "",
+            "image": "",
+            "stock":1
+        }
+    },
+    {
+        "pk": 20,
+        "model": "store.product",
+        "fields": {
+            "sku": "TSSDS0104",
+            "name": "Double Bass",
+            "description": "Violin XS Spruce",
+            "price": 77.89,
+            "has_sizes":true,
+            "size": "3/4",
+            "acoustic_type": "Acoustic",
+            "category": 1,
+            "image_url": "",
+            "image": "",
+            "stock":0
+        }
+    },
+    {
+        "pk": 21,
+        "model": "store.product",
+        "fields": {
+            "sku": "TSSDS0105",
+            "name": "Double Bass",
+            "description": "Violin XS Spruce",
+            "price": 77.89,
+            "has_sizes":true,
+            "size": "4/4",
+            "acoustic_type": "Acoustic",
+            "category": 1,
+            "image_url": "",
+            "image": "",
+            "stock":9
+        }
+    },
+    {
+        "pk": 22,
+        "model": "store.product",
+        "fields": {
+            "sku": "TSSHP0101",
+            "name": "Harp",
+            "description": "Violin XS Spruce",
+            "price": 77.89,
+            "has_sizes":true,
+            "size": "27 Strings",
+            "acoustic_type": "Acoustic",
+            "category": 1,
+            "image_url": "",
+            "image": "",
+            "stock":3
+        }
+    },
+    {
+        "pk": 23,
+        "model": "store.product",
+        "fields": {
+            "sku": "TSSHP0102",
+            "name": "Harp",
+            "description": "Violin XS Spruce",
+            "price": 77.89,
+            "has_sizes":true,
+            "size": "36 Strings",
+            "acoustic_type": "Acoustic",
+            "category": 1,
+            "image_url": "",
+            "image": "",
+            "stock":2
+        }
+    },
+    {
+        "pk": 24,
+        "model": "store.product",
+        "fields": {
+            "sku": "TSSHP0103",
+            "name": "Harp",
+            "description": "Violin XS Spruce",
+            "price": 77.89,
+            "has_sizes":true,
+            "size": "47 Strings",
+            "acoustic_type": "Acoustic",
+            "category": 1,
+            "image_url": "",
+            "image": "",
+            "stock":5
+        }
+    },
+    {
+        "pk": 25,
+        "model": "store.product",
+        "fields": {
+            "sku": "TSSGR0101",
+            "name": "Guitar",
+            "description": "Violin XS Spruce",
+            "price": 77.89,
+            "has_sizes":true,
+            "size": "1/4",
+            "acoustic_type": "Acoustic",
+            "category": 1,
+            "image_url": "",
+            "image": "",
+            "stock":1
+        }
+    },
+    {
+        "pk": 26,
+        "model": "store.product",
+        "fields": {
+            "sku": "TSSGR0102",
+            "name": "Guitar",
+            "description": "Violin XS Spruce",
+            "price": 77.89,
+            "has_sizes":true,
+            "size": "1/2",
+            "acoustic_type": "Acoustic",
+            "category": 1,
+            "image_url": "",
+            "image": "",
+            "stock":4
+        }
+    },
+    {
+        "pk": 27,
+        "model": "store.product",
+        "fields": {
+            "sku": "TSSGR0103",
+            "name": "Guitar",
+            "description": "Violin XS Spruce",
+            "price": 77.89,
+            "has_sizes":true,
+            "size": "3/4",
+            "acoustic_type": "Acoustic",
+            "category": 1,
+            "image_url": "",
+            "image": "",
+            "stock":1
+        }
+    },
+    {
+        "pk": 28,
+        "model": "store.product",
+        "fields": {
+            "sku": "TSSGR0104",
+            "name": "Guitar",
+            "description": "Violin XS Spruce",
+            "price": 77.89,
+            "has_sizes":true,
+            "size": "4/4",
+            "acoustic_type": "Acoustic",
+            "category": 1,
+            "image_url": "",
+            "image": "",
+            "stock":26
+        }
+    },
+    {
+        "pk": 29,
+        "model": "store.product",
+        "fields": {
+            "sku": "TSSGR0105",
+            "name": "Guitar",
+            "description": "Violin XS Spruce",
+            "price": 77.89,
+            "has_sizes":true,
+            "size": "4/4",
+            "acoustic_type": "Electric",
+            "category": 1,
+            "image_url": "",
+            "image": "",
+            "stock":30
+        }
+    },
+    {
+        "pk": 30,
+        "model": "store.product",
+        "fields": {
+            "sku": "TSSBR0101",
+            "name": "Bass Guitar",
+            "description": "Violin XS Spruce",
+            "price": 77.89,
+            "has_sizes":true,
+            "size": "4/4",
+            "acoustic_type": "Electric",
+            "category": 1,
+            "image_url": "",
+            "image": "",
+            "stock":22
+        }
+    },
+    {
+        "pk": 31,
+        "model": "store.product",
+        "fields": {
+            "sku": "TSBTT0101",
+            "name": "Trumpet",
+            "description": "Violin XS Spruce",
+            "price": 77.89,
+            "has_sizes":false,
+            "size": "Full Size",
+            "acoustic_type": "Acoustic",
+            "category": 2,
+            "image_url": "",
+            "image": "",
+            "stock":21
+        }
+    },
+    {
+        "pk": 32,
+        "model": "store.product",
+        "fields": {
+            "sku": "TSBFN0101",
+            "name": "French Horn",
+            "description": "Violin XS Spruce",
+            "price": 77.89,
+            "has_sizes":false,
+            "size": "Full Size",
+            "acoustic_type": "Acoustic",
+            "category": 2,
+            "image_url": "",
+            "image": "",
+            "stock":17
+        }
+    },
+    {
+        "pk": 33,
+        "model": "store.product",
+        "fields": {
+            "sku": "TSBEM0101",
+            "name": "Euphonium",
+            "description": "Violin XS Spruce",
+            "price": 77.89,
+            "has_sizes":false,
+            "size": "Full Size",
+            "acoustic_type": "Acoustic",
+            "category": 2,
+            "image_url": "",
+            "image": "",
+            "stock":13
+        }
+    },
+    {
+        "pk": 34,
+        "model": "store.product",
+        "fields": {
+            "sku": "TSBTA0101",
+            "name": "Tuba",
+            "description": "Violin XS Spruce",
+            "price": 77.89,
+            "has_sizes":true,
+            "size": "3/4",
+            "acoustic_type": "Acoustic",
+            "category": 2,
+            "image_url": "",
+            "image": "",
+            "stock":19
+        }
+    },
+    {
+        "pk": 35,
+        "model": "store.product",
+        "fields": {
+            "sku": "TSBTA0101",
+            "name": "Tuba",
+            "description": "Violin XS Spruce",
+            "price": 77.89,
+            "has_sizes":true,
+            "size": "4/4",
+            "acoustic_type": "Acoustic",
+            "category": 2,
+            "image_url": "",
+            "image": "",
+            "stock":6
+        }
+    },
+    {
+        "pk": 36,
+        "model": "store.product",
+        "fields": {
+            "sku": "TSBTA0101",
+            "name": "Tuba",
+            "description": "Violin XS Spruce",
+            "price": 77.89,
+            "has_sizes":true,
+            "size": "5/4",
+            "acoustic_type": "Acoustic",
+            "category": 2,
+            "image_url": "",
+            "image": "",
+            "stock":1
+        }
+    },
+    {
+        "pk": 37,
+        "model": "store.product",
+        "fields": {
+            "sku": "TSBTA0101",
+            "name": "Tuba",
+            "description": "Violin XS Spruce",
+            "price": 77.89,
+            "has_sizes":true,
+            "size": "6/4",
+            "acoustic_type": "Acoustic",
+            "category": 2,
+            "image_url": "",
+            "image": "",
+            "stock":8
+        }
+    },
+    {
+        "pk": 38,
+        "model": "store.product",
+        "fields": {
+            "sku": "TSBCT0101",
+            "name": "Cornet",
+            "description": "Violin XS Spruce",
+            "price": 77.89,
+            "has_sizes":false,
+            "size": "Full Size",
+            "acoustic_type": "Acoustic",
+            "category": 2,
+            "image_url": "",
+            "image": "",
+            "stock":11
+        }
+    },
+    {
+        "pk": 39,
+        "model": "store.product",
+        "fields": {
+            "sku": "TSBFN0101",
+            "name": "Flugelhorn",
+            "description": "Violin XS Spruce",
+            "price": 77.89,
+            "has_sizes":false,
+            "size": "Full Size",
+            "acoustic_type": "Acoustic",
+            "category": 2,
+            "image_url": "",
+            "image": "",
+            "stock":16
+        }
+    },
+    {
+        "pk": 40,
+        "model": "store.product",
+        "fields": {
+            "sku": "TSBTN0101",
+            "name": "Tenor Horn",
+            "description": "Violin XS Spruce",
+            "price": 77.89,
+            "has_sizes":false,
+            "size": "Full Size",
+            "acoustic_type": "Acoustic",
+            "category": 2,
+            "image_url": "",
+            "image": "",
+            "stock":20
+        }
+    },
+    {
+        "pk": 41,
+        "model": "store.product",
+        "fields": {
+            "sku": "TSBBN0101",
+            "name": "Baritone Horn",
+            "description": "Violin XS Spruce",
+            "price": 77.89,
+            "has_sizes":false,
+            "size": "Full Size",
+            "acoustic_type": "Acoustic",
+            "category": 2,
+            "image_url": "",
+            "image": "",
+            "stock":21
+        }
+    },
+    {
+        "pk": 42,
+        "model": "store.product",
+        "fields": {
+            "sku": "TSBSE0101",
+            "name": "Sousaphone",
+            "description": "Violin XS Spruce",
+            "price": 77.89,
+            "has_sizes":false,
+            "size": "Full Size",
+            "acoustic_type": "Acoustic",
+            "category": 2,
+            "image_url": "",
+            "image": "",
+            "stock":14
+        }
+    },
+    {
+        "pk": 43,
+        "model": "store.product",
+        "fields": {
+            "sku": "TSBME0101",
+            "name": "Mellophone",
+            "description": "Violin XS Spruce",
+            "price": 77.89,
+            "has_sizes":false,
+            "size": "Full Size",
+            "acoustic_type": "Acoustic",
+            "category": 2,
+            "image_url": "",
+            "image": "",
+            "stock":18
+        }
+    },
+    {
+        "pk": 44,
+        "model": "store.product",
+        "fields": {
+            "sku": "TSWPL0101",
+            "name": "Piccolo",
+            "description": "Violin XS Spruce",
+            "price": 77.89,
+            "has_sizes":false,
+            "size": "Full Size",
+            "acoustic_type": "Acoustic",
+            "category": 3,
+            "image_url": "",
+            "image": "",
+            "stock":29
+        }
+    },
+    {
+        "pk": 45,
+        "model": "store.product",
+        "fields": {
+            "sku": "TSWFE0101",
+            "name": "Flute",
+            "description": "Violin XS Spruce",
+            "price": 77.89,
+            "has_sizes":false,
+            "size": "Full Size",
+            "acoustic_type": "Acoustic",
+            "category": 3,
+            "image_url": "",
+            "image": "",
+            "stock":26
+        }
+    },
+    {
+        "pk": 46,
+        "model": "store.product",
+        "fields": {
+            "sku": "TSWBE0101",
+            "name": "Oboe",
+            "description": "Violin XS Spruce",
+            "price": 77.89,
+            "has_sizes":false,
+            "size": "Full Size",
+            "acoustic_type": "Acoustic",
+            "category": 3,
+            "image_url": "",
+            "image": "",
+            "stock":30
+        }
+    },
+    {
+        "pk": 47,
+        "model": "store.product",
+        "fields": {
+            "sku": "TSWHN0101",
+            "name": "English Horn",
+            "description": "Violin XS Spruce",
+            "price": 77.89,
+            "has_sizes":false,
+            "size": "Full Size",
+            "acoustic_type": "Acoustic",
+            "category": 3,
+            "image_url": "",
+            "image": "",
+            "stock":24
+        }
+    },
+    {
+        "pk": 48,
+        "model": "store.product",
+        "fields": {
+            "sku": "TSWCT0101",
+            "name": "Clarinet",
+            "description": "Violin XS Spruce",
+            "price": 77.89,
+            "has_sizes":false,
+            "size": "Full Size",
+            "acoustic_type": "Acoustic",
+            "category": 3,
+            "image_url": "",
+            "image": "",
+            "stock":26
+        }
+    },
+    {
+        "pk": 49,
+        "model": "store.product",
+        "fields": {
+            "sku": "TSWET0101",
+            "name": "E-Flat Clarinet",
+            "description": "Violin XS Spruce",
+            "price": 77.89,
+            "has_sizes":false,
+            "size": "Full Size",
+            "acoustic_type": "Acoustic",
+            "category": 3,
+            "image_url": "",
+            "image": "",
+            "stock":27
+        }
+    },
+    {
+        "pk": 50,
+        "model": "store.product",
+        "fields": {
+            "sku": "TSWBT0101",
+            "name": "Bass Clarinet",
+            "description": "Violin XS Spruce",
+            "price": 77.89,
+            "has_sizes":false,
+            "size": "Full Size",
+            "acoustic_type": "Acoustic",
+            "category": 3,
+            "image_url": "",
+            "image": "",
+            "stock":23
+        }
+    },
+    {
+        "pk": 51,
+        "model": "store.product",
+        "fields": {
+            "sku": "TSWBN0101",
+            "name": "Bassoon",
+            "description": "Violin XS Spruce",
+            "price": 77.89,
+            "has_sizes":false,
+            "size": "Full Size",
+            "acoustic_type": "Acoustic",
+            "category": 3,
+            "image_url": "",
+            "image": "",
+            "stock":31
+        }
+    },
+    {
+        "pk": 52,
+        "model": "store.product",
+        "fields": {
+            "sku": "TSWCN0101",
+            "name": "Contrabassoon",
+            "description": "Violin XS Spruce",
+            "price": 77.89,
+            "has_sizes":false,
+            "size": "Full Size",
+            "acoustic_type": "Acoustic",
+            "category": 3,
+            "image_url": "",
+            "image": "",
+            "stock":20
+        }
+    },
+    {
+        "pk": 53,
+        "model": "store.product",
+        "fields": {
+            "sku": "TSPSM0101",
+            "name": "Snare Drum",
+            "description": "Violin XS Spruce",
+            "price": 77.89,
+            "has_sizes":false,
+            "size": "Full Size",
+            "acoustic_type": "Acoustic",
+            "category": 4,
+            "image_url": "",
+            "image": "",
+            "stock":15
+        }
+    },
+    {
+        "pk": 54,
+        "model": "store.product",
+        "fields": {
+            "sku": "TSPSM0101",
+            "name": "Snare Drum",
+            "description": "Violin XS Spruce",
+            "price": 77.89,
+            "has_sizes":false,
+            "size": "Full Size",
+            "acoustic_type": "Acoustic",
+            "category": 4,
+            "image_url": "",
+            "image": "",
+            "stock":11
+        }
+    },
+    {
+        "pk": 55,
+        "model": "store.product",
+        "fields": {
+            "sku": "TSPBM0101",
+            "name": "Bass Drum",
+            "description": "Violin XS Spruce",
+            "price": 77.89,
+            "has_sizes":false,
+            "size": "Full Size",
+            "acoustic_type": "Acoustic",
+            "category": 4,
+            "image_url": "",
+            "image": "",
+            "stock":2
+        }
+    },
+    {
+        "pk": 56,
+        "model": "store.product",
+        "fields": {
+            "sku": "TSPDM0101",
+            "name": "Drum Kit",
+            "description": "Violin XS Spruce",
+            "price": 77.89,
+            "has_sizes":false,
+            "size": "Full Size",
+            "acoustic_type": "Acoustic",
+            "category": 4,
+            "image_url": "",
+            "image": "",
+            "stock":12
+        }
+    },
+    {
+        "pk": 57,
+        "model": "store.product",
+        "fields": {
+            "sku": "TSPDM0102",
+            "name": "Drum Kit",
+            "description": "Violin XS Spruce",
+            "price": 77.89,
+            "has_sizes":false,
+            "size": "Full Size",
+            "acoustic_type": "Electric",
+            "category": 4,
+            "image_url": "",
+            "image": "",
+            "stock":24
+        }
+    },
+    {
+        "pk": 58,
+        "model": "store.product",
+        "fields": {
+            "sku": "TSPTE0101",
+            "name": "Tambourine",
+            "description": "Violin XS Spruce",
+            "price": 77.89,
+            "has_sizes":false,
+            "size": "Full Size",
+            "acoustic_type": "Acoustic",
+            "category": 4,
+            "image_url": "",
+            "image": "",
+            "stock":5
+        }
+    },
+    {
+        "pk": 59,
+        "model": "store.product",
+        "fields": {
+            "sku": "TSPCS0101",
+            "name": "Cymbals",
+            "description": "Violin XS Spruce",
+            "price": 77.89,
+            "has_sizes":false,
+            "size": "Full Size",
+            "acoustic_type": "Acoustic",
+            "category": 4,
+            "image_url": "",
+            "image": "",
+            "stock":6
+        }
+    },
+    {
+        "pk": 60,
+        "model": "store.product",
+        "fields": {
+            "sku": "TSPTE0101",
+            "name": "Triangle",
+            "description": "Violin XS Spruce",
+            "price": 77.89,
+            "has_sizes":false,
+            "size": "Full Size",
+            "acoustic_type": "Acoustic",
+            "category": 4,
+            "image_url": "",
+            "image": "",
+            "stock":8
+        }
+    },
+    {
+        "pk": 61,
+        "model": "store.product",
+        "fields": {
+            "sku": "TSPXE0101",
+            "name": "Xylaphone",
+            "description": "Violin XS Spruce",
+            "price": 77.89,
+            "has_sizes":false,
+            "size": "Full Size",
+            "acoustic_type": "Acoustic",
+            "category": 4,
+            "image_url": "",
+            "image": "",
+            "stock":0
+        }
+    },
+    {
+        "pk": 62,
+        "model": "store.product",
+        "fields": {
+            "sku": "TSKPN0101",
+            "name": "Piano",
+            "description": "Violin XS Spruce",
+            "price": 77.89,
+            "has_sizes":false,
+            "size": "Full Size",
+            "acoustic_type": "Acoustic",
+            "category": 5,
+            "image_url": "",
+            "image": "",
+            "stock":44
+        }
+    },
+    {
+        "pk": 63,
+        "model": "store.product",
+        "fields": {
+            "sku": "TSKPN0102",
+            "name": "Piano",
+            "description": "Violin XS Spruce",
+            "price": 77.89,
+            "has_sizes":false,
+            "size": "Full Size",
+            "acoustic_type": "Electric",
+            "category": 5,
+            "image_url": "",
+            "image": "",
+            "stock":45
+        }
+    },
+    {
+        "pk": 64,
+        "model": "store.product",
+        "fields": {
+            "sku": "TSKKD0101",
+            "name": "Keyboard",
+            "description": "Violin XS Spruce",
+            "price": 77.89,
+            "has_sizes":true,
+            "size": "49 Keys",
+            "acoustic_type": "Electric",
+            "category": 5,
+            "image_url": "",
+            "image": "",
+            "stock":27
+        }
+    },
+    {
+        "pk": 65,
+        "model": "store.product",
+        "fields": {
+            "sku": "TSKKD0102",
+            "name": "Keyboard",
+            "description": "Violin XS Spruce",
+            "price": 77.89,
+            "has_sizes":true,
+            "size": "88 Keys",
+            "acoustic_type": "Electric",
+            "category": 5,
+            "image_url": "",
+            "image": "",
+            "stock":35
         }
     }
 ]
