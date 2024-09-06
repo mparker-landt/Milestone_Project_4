@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'store/css/store.css' %}">
+{% endblock %}
+
+{% block page_header %}
+{% endblock %}
+
+{% block content %}
+    {% comment %} <div class="categories">
+        <div class="category-select">
+            Strings
+        </div>
+        <div class="category-select">
+            Brass
+        </div>
+        <div class="category-select">
+            Woodwind
+        </div>
+        <div class="category-select">
+            Percussion
+        </div>
+        <div class="category-select">
+            Keyboards
+        </div>
+        <div class="category-select">
+            Accessories
+        </div>
+    </div> {% endcomment %}
+
+    <div>
+        For most of our products we offer a rental service. This is particularly useful for smaller sizes to see if children want to play an instrument 
+        without purchasing expensive equipment.
+        <br>
+        We also offer high quality renowned instruments to rent. These have been used by prominant musicians for concerts and solo performances.
+
+        <br><br>
+        
+        If you have a enquiry about rentals please feel free to use the contact page here.
+    </div>
+
+    <div id="rentals-banner">
+        <p>Rentals</p>
+    </div>
+{% endblock %}

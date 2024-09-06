@@ -45,7 +45,7 @@
                     <div id="mainbar-store">
                         <ul class="nav-ul">
                             <li class='nav-link'><a href="{% url 'store' %}">Store</a></li>
-                            <li class='nav-link'><a href="#">Rentals</a></li>
+                            <li class='nav-link'><a href="{% url 'auction' %}">Auction</a></li>
                         </ul>
                     </div>
                     <div id="mainbar-title">
@@ -53,7 +53,7 @@
                     </div>
                     <div id="mainbar-support">
                         <ul class="nav-ul">
-                            <li class='nav-link'><a href="{% url 'about' %}">About Us</a></li>
+                            <li class='nav-link'><a href="{% url 'rental' %}">Rentals</a></li>
                             <li class='nav-link'><a href="{% url 'contact' %}">Contact Us</a></li>
                         </ul>
                     </div>
@@ -64,7 +64,9 @@
                         
                         {% if request.user.is_authenticated %}
                             {% if request.user.is_superuser %}
-                                <a href="" class="dropdown-item">Product Management</a>
+                                <a href="{% url 'add_product' %}" class="dropdown-item">Product Management</a>
+                                {% comment %} <a href="{% url 'enquiries' %}" class="dropdown-item">Enquiries</a> {% endcomment %}
+                                {% comment %} <a href="{% url 'orders' %}" class="dropdown-item">Orders</a> {% endcomment %}
                             {% endif %}
                             <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
                             <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
@@ -116,7 +118,9 @@
                     <h3>Experience</h3>
                     {% comment %} <a href="#" class="retailers">Find a retailer</a> {% endcomment %}
                     <a href="{% url 'store' %}" class="shop">Shop</a>
-                    <a href="{% url 'stories' %}" class="stories">Stories</a>
+                    <a href="{% url 'store' %}" class="shop">Auction</a>
+                    <a href="{% url 'store' %}" class="shop">Rentals</a>
+                    <a href="{% url 'stories' %}" class="stories">Reviews</a>
                 </div>
             </div>
             <div id="footer-media">

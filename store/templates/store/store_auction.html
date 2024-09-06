@@ -10,28 +10,28 @@
 
 {% block content %}
     <div class="categories">
-        <div class="category-select" id="store-category-strings">
+        <div class="category-select">
             Strings
         </div>
-        <div class="category-select" id="store-category-brass">
+        <div class="category-select">
             Brass
         </div>
-        <div class="category-select" id="store-category-woodwind">
+        <div class="category-select">
             Woodwind
         </div>
-        <div class="category-select" id="store-category-percussion">
+        <div class="category-select">
             Percussion
         </div>
-        <div class="category-select" id="store-category-keyboards">
+        <div class="category-select">
             Keyboards
         </div>
-        <div class="category-select" id="store-category-accessories">
+        <div class="category-select">
             Accessories
         </div>
     </div>
 
     <div class="store-banner">
-        <p>PRODUCT</p>
+        <p>Auction</p>
         {% for product in products %}
         <div class="product-box">
             <div>
@@ -76,26 +76,6 @@
                 </div>
             </div>
         </div>
-            {% comment %} {% if forloop.counter|divisibleby:1 %}
-                <div class="col-12 d-sm-none mb-5">
-                    <hr>
-                </div>
-            {% endif %}                        
-            {% if forloop.counter|divisibleby:2 %}
-                <div class="col-12 d-none d-sm-block d-md-block d-lg-none mb-5">
-                    <hr>
-                </div>
-            {% endif %}
-            {% if forloop.counter|divisibleby:3 %}
-                <div class="col-12 d-none d-lg-block d-xl-none mb-5">
-                    <hr>
-                </div>
-            {% endif %}
-            {% if forloop.counter|divisibleby:4 %}
-                <div class="col-12 d-none d-xl-block mb-5">
-                    <hr>
-                </div>
-            {% endif %} {% endcomment %}
         {% endfor %}
     </div>
 {% endblock %}

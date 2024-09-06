@@ -61,26 +61,26 @@
                         {{ form.user_title|as_crispy_field }}
                         {{ form.user_firstname|as_crispy_field }}
                         {{ form.user_surname|as_crispy_field }}
-                        {{ form.default_phone_number|as_crispy_field }}
                         {{ form.default_email|as_crispy_field }}
+                        {{ form.default_phone_number|as_crispy_field }}
                     </fieldset>
 
                     <fieldset>
                         <legend>Billing Information</legend>
-                        {{ form.billing_postcode|as_crispy_field }}
-                        {{ form.billing_town_or_city|as_crispy_field }}
                         {{ form.billing_street_address1|as_crispy_field }}
                         {{ form.billing_street_address2|as_crispy_field }}
+                        {{ form.billing_town_or_city|as_crispy_field }}
                         {{ form.billing_county|as_crispy_field }}
+                        {{ form.billing_postcode|as_crispy_field }}    
                     </fieldset>
 
                     <fieldset>
                         <legend>Shipping Information</legend>
-                        {{ form.shipping_postcode|as_crispy_field }}
-                        {{ form.shipping_town_or_city|as_crispy_field }}
                         {{ form.shipping_street_address1|as_crispy_field }}
                         {{ form.shipping_street_address2|as_crispy_field }}
+                        {{ form.shipping_town_or_city|as_crispy_field }}
                         {{ form.shipping_county|as_crispy_field }}
+                        {{ form.shipping_postcode|as_crispy_field }}
                     </fieldset>
                     <button>Update Information</button>
                 </form>

@@ -4,7 +4,10 @@ from django.views.decorators.csrf import csrf_exempt
 from django.contrib import messages
 from django.conf import settings
 
-# from .forms import OrderForm
+import json
+from django.http import HttpResponse
+
+from .forms import OrderForm
 from .models import Order, OrderLineItem
 
 from store.models import Product
@@ -108,20 +111,22 @@ def checkout(request):
             currency=settings.STRIPE_CURRENCY,
         )
 
+        # print(intent)
+
         # Attempt to prefill the form with any info the user maintains in their profile
         if request.user.is_authenticated:
             try:
                 profile = UserProfile.objects.get(user=request.user)
                 order_form = OrderForm(initial={
-                    'full_name': profile.user.get_full_name(),
-                    'email': profile.user.email,
-                    'phone_number': profile.default_phone_number,
-                    'country': profile.default_country,
-                    'postcode': profile.default_postcode,
-                    'town_or_city': profile.default_town_or_city,
-                    'street_address1': profile.default_street_address1,
-                    'street_address2': profile.default_street_address2,
-                    'county': profile.default_county,
+                    'user_firstname': profile.user.get_full_name(),
+                    'default_email': profile.user.email,
+                    'default_phone_number': profile.default_phone_number,
+                    'default_country': profile.default_country,
+                    'shipping_postcode': profile.shipping_postcode,
+                    'shipping_town_or_city': profile.shipping_town_or_city,
+                    'shipping_street_address1': profile.shipping_street_address1,
+                    'shipping_street_address2': profile.shipping_street_address2,
+                    'shipping_county': profile.shipping_county,
                 })
             except UserProfile.DoesNotExist:
                 order_form = OrderForm()
@@ -185,28 +190,57 @@ def checkout_success(request, order_number):
     return render(request, template, context)
 
 
+# @csrf_exempt
+# def stripe_webhook(request):
+#     stripe.api_key = settings.STRIPE_SECRET_KEY
+#     endpoint_secret = settings.STRIPE_ENDPOINT_SECRET
+#     payload = request.body
+#     sig_header = request.META['HTTP_STRIPE_SIGNATURE']
+#     event = None
+
+#     try:
+#         event = stripe.Webhook.construct_event(
+#             payload, sig_header, endpoint_secret
+#         )
+#     except ValueError as e:
+#         # Invalid payload
+#         return HttpResponse(status=400)
+#     except stripe.error.SignatureVerificationError as e:
+#         # Invalid signature
+#         return HttpResponse(status=400)
+
+#     # Handle the checkout.session.completed event
+#     if event['type'] == 'checkout.session.completed':
+#         print("Payment was successful.")
+#         # TODO: run some custom code here
+
+#     return HttpResponse(status=200)
+
+# Using Django
 @csrf_exempt
 def stripe_webhook(request):
-    stripe.api_key = settings.STRIPE_SECRET_KEY
-    endpoint_secret = settings.STRIPE_ENDPOINT_SECRET
-    payload = request.body
-    sig_header = request.META['HTTP_STRIPE_SIGNATURE']
-    event = None
+  payload = request.body
+  event = None
 
-    try:
-        event = stripe.Webhook.construct_event(
-            payload, sig_header, endpoint_secret
-        )
-    except ValueError as e:
-        # Invalid payload
-        return HttpResponse(status=400)
-    except stripe.error.SignatureVerificationError as e:
-        # Invalid signature
-        return HttpResponse(status=400)
+  try:
+    event = stripe.Event.construct_from(
+      json.loads(payload), stripe.api_key
+    )
+  except ValueError as e:
+    # Invalid payload
+    return HttpResponse(status=400)
 
-    # Handle the checkout.session.completed event
-    if event['type'] == 'checkout.session.completed':
-        print("Payment was successful.")
-        # TODO: run some custom code here
+  # Handle the event
+  if event.type == 'payment_intent.succeeded':
+    payment_intent = event.data.object # contains a stripe.PaymentIntent
+    # Then define and call a method to handle the successful payment intent.
+    # handle_payment_intent_succeeded(payment_intent)
+  elif event.type == 'payment_method.attached':
+    payment_method = event.data.object # contains a stripe.PaymentMethod
+    # Then define and call a method to handle the successful attachment of a PaymentMethod.
+    # handle_payment_method_attached(payment_method)
+  # ... handle other event types
+  else:
+    print('Unhandled event type {}'.format(event.type))
 
-    return HttpResponse(status=200)
+  return HttpResponse(status=200)
