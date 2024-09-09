@@ -10,9 +10,50 @@
 
 {% block content %}
     <div class="store-banner">
-        <p>Enquiries</p>
-        {% for enquiry in enquiries %}
-            {{enquiries}}
-        {% endfor %}
+        <div>
+            <p>Enquiries</p>
+            <div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Order Number</th>
+                            <th>Date</th>
+                            <th>Items</th>
+                            <th>Order Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for enquiry in enquiries %}
+                            <tr>
+                                <td>
+                                    <a href="#">
+                                        Enquiry
+                                    {% comment %} title="{{ order.order_number }}">
+                                        {{ order.order_number|truncatechars:6 }} {% endcomment %}
+                                    </a>
+                                </td>
+                                <td>{{ enquiry.create_date }}</td>
+                                <td>{{ enquiry.full_name }}</td>
+                                <td>{{ enquiry.subject }}</td>
+            
+                                <td>
+                                    <ul>
+                                        {% comment %} {% for item in order.lineitems.all %} {% endcomment %}
+                                            {% comment %} <li>
+                                                {% if item.product.has_sizes %}
+                                                    Size {{ item.product.size|upper }}
+                                                {% endif %}{{ item.product.name }} x{{ item.quantity }}
+                                            </li> {% endcomment %}
+                                        {% comment %} {% endfor %} {% endcomment %}
+                                    </ul>
+                                </td>
+                                {% comment %} <td>${{ order.grand_total }}</td> {% endcomment %}
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
     </div>
 {% endblock %}

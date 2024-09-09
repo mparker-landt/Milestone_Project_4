@@ -15,7 +15,6 @@
         <div>
             <div>
                 <hr>
-                <h2>Product Management</h2>
                 <h5>Add a Product</h5>
                 <hr>
             </div>
@@ -23,7 +22,7 @@
 
         <div>
             <div>
-                <form method="POST" action="{% url 'add_product' %}" enctype="multipart/form-data">
+                <form class="pure-form" method="POST" action="{% url 'add_product' %}" enctype="multipart/form-data">
                     {% csrf_token %}
                     {% for field in form %}
                         {% if field.name != 'image' %}
@@ -37,7 +36,8 @@
                         <button type="submit">Add Product</button>
                     </div>
                 </form>
-            </div>            
+            </div>  
+        
         </div>
     </div>
 {% endblock %}

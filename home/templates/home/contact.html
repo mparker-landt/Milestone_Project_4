@@ -16,7 +16,7 @@
 {% block content %}
     <div class="home">
         {% comment %} <p>Default Delivery Information</p> {% endcomment %}
-        <form class="pure-form" action="{% url 'contact_success' %}" method="POST" id="enquiries-form">
+        <form class="pure-form" action="{% url 'contact' %}" method="POST" id="enquiries-form">
             {% csrf_token %}
             <fieldset>
                 <legend>Contact Us</legend>

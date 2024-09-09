@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, redirect, reverse, get_object_or_404
 
 from .models import Enquiry
 from .forms import EnquiryForm
@@ -25,10 +25,12 @@ def contact(request):
         form = EnquiryForm(request.POST)
         # check whether it's valid:
         if form.is_valid():
+            enquiry = form.save(commit=False)
+            enquiry.save()
             # process the data in form.cleaned_data as required
             # ...
             # redirect to a new URL:
-            return HttpResponseRedirect("/thanks/")
+            return redirect(reverse('contact'))
 
     # if a GET (or any other method) we'll create a blank form
     else:

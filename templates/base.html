@@ -68,7 +68,7 @@
                     </div>
                 </div>
 
-                <div id="subbar">
+                {% comment %} <div id="subbar">
                     <div class="subbar-content">
                         <div class="dropdown">
                             <a class='subbar-link dropbtn' href="{% url 'profile' %}">
@@ -80,7 +80,7 @@
                                     {% if request.user.is_superuser %}
                                         <a href="{% url 'add_product' %}" class="dropdown-item">Product Management</a>
                                         <a href="{% url 'enquiries' %}" class="dropdown-item">Enquiries</a>
-                                        {% comment %} <a href="{% url 'orders' %}" class="dropdown-item">Orders</a> {% endcomment %}
+                                        {% comment %} <a href="{% url 'orders' %}" class="dropdown-item">Orders</a> 
                                     {% endif %}
                                     <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
                                     <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
@@ -93,6 +93,47 @@
                         
                         <a class='subbar-link' href="{% url 'cart' %}"><img src="{% static 'images/bx-shopping-bag.svg' %}" alt="Shopping Bag"></a>
                     </div>
+                </div> {% endcomment %}
+
+                <div id="subbar" class="pure-menu pure-menu-horizontal">
+                    <div class="subbar-content">
+                    <ul class="pure-menu-list">
+                        <li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover">
+                            <a href="#" id="menuLink1" class="pure-menu-link"><img src="{% static 'images/bxs-user-account.svg' %}" alt="My Account"></a>
+                            <ul class="pure-menu-children">
+                                {% if request.user.is_authenticated %}
+                                    {% if request.user.is_superuser %}
+                                    <li class="pure-menu-item">
+                                        <a href="{% url 'add_product' %}" class="pure-menu-link">Add a product</a>
+                                    </li>
+                                    <li class="pure-menu-item">
+                                        <a href="{% url 'add_rental' %}" class="pure-menu-link">Add a rental</a>
+                                    </li>
+                                    <li class="pure-menu-item">
+                                        <a href="{% url 'enquiries' %}" class="pure-menu-link">Enquiries</a>
+                                    </li>
+                                    {% endif %}
+                                    <li class="pure-menu-item">
+                                        <a href="{% url 'profile' %}" class="pure-menu-link">My Profile</a>
+                                    </li>
+                                    <li class="pure-menu-item">
+                                        <a href="{% url 'account_logout' %}" class="pure-menu-link">Logout</a>
+                                    </li>
+                                {% else %}
+                                    <li class="pure-menu-item">
+                                        <a href="{% url 'account_signup' %}" class="pure-menu-link">Register</a>
+                                    </li>
+                                    <li class="pure-menu-item">
+                                        <a href="{% url 'account_login' %}" class="pure-menu-link">Login</a>
+                                    </li>
+                                {% endif %}
+                            </ul>
+                        </li>
+                        <li class="pure-menu-item pure-menu-selected">
+                            <a href="{% url 'cart' %}" class="pure-menu-link"><img src="{% static 'images/bx-shopping-bag.svg' %}" alt="Shopping Bag"></a>
+                        </li>
+                    </ul>
+                </div>
                 </div>
             </nav>
         </header>
@@ -100,7 +141,7 @@
         {% block page_header %}
         {% endblock %}
 
-        <div class="page-body"></div>
+        <div>
             {% block content %}
             {% endblock %}
         </div>

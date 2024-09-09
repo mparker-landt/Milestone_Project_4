@@ -9,7 +9,7 @@
 {% endblock %}
 
 {% block content %}
-    <div class="categories">
+    {% comment %} <div class="categories">
         <div class="category-select">
             Strings
         </div>
@@ -28,17 +28,23 @@
         <div class="category-select">
             Accessories
         </div>
+    </div> {% endcomment %}
+
+    <div>
+        <p>The community auction is a place for users to sell and buy products from each other. To sell a user needs to have a profile and be logged in.</p>
+        <p>Wether an item in bad condition being sold for spare parts or a unique item being sold for a collection you can sell and buy everything here.</p>
+        <br>
+        <p>If you have a enquiry about auctions please feel free to use the contact page here.</p>
     </div>
 
     <div class="store-banner">
-        <p>Auction</p>
         {% for auction in auctions %}
         <div class="product-box">
             <div>
                 <div>
                     {% if auction.image %}
                         <a href="{% url 'product_detail' auction.id %}">
-                            <img src="{{ auction.image.url }}" alt="{{ auction.name }}">
+                            <img src="{{ auction.image.url }}" alt="{{ auction.title }}">
                         </a>
                     {% else %}
                         <a href="{% url 'product_detail' auction.id %}">
@@ -46,12 +52,12 @@
                         </a>
                     {% endif %}
                     <div>
-                        <p>{{ auction.name }}</p>
+                        <p>{{ auction.title }}</p>
                     </div>
                     <div>
                         <div>
                             <div>
-                                <p>${{ auction.price }}</p>
+                                <p>£{{ auction.auction_price }}</p>
                                 {% if auction.category %}
                                     <p>
                                         {% comment %} <a href="{% url 'products' %}?category={{ auction.category.name }}">
@@ -59,15 +65,18 @@
                                         </a> {% endcomment %}
                                     </p>
                                 {% endif %}
-                                {% if auction.rating %}
-                                    <small><i class="fas fa-star mr-1"></i>{{ auction.rating }} / 5</small>
+                                <p>{{ auction.auction_period }}</p>
+                                
+                                {% if auction.purchased %}
+                                    <p>Available</p>
                                 {% else %}
-                                    <small>No Rating</small>
+                                    <p>Purchased</p>
                                 {% endif %}
+
                                 {% if request.user.is_superuser %}
                                     <small>
-                                        {% comment %} <a href="{% url 'edit_product' auction.id %}">Edit</a> | 
-                                        <a href="{% url 'delete_product' auction.id %}">Delete</a> {% endcomment %}
+                                        <a href="{% url 'edit_auction' auction.id %}">Edit</a> | 
+                                        <a href="{% url 'delete_auction' auction.id %}">Delete</a>
                                     </small>
                                 {% endif %}
                             </div>
@@ -75,7 +84,6 @@
                     </div>
                 </div>
             </div>
-        </div>
         {% endfor %}
     </div>
 {% endblock %}

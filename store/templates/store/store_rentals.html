@@ -9,7 +9,15 @@
 {% endblock %}
 
 {% block content %}
-    {% comment %} <div class="categories">
+    <div>
+        <p>For most of our products we offer a rental service. This is particularly useful for smaller sizes to see if children want to play an instrument 
+        without purchasing expensive equipment.</p>
+        <p>We also offer high quality renowned instruments to rent. These have been used by prominant musicians for concerts and solo performances.</p>
+        <br>
+        <p>If you have a enquiry about rentals please feel free to use the contact page here.</p>
+    </div>
+
+    <div class="categories">
         <div class="category-select">
             Strings
         </div>
@@ -28,21 +36,57 @@
         <div class="category-select">
             Accessories
         </div>
-    </div> {% endcomment %}
-
-    <div>
-        For most of our products we offer a rental service. This is particularly useful for smaller sizes to see if children want to play an instrument 
-        without purchasing expensive equipment.
-        <br>
-        We also offer high quality renowned instruments to rent. These have been used by prominant musicians for concerts and solo performances.
-
-        <br><br>
-        
-        If you have a enquiry about rentals please feel free to use the contact page here.
     </div>
 
-    <div id="rentals-banner">
-        <p>Rentals</p>
-        {{rentals}}
+    <div class="store-banner">
+        {% for rental in rentals %}
+            <div class="product-box">
+                <div>
+                    <div>
+                        {% if rental.product.image %}
+                            <a href="{% url 'product_detail' rental.product.id %}">
+                                <img src="{{ auction.image.url }}" alt="{{ rental.product.name }}">
+                            </a>
+                        {% else %}
+                            <a href="{% url 'product_detail' rental.product.id %}">
+                                <img src="{{ MEDIA_URL }}noimage.png" alt="{{ rental.product.name }}">
+                            </a>
+                        {% endif %}
+                        <div>
+                            <div>
+                                <div>
+                                    <p>{{rental.product.name}}</p>
+                                    {% if rental.product.has_sizes%}
+                                        <p>{{rental.product.size}}</p>
+                                    {% endif %}
+                                    <p>£{{ rental.rental_price }} per week</p>
+                                    {% if rental.product %}
+                                        <p>
+                                            {% comment %} <a href="{% url 'products' %}?category={{ auction.category.name }}">
+                                                <i class="fas fa-tag mr-1"></i>{{ auction.category.friendly_name }}
+                                            </a> {% endcomment %}
+                                        </p>
+                                    {% endif %}
+                                    {% comment %} <p>{{ auction.auction_period }}</p> {% endcomment %}
+                                    <p>{{ rental.rental_stock }} in stock</p>
+                                    {% if rental.has_premium %}
+                                        <p>Premium available</p>
+                                    {% else %}
+                                        <p>No Premium available</p>
+                                    {% endif %}
+
+                                    {% if request.user.is_superuser %}
+                                        <small>
+                                            <a href="{% url 'edit_rental' rental.id %}">Edit</a> | 
+                                            <a href="{% url 'delete_rental' rental.id %}">Delete</a>
+                                        </small>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
     </div>
 {% endblock %}

@@ -28,9 +28,9 @@
 
     text-align: center;
 
-    background: lightblue;
+    /* background: lightblue; */
 
-    min-height: 100vh;
+    /* min-height: 100vh; */
 }
 
 .product-box {
@@ -41,6 +41,14 @@
 
 .product-box:hover {
     border: 2px solid brown;
+}
+
+.store-split {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    align-content: center;
+    justify-content: space-evenly;
 }
 
 @media screen and (max-width: 1200px) {

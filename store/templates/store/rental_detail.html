@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'store/css/store.css' %}">
+{% endblock %}
+
+{% block page_header %}
+{% endblock %}
+
+{% block content %}
+    <div class="overlay"></div>
+    <div>
+        <div>
+            <div>
+                <div>
+                    {% if rental.product.image %}
+                        <a href="{{ rental.product.image.url }}" target="_blank">
+                            <img src="{{ rental.product.image.url }}" alt="{{ rental.product.name }}">
+                        </a>
+                        {% else %}
+                        <a href="">
+                            <img src="{{ MEDIA_URL }}noimage.png" alt="{{ rental.product.name }}">
+                        </a>
+                    {% endif %}
+                </div>
+            </div>
+            <div>
+                <div>
+                    <p>{{ rental.product.name }}</p>
+                    <p>£{{ rental.price }}</p>
+                    {% if product.category %}
+                    <p>
+                        {% comment %} <a href="{% url 'products' %}?category={{ product.category.name }}">
+                            <i class="fas fa-tag mr-1"></i>{{ product.category.friendly_name }}
+                        </a> {% endcomment %}
+                    </p>
+                    {% endif %}
+                    {% if rental.has_premium %}
+                        <small><i class="fas fa-star mr-1"></i>{{ rental.rating }}</small>
+                    {% else %}
+                        <small>No Rating</small>
+                    {% endif %}
+                    <p>{{ rental.product.description }}</p>
+                    <form class="form" action="{% url 'add_to_cart' rental.product.id %}" method="POST">
+                        {% csrf_token %}
+                        <div>
+                            <div>
+                                <p><strong>Quantity:</strong></p>
+                                <div>
+                                    <div>
+                                        <input type="number" name="quantity" value="1" min="1" max="99" data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <a href="{% url 'rental' %}">
+                                    <span>
+                                        <i class="fas fa-chevron-left"></i>
+                                    </span>
+                                    <span>Keep Shopping</span>
+                                </a>
+                                <input type="submit" value="Add to Bag">
+                            </div>
+                            <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
