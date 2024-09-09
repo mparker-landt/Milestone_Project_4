@@ -1,0 +1,20 @@
+[
+    {
+        "pk": 1,
+        "model": "store.rental",
+        "fields": {
+            "rental_sku": "TSSVN0201",
+            "product": 1,
+            "rental_price": 11.89,
+            "rental_period": 1,
+            "rental_stock":3,
+            "premium": false
+        }
+    },
+    {
+        "pk": 2,
+        "model": "store.rental",
+        "fields": {
+        }
+    }
+]

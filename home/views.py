@@ -69,27 +69,3 @@ def privacy(request):
     """ A view to return the about us webpage """
 
     return render(request, 'home/privacy.html')
-
-# Create your views here.
-def returns(request):
-    """ A view to return the about us webpage """
-
-    return render(request, 'home/returns.html')
-
-# Create your views here.
-def returnstart(request):
-    """ A view to return the about us webpage """
-
-    return render(request, 'home/returnstart.html')
-
-# Create your views here.
-def stories(request):
-    """ A view to return the about us webpage """
-
-    return render(request, 'home/stories.html')
-
-# Create your views here.
-def warranty(request):
-    """ A view to return the about us webpage """
-
-    return render(request, 'home/warranty.html')

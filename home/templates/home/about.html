@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'home/css/home.css' %}">
+{% endblock %}
+
 {% block page_header %}
     <div class="container header-container">
         <div class="row">
@@ -10,5 +14,54 @@
 {% endblock %}
 
 {% block content %}
-    <div class="store-banner" id="about-us">ABOUT US</div>
+    <div>
+        <div>
+            <div>
+                <h3>About The Stave</h3>
+
+                <p>
+                    Welcome to The Stave, your destination for all things musical. 
+                    Whether you're a seasoned musician or just starting your musical journey, we are here to support and inspire you every step of the way.
+                </p>
+    
+                <p>
+                    Established in 1991, The Stave was a simple musical instrument repair business operating out of the founders garage.
+                    Over the years we have grown into a fully fledged business selling our products worldwide and known for our commitment to quality and customer satisfaction.
+                </p>
+            </div>
+            
+            <div>
+                <div>
+                    <h3>Our Instruments</h3>
+                    <p>We offer a diverse selection of musical instruments to suit every taste and skill level.
+                        Instruments of all musical groups are available for purchase as well as sizes for younger musicians. </p>
+                </div>
+                <img src="" alt="">
+            </div>
+
+            <div>
+                <img src="" alt="">
+                <div>
+                    <h3>Community Auction</h3>
+                    <p>Discover unique and rare musical instruments through our exclusive auction section.</p>
+                    <p>Whether you’re a collector, a professional musician, or simply looking for a special piece, our auctions offer a chance to find something truly extraordinary.</p>
+                </div>
+            </div>
+
+            <div>
+                <div>
+                    <h3>Rental Services</h3>
+                    <p>At The Stave, we understand that purchasing a musical instrument can be a significant investment. 
+                        That's why we offer a flexible and affordable rental service to help you get started without the upfront cost.</p>
+                    <p>Experience the joy of playing a high-quality instrument without the commitment of buying. Explore our rental options today</p>
+                </div>
+                <img src="" alt="">
+            </div>
+
+            <div>
+                <p>For any further information or questions please visit our FAQ page or send us an enquiry via our Contact page. </p>
+                <p>Thank you for choosing The Stave. Lets make beautiful music together!</p>
+            </div>
+        </div>
+    </div>
 {% endblock %}

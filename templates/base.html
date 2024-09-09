@@ -17,24 +17,33 @@
             <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
             <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap" rel="stylesheet">
 
-            {% comment %} <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css" integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls" crossorigin="anonymous"> {% endcomment %}
-
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css" integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls" crossorigin="anonymous">
             {% comment %} <link rel="stylesheet" href="{% static 'css/materialize.min.css' %}"> {% endcomment %}
             <link rel="stylesheet" href="{% static 'css/base.css' %}">
         {% endblock %}
         {% block extra_css %}
+            <!-- Required Core Stylesheet -->
+            <link rel="stylesheet" href="{% static 'css/glide.core.min.css' %}">
+            <!-- Optional Theme Stylesheet -->
+            <link rel="stylesheet" href="{% static 'css/glide.theme.min.css' %}">
         {% endblock %}
 
         {% block corejs %}
+            <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
             <script src="https://kit.fontawesome.com/e9c73d7092.js" crossorigin="anonymous"></script>
+
             <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+
             <!-- Stripe -->
             <script src="https://js.stripe/v3/"></script>
+
             <script type="text/javascript" src="{% static 'js/materialize.min.js' %}"></script>
+            <script type="text/javascript" src="{% static 'js/glide.min.js' %}"></script>
         {% endblock %}
         {% block extra_js %}
         {% endblock %}
 
+        <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}"/>
         <title>The Stave {% block extra_title %}{% endblock %}</title>
     </head>
 
@@ -58,22 +67,29 @@
                         </ul>
                     </div>
                 </div>
+
                 <div id="subbar">
-                    <div>
-                        <a class='subbar-link' href="{% url 'profile' %}"><img src="{% static 'images/bxs-user-account.svg' %}" alt="My Account"></a>
+                    <div class="subbar-content">
+                        <div class="dropdown">
+                            <a class='subbar-link dropbtn' href="{% url 'profile' %}">
+                                <img src="{% static 'images/bxs-user-account.svg' %}" alt="My Account">
+                            </a>
                         
-                        {% if request.user.is_authenticated %}
-                            {% if request.user.is_superuser %}
-                                <a href="{% url 'add_product' %}" class="dropdown-item">Product Management</a>
-                                {% comment %} <a href="{% url 'enquiries' %}" class="dropdown-item">Enquiries</a> {% endcomment %}
-                                {% comment %} <a href="{% url 'orders' %}" class="dropdown-item">Orders</a> {% endcomment %}
-                            {% endif %}
-                            <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
-                            <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
-                        {% else %}
-                            <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
-                            <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
-                        {% endif %}
+                            <div class="dropdown-content">
+                                {% if request.user.is_authenticated %}
+                                    {% if request.user.is_superuser %}
+                                        <a href="{% url 'add_product' %}" class="dropdown-item">Product Management</a>
+                                        {% comment %} <a href="{% url 'enquiries' %}" class="dropdown-item">Enquiries</a> {% endcomment %}
+                                        {% comment %} <a href="{% url 'orders' %}" class="dropdown-item">Orders</a> {% endcomment %}
+                                    {% endif %}
+                                    <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
+                                    <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+                                {% else %}
+                                    <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
+                                    <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
+                                {% endif %}
+                            </div>
+                        </div>
                         
                         <a class='subbar-link' href="{% url 'cart' %}"><img src="{% static 'images/bx-shopping-bag.svg' %}" alt="Shopping Bag"></a>
                     </div>
@@ -90,46 +106,46 @@
         </div>
 
         <footer>
-            <div id="footer-content">
-                <div id="footer-company">
-                    <h3>Company</h3>
-                    <a href="{% url 'about' %}" class="about">About Us</a>
-                    {% comment %} <a href="#" class="careers">Careers</a> {% endcomment %}
-                    <a href="{% url 'privacy' %}" class="privacy">Privacy Policy</a>
-                    <a href="{% url 'cookies' %}" class="cookies">Cookie Policy</a>
-                    <a href="{% url 'contact' %}" class="contact">Contact Us</a>
-                </div>
-                <div id="footer-instruments">
-                    <h3>Instruments</h3>
-                    <a href="#" class="lifetime">Lifetime</a>
-                    <a href="#" class="guarantee">Guarantee</a>
-                </div>
-                <div id="footer-support">
-                    <h3>Support</h3>
-                    {% comment %} <a href="#" class="recall">Product Recall</a> {% endcomment %}
-                    {% comment %} <a href="#" class="registration">Product Registration</a> {% endcomment %}
-                    <a href="{% url 'warranty' %}" class="warranty">Warranty</a>
-                    {% comment %} <a href="#" class="parts-and-tools">Parts & Tools</a> {% endcomment %}
-                    <a href="{% url 'returns' %}" class="returns">Webstore Returns</a>
-                    <a href="{% url 'returnstart' %}" class="return">Start a Webstore Return</a>
-                    <a href="{% url 'faq' %}" class="faq">FAQ</a>
-                </div>
-                <div id="footer-experience">
-                    <h3>Experience</h3>
-                    {% comment %} <a href="#" class="retailers">Find a retailer</a> {% endcomment %}
-                    <a href="{% url 'store' %}" class="shop">Shop</a>
-                    <a href="{% url 'store' %}" class="shop">Auction</a>
-                    <a href="{% url 'store' %}" class="shop">Rentals</a>
-                    <a href="{% url 'stories' %}" class="stories">Reviews</a>
+            <div class="footer-top">
+                <div class="footer-content">
+                    <div class="footer-content-panel">
+                        <h3>Company</h3>
+                        <a href="{% url 'about' %}" class="about">About Us</a>
+                        <a href="{% url 'faq' %}" class="faq">FAQ</a>
+                    </div>
+                    <div class="footer-content-panel">
+                        <h3>Support</h3>
+                        <a href="{% url 'privacy' %}" class="privacy">Privacy Policy</a>
+                        <a href="{% url 'cookies' %}" class="cookies">Cookie Policy</a>
+                        <a href="{% url 'contact' %}" class="contact">Contact Us</a>
+                    </div>
+                    <div class="footer-content-panel">
+                        <h3>Experience</h3>
+                        <a href="{% url 'store' %}" class="shop">Shop</a>
+                        <a href="{% url 'auction' %}" class="shop">Auction</a>
+                        <a href="{% url 'rental' %}" class="shop">Rentals</a>
+                    </div>
                 </div>
             </div>
-            <div id="footer-media">
-                <div id="footer-media-content">
-                    <a href="#">F</a>
-                    <a href="#">X</a>
-                    <a href="#">I</a>
-                    <a href="#">Y</a>
-                    <a href="#">E</a>
+            <div class="footer-bottom">
+                <div class="footer-media">
+                    <div class="footer-media-content">
+                        <a href="https://www.facebook.com" target="_blank">
+                            <box-icon class="icon" name='facebook' type='logo' color='#56666b' ></box-icon>
+                        </a>
+                        <a href="https://x.com" target="_blank">
+                            <box-icon name='twitter' type='logo' color='#56666b' ></box-icon>
+                        </a>
+                        <a href="https://www.instagram.com/" target="_blank">
+                            <box-icon name='instagram' type='logo' color='#56666b' ></box-icon>
+                        </a>
+                        <a href="https://www.youtube.com/" target="_blank">
+                            <box-icon name='youtube' type='logo' color='#56666b' ></box-icon>
+                        </a>
+                        <a href="https://www.linkedin.com" target="_blank">
+                            <box-icon name='linkedin' type='logo' color='#56666b' ></box-icon>
+                        </a>
+                    </div>
                 </div>
             </div>
         </footer>

@@ -161,3 +161,8 @@ Although not all warnings were got rid of the ones left were suggestions or Pyli
 ## Credits and Acknowledgements
 With special thanks to:
 - Lauren-Nicole Popich - Mentor from the Code Institute who provided help throughout the project and was always available for support.
+
+https://boxicons.com - Icons
+https://coolors.co - Colour Palette
+google fonts
+https://www.freepik.com/ - Error Page images

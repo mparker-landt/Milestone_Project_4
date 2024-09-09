@@ -20,6 +20,29 @@
     border: 2px solid #2F394D;
 } 
 
+.store-banner {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1rem;
+    margin: 2%;
+
+    text-align: center;
+
+    background: lightblue;
+
+    min-height: 100vh;
+}
+
+.product-box {
+    width: 150px;
+    height: 150px;
+    border: 1px solid brown;
+}
+
+.product-box:hover {
+    border: 2px solid brown;
+}
+
 @media screen and (max-width: 1200px) {
 }
 

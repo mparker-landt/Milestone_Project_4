@@ -51,10 +51,10 @@
                 <hr>
             </div>
         </div>
-        <div>
+        <div class="profile-container">
             <div>
                 {% comment %} <p>Default Delivery Information</p> {% endcomment %}
-                <form action="{% url 'profile' %}" method="POST" id="profile-update-form">
+                <form class="pure-form" action="{% url 'profile' %}" method="POST" id="profile-update-form">
                     {% csrf_token %}
                     <fieldset>
                         <legend>Personal Information</legend>

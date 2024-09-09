@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'home/css/home.css' %}">
+{% endblock %}
+
 {% block page_header %}
     <div class="container header-container">
         <div class="row">
@@ -10,5 +14,63 @@
 {% endblock %}
 
 {% block content %}
-    <div class="store-banner">Privacy Policy</div>
+    <div>
+        <h2>Privacy Statement</h2>
+
+        <h3>The Scope</h3>
+        <p>
+            This Privacy Statement for The Scope governs the collection, 
+            use and other forms of processing of personal data elated to our services, our products and this website.
+        </p>
+
+        <h3>Why do we process your personal data?</h3>
+        <p>
+            Personal data is information that identifies you as an individual or relates to an identifiable individual. 
+            When you choose to register your personal data, contact us, or visit our websites, we will process some personal data about you.
+            We process these personal data for the following purposes:
+        </p>
+        <ul>
+            <li>Communicate with you in a personal way or to inform you about Juliana Bicycles products or services, consistent with your choices.</li>
+            <li>Provide customer service, including service around the purchase of services and products, fulfill warranty obligations and product recalls for our own services and those of related companies, and to deal with any enquiries or complaints.</li>
+            <li>Administer and fulfill your purchases of Juliana Bicycles products including the financial and logistic handling.</li>
+            <li>Administer your Juliana Bicycles account.</li>
+            <li>Administer your participation in any contests, promotions, surveys or website features.</li>
+            <li>Perform market research and improve our business, services and Juliana Bicycles products or to develop new business, services and products.</li>
+            <li>Perform statistical analyses and reporting. </li>
+            <li>Providing services on the internet.</li>
+            <li>To communicate future promotional and marketing information including direct marketing purposes and retargeting.</li>
+            <li>To aggregate and/or anonymize personal data in order to generate other data for our use.</li>
+            <li>To comply with our legal obligations, resolve disputes, or enforce our agreements.</li>
+            <li>As otherwise stated at or about the time information is collected.</li>
+        </ul>
+
+        <h3>How do we protect your personal data?</h3>
+        <p>
+            The Stave will take appropriate technical and organizational security measures against loss or unlawful processing of personal data. 
+            This may include using secure registration forms, encryption of data, and restricting access to your personal data.
+        </p>
+
+        <h3>How long do we retain your personal data?</h3>
+        <p>
+            We retain personal data for as long as needed or permitted in light of the purpose(s) for which it was obtained and consistent with applicable law.
+            The length of time we have an ongoing relationship with you and provide our services to you (for example, for as long as you have an account with us or keep using our services).
+        </p>
+
+        <h3>Cookies, web beacons and similar techniques</h3>
+        <p>
+            If you are using our websites, services, applications, communications (including email) and accessing or using tools, 
+            we may use cookies, web beacons and other similar technologies for storing information to provide you with a better, faster and safer browser experience. 
+
+            Please refer to our Cookie Policy for the explanation of cookies, web beacons and similar techniques, 
+            how we use these techniques and how you can control these techniques.
+        </p>
+
+        <h3>Policy changes</h3>
+        <p>
+            We may change this Privacy Statement from time to time. 
+            Any changes will become effective when we post the revised Privacy Statement. 
+            If necessary, we will inform you when we change the Privacy Statement. 
+            This statement was last modified on date: September 2024.
+        </p>
+    </div>
 {% endblock %}

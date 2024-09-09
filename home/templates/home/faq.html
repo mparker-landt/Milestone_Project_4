@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'home/css/home.css' %}">
+{% endblock %}
+
 {% block page_header %}
     <div class="container header-container">
         <div class="row">
@@ -10,5 +14,58 @@
 {% endblock %}
 
 {% block content %}
-    <div class="store-banner" id="faq">FAQ</div>
+    <div>
+        <h2>Frequently Asked Questions</h2>
+
+        <h3>What is your return policy?</h3>
+        <p>
+            Returns can be made within 42 Days of purchase. Refunds can only be issued to your original payment method. 
+            Shipping is non-refundable, except in cases where we have made a shipping error. 
+            We do not have an "exchange" process - simply return your item and place a new order for the alternate item.
+        </p>
+
+        <h3>How do I make a return?</h3>
+        <p>
+            If you have any questions or need assistance, please contact us through our Contact Us page. 
+            Whatever the problem, please let us know - our customer service staff will work with you until it's resolved.
+        </p>
+
+        <h3>Once I place my order, how soon will you ship it?</h3>
+        <p>
+            Your order will ship out within 2 Business Days.
+        </p>
+
+        <h3>How long will it take for my order to arrive?</h3>
+        <p>
+            Standard shipping time within the United Kingdom takes 5-10 business days. 
+            International orders usually take 3-5 weeks to arrive depending on destination and customs processing. 
+        </p>
+
+        <h3>What shipping method do you use?</h3>
+        <p>
+            Orders are shipped via RoyalMail, UPS, DHL, FedEx or DPD.
+        </p>
+
+        <h3>How much does shipping cost?</h3>
+        <p>
+            For inside the Untied Kingdom, there is a flat rate shipping cost of £9.95 for standard shipping. 
+            For shipping outside of the UK, shipping rates are calculated and include the cost of any associated customs/import taxes. 
+            These are calculated by Stripe and will ensure the that items ships DDP. 
+        </p>
+
+        <h3>What forms of payment do you accept?</h3>
+        <p>
+            We gladly accept Visa, MasterCard, Discover, and American Express. 
+        </p>
+
+        <h3>Other questions?</h3>
+        <p>
+            If we have not answered a question you have or you would like more information,
+            please submit an enquiry via our contact page.
+        </p>
+    </div>
 {% endblock %}
+
+
+
+

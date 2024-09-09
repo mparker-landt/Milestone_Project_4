@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'home/css/home.css' %}">
+{% endblock %}
+
 {% block page_header %}
     <div class="container header-container">
         <div class="row">
@@ -10,5 +14,89 @@
 {% endblock %}
 
 {% block content %}
-    <div class="store-banner">Cookie Policy</div>
+    <div>
+        <h2>Cookies Policy</h2>
+        <p>
+            The Stave aims to make your online experience and interaction with our websites as informative, relevant and supportive as possible. 
+            One way of achieving this is to use cookies, web beacons or similar techniques, which store information about your visit to our site on your computer. 
+            We feel that it is very important that you know what cookies our website uses and for what purposes. 
+            This will help protect your privacy, while ensuring our website's user-friendliness as much as possible.
+        </p>
+        <p>
+            Below you can read more about the techniques used by and via our website and the purposes for which they are used.
+            This is only a statement about privacy and our use of website techniques and is not a contract or agreement.
+        </p>
+        <p>
+            What are cookies, web beacons and similar techniques?
+        </p>
+        <p>
+            A cookie is a tiny data file, which is stored on your computer within the web browser, when certain web pages are visited. 
+            A cookie does not contain or collect information in isolation, but when read by a server via a web browser; 
+            it can give information to facilitate a more user friendly service such as detecting errors.  
+            We do not retain a cookie longer than necessary.
+        </p>
+        <p>
+            Under similar techniques for storing information we understand other technologies that store information on your browser or device and that use local shared objects or local storage. 
+            Examples include flash cookies, HTML 5 cookies and other web application software methods.
+        </p>
+        <p>
+            For simplicity, we use the term cookie in our policy to cover the total scope of cookies, web beacons and similar techniques.
+        </p>
+        <p>
+            To use our website fully, you will need to have cookies enabled. 
+            If you do not wish to enable cookies, you can still browse the site; however certain features of the site may be limited.
+        </p>
+        <p>
+            This information is outlined as part of our efforts to comply with recent legislation and to ensure that we are open, honest and clear about cookies and privacy. 
+            Please refer to our Privacy Policy for more information about privacy.
+        </p>
+
+        <div>
+            <h3>How do we use cookies?</h3>
+            <div>
+                <h4>Functional Cookies</h4>
+                <ul>
+                    <li>Authentication of users for a secured login;</li>
+                    <li>Remembering products that you add to your shopping basket during online purchasing;</li>
+                    <li>Remembering information that you fill in on the various pages when paying or ordering so that you don't have to fill in all your details repeatedly;</li>
+                    <li>Passing on information from one page to the next, for instance if a long survey is being filled in or if you need to fill in a large number of details for an online order;</li>
+                    <li>Storing preferences such as language, location, the number of search results to be displayed etc;</li>
+                    <li>Storing settings for optimal video display, such as buffer size and your screen's resolution details;</li>
+                    <li>Reading your browser settings so that we can display our website optimally on your screen;</li>
+                    <li>Locating misuse of our website and services, for example by recording several consecutive failed log-in attempts;</li>
+                    <li>Loading the website evenly so that it remains accessible;</li>
+                    <li>Offering the option of storing log-in details so that you don't have to enter them every time;</li>
+                    <li>Making it possible to place a reaction on our website.</li>
+                </ul>
+            </div>
+            <div>
+                <h4>Analytic Cookies</h4>
+                <ul>
+                    <li>Keeping track of the number of visitors to our web pages.</li>
+                    <li>Keeping track of the length of time that each visitor spends on our web pages.</li>
+                    <li>Determining the order in which a visitor visits the various pages on our website.</li>
+                    <li>Assessing which parts of our site need to be improved.</li>
+                    <li>Optimizing the website.</li>
+                </ul>
+            </div>
+            <div>
+                <h4>Social Media Cookies</h4>
+                <ul>
+                    <li>Facebook</li>
+                    <li>Instagram</li>
+                    <li>Twitter</li>
+                    <li>Youtube</li>
+                </ul>
+            </div>
+        </div>
+
+        <div>
+            <h3>Policy Changes</h3>
+            <p>
+                We may change this Cookie Policy from time to time. 
+                We will inform you when we update the cookie policy but we also encourage you to take notice of this policy regularly. 
+                This policy was last modified September 2024.
+            </p>
+        </div>
+    </div>
 {% endblock %}
