@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'home/css/home.css' %}">
+{% endblock %}
+
+{% block page_header %}
+{% endblock %}
+
+{% block content %}
+    <div class="store-banner">
+        <p>Enquiries</p>
+        {% for enquiry in enquiries %}
+            {{enquiries}}
+        {% endfor %}
+    </div>
+{% endblock %}

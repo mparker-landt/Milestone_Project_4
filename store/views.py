@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.decorators import login_required
-from .models import Product, Category
+from .models import Product, Category, AuctionProduct, RentalProduct
 from .forms import ProductForm
 
 # Create your views here.
@@ -57,7 +57,7 @@ def store(request):
 # Create your views here.
 def auction(request):
     """ A view that renders the bag contents page """
-    products = Product.objects.all()
+    auctions = AuctionProduct.objects.all()
 
     query = None
     categories = None
@@ -70,33 +70,33 @@ def auction(request):
             sort = sortkey
             if sortkey == 'name':
                 sortkey = 'lower_name'
-                products = products.annotate(lower_name=Lower('name'))
+                auctions = auctions.annotate(lower_name=Lower('name'))
             if sortkey == 'category':
                 sortkey = 'category__name'
             if 'direction' in request.GET:
                 direction = request.GET['direction']
                 if direction == 'desc':
                     sortkey = f'-{sortkey}'
-            products = products.order_by(sortkey)
+            auctions = auctions.order_by(sortkey)
             
-        if 'category' in request.GET:
-            categories = request.GET['category'].split(',')
-            products = products.filter(category__name__in=categories)
-            categories = Category.objects.filter(name__in=categories)
+        # if 'category' in request.GET:
+        #     categories = request.GET['category'].split(',')
+        #     products = products.filter(category__name__in=categories)
+        #     categories = Category.objects.filter(name__in=categories)
 
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
                 messages.error(request, "You didn't enter any search criteria!")
-                return redirect(reverse('products'))
+                return redirect(reverse('store_auction'))
             
             queries = Q(name__icontains=query) | Q(description__icontains=query)
-            products = products.filter(queries)
+            auctions = auctions.filter(queries)
 
     current_sorting = f'{sort}_{direction}'
 
     context = {
-        'products': products,
+        'auctions': auctions,
         'search_term': query,
         'current_categories': categories,
         'current_sorting': current_sorting,
@@ -108,7 +108,7 @@ def auction(request):
 # Create your views here.
 def rental(request):
     """ A view that renders the bag contents page """
-    products = Product.objects.all()
+    rentals = RentalProduct.objects.all()
 
     query = None
     categories = None
@@ -121,18 +121,18 @@ def rental(request):
             sort = sortkey
             if sortkey == 'name':
                 sortkey = 'lower_name'
-                products = products.annotate(lower_name=Lower('name'))
+                rentals = rentals.annotate(lower_name=Lower('name'))
             if sortkey == 'category':
                 sortkey = 'category__name'
             if 'direction' in request.GET:
                 direction = request.GET['direction']
                 if direction == 'desc':
                     sortkey = f'-{sortkey}'
-            products = products.order_by(sortkey)
+            rentals = rentals.order_by(sortkey)
             
         if 'category' in request.GET:
             categories = request.GET['category'].split(',')
-            products = products.filter(category__name__in=categories)
+            rentals = rentals.filter(category__name__in=categories)
             categories = Category.objects.filter(name__in=categories)
 
         if 'q' in request.GET:
@@ -142,12 +142,12 @@ def rental(request):
                 return redirect(reverse('store'))
             
             queries = Q(name__icontains=query) | Q(description__icontains=query)
-            products = products.filter(queries)
+            rentals = rentals.filter(queries)
 
     current_sorting = f'{sort}_{direction}'
 
     context = {
-        'products': products,
+        'rentals': rentals,
         'search_term': query,
         'current_categories': categories,
         'current_sorting': current_sorting,

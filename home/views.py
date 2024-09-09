@@ -58,6 +58,19 @@ def cookies(request):
 
 
 # Create your views here.
+def enquiries(request):
+    """ A view to return the about us webpage """
+
+    enquiries = Enquiry.objects.all()
+
+    context = {
+        'enquiries': enquiries,
+    }
+
+    return render(request, 'home/enquiries.html', context)
+
+
+# Create your views here.
 def faq(request):
     """ A view to return the about us webpage """
 

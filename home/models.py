@@ -11,6 +11,10 @@ class Enquiry(models.Model):
     A user profile model for maintaining shipping
     delivery information and order history
     """
+
+    class Meta:
+        verbose_name_plural = 'Enquiries'
+
     SUBJECT_CHOICE = (
         ('general', 'General Enquiry'),
         ('return', 'Product Return'),
@@ -25,7 +29,7 @@ class Enquiry(models.Model):
     subject = models.CharField(max_length=20, choices=SUBJECT_CHOICE, default='general')
     message = models.CharField(max_length=80, default='', blank=False)
     signup = models.BooleanField(max_length=1, default=False, null=False, blank=False)
-    create_date = models.DateField(null=False, blank=False, auto_now_add=True)
+    create_date = models.DateField(default=datetime.date.today ,null=False, blank=False)
 
     def __str__(self):
         return self.message

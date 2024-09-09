@@ -32,42 +32,42 @@
 
     <div class="store-banner">
         <p>Auction</p>
-        {% for product in products %}
+        {% for auction in auctions %}
         <div class="product-box">
             <div>
                 <div>
-                    {% if product.image %}
-                        <a href="{% url 'product_detail' product.id %}">
-                            <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                    {% if auction.image %}
+                        <a href="{% url 'product_detail' auction.id %}">
+                            <img src="{{ auction.image.url }}" alt="{{ auction.name }}">
                         </a>
                     {% else %}
-                        <a href="{% url 'product_detail' product.id %}">
-                            <img src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                        <a href="{% url 'product_detail' auction.id %}">
+                            <img src="{{ MEDIA_URL }}noimage.png" alt="{{ auction.title }}">
                         </a>
                     {% endif %}
                     <div>
-                        <p>{{ product.name }}</p>
+                        <p>{{ auction.name }}</p>
                     </div>
                     <div>
                         <div>
                             <div>
-                                <p>${{ product.price }}</p>
-                                {% if product.category %}
+                                <p>${{ auction.price }}</p>
+                                {% if auction.category %}
                                     <p>
-                                        {% comment %} <a href="{% url 'products' %}?category={{ product.category.name }}">
-                                            <i class="fas fa-tag mr-1"></i>{{ product.category.friendly_name }}
+                                        {% comment %} <a href="{% url 'products' %}?category={{ auction.category.name }}">
+                                            <i class="fas fa-tag mr-1"></i>{{ auction.category.friendly_name }}
                                         </a> {% endcomment %}
                                     </p>
                                 {% endif %}
-                                {% if product.rating %}
-                                    <small><i class="fas fa-star mr-1"></i>{{ product.rating }} / 5</small>
+                                {% if auction.rating %}
+                                    <small><i class="fas fa-star mr-1"></i>{{ auction.rating }} / 5</small>
                                 {% else %}
                                     <small>No Rating</small>
                                 {% endif %}
                                 {% if request.user.is_superuser %}
                                     <small>
-                                        {% comment %} <a href="{% url 'edit_product' product.id %}">Edit</a> | 
-                                        <a href="{% url 'delete_product' product.id %}">Delete</a> {% endcomment %}
+                                        {% comment %} <a href="{% url 'edit_product' auction.id %}">Edit</a> | 
+                                        <a href="{% url 'delete_product' auction.id %}">Delete</a> {% endcomment %}
                                     </small>
                                 {% endif %}
                             </div>

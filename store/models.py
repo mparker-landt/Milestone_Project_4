@@ -47,17 +47,30 @@ class AuctionProduct(models.Model):
     class Meta:
         verbose_name_plural = 'Auctions'
 
-    product = models.ForeignKey('Product', null=True, blank=True, on_delete=models.SET_NULL)
-    seller = models.ForeignKey(UserProfile, on_delete=models.SET_NULL, null=True, blank=True, related_name='auction')
-    # buyers = ArrayField(models.CharField(max_length=), blank=True)
+    CONDITION = (
+        ('new', 'New / Never Opened'),
+        ('refurbished', 'Refurbished'),
+        ('mint_condition', 'Mint Condition'),
+        ('good_condition', 'Good Condition'),
+        ('poor_condition', 'Poor Condition'),
+    )
+
+    # product = models.ForeignKey('Product', null=True, blank=True, on_delete=models.SET_NULL)
     auction_id = models.CharField(max_length=254, null=True, blank=True)
+    title = models.CharField(max_length=254)
+    description = models.TextField()
+    image_url = models.URLField(max_length=1024, null=True, blank=True)
+    image = models.ImageField(null=True, blank=True)
+    condition = models.CharField(max_length=20, choices=CONDITION)
     base_price = models.DecimalField(max_digits=6, decimal_places=2)
     auction_price = models.DecimalField(max_digits=6, decimal_places=2)
     auction_period = models.DecimalField(max_digits=6, decimal_places=0)
     purchased = models.BooleanField(default=False, null=True, blank=True)
+    seller = models.ForeignKey(UserProfile, on_delete=models.SET_NULL, null=True, blank=True, related_name='auction')
+    # buyers = ArrayField(models.CharField(max_length=), blank=True)
 
     def __str__(self):
-        return self.seller
+        return self.title
 
 
 # Create your models here.
@@ -67,47 +80,12 @@ class RentalProduct(models.Model):
         verbose_name_plural = 'Rentals'
 
     product = models.ForeignKey('Product', null=True, blank=True, on_delete=models.SET_NULL)
-    renter = models.ForeignKey(UserProfile, on_delete=models.SET_NULL, null=True, blank=True, related_name='rental')
     rental_sku = models.CharField(max_length=254, null=True, blank=True)
     rental_price = models.DecimalField(max_digits=6, decimal_places=2)
     rental_period = models.DateField()
     rental_stock = models.DecimalField(max_digits=6, decimal_places=0, default=0)
+    has_premium = models.BooleanField(default=False, null=True, blank=True)
     premium = models.BooleanField(default=False, null=True, blank=True)
 
     def __str__(self):
-        return self.seller
-
-"""
-Violin
-Viola
-Cello
-Double Bass
-Harp
-Guitar
-Bass Guitar
-
-Trumpet
-French Horn
-Euphonium
-Tuba
-Cornet
-Flugelhorn
-Tenor Horn
-Baritone Horn
-Sousaphone
-Mellophone
-
-Piccolo
-Flute
-Oboe
-English Horn
-Clarinet
-E-Flat Clarinet
-Bass Clarinet
-Bassoon
-Contrabassoon
-
-Drum Kit
-
-Keyboard
-"""
+        return self.rental_sku

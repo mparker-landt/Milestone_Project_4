@@ -1,20 +1,873 @@
 [
     {
         "pk": 1,
-        "model": "store.rental",
+        "model": "store.rentalproduct",
         "fields": {
-            "rental_sku": "TSSVN0201",
             "product": 1,
+            "rental_sku": "TSSVN0201",
             "rental_price": 11.89,
-            "rental_period": 1,
+            "rental_period": "2024-09-09",
             "rental_stock":3,
+            "has_premium":false,
             "premium": false
         }
     },
     {
         "pk": 2,
-        "model": "store.rental",
+        "model": "store.rentalproduct",
         "fields": {
+            "product": 3,
+            "rental_sku": "TSSVN0201",
+            "rental_price": 11.89,
+            "rental_period": "2024-09-09",
+            "rental_stock":3,
+            "has_premium":false,
+            "premium": false
+        }
+    },
+    {
+        "pk": 3,
+        "model": "store.rentalproduct",
+        "fields": {
+            "product": 6,
+            "rental_sku": "TSSVN0201",
+            "rental_price": 11.89,
+            "rental_period": "2024-09-09",
+            "rental_stock":3,
+            "has_premium":false,
+            "premium": false
+        }
+    },
+    {
+        "pk": 4,
+        "model": "store.rentalproduct",
+        "fields": {
+            "product": 6,
+            "rental_sku": "TSSVN0201",
+            "rental_price": 11.89,
+            "rental_period": "2024-09-09",
+            "rental_stock":3,
+            "has_premium":true,
+            "premium": false
+        }
+    },
+    {
+        "pk": 5,
+        "model": "store.rentalproduct",
+        "fields": {
+            "product": 9,
+            "rental_sku": "TSSVN0201",
+            "rental_price": 11.89,
+            "rental_period": "2024-09-09",
+            "rental_stock":3,
+            "has_premium":false,
+            "premium": false
+        }
+    },
+    {
+        "pk": 6,
+        "model": "store.rentalproduct",
+        "fields": {
+            "product": 10,
+            "rental_sku": "TSSVN0201",
+            "rental_price": 11.89,
+            "rental_period": "2024-09-09",
+            "rental_stock":3,
+            "has_premium":true,
+            "premium": false
+        }
+    },
+    {
+        "pk": 7,
+        "model": "store.rentalproduct",
+        "fields": {
+            "product": 11,
+            "rental_sku": "TSSVN0201",
+            "rental_price": 11.89,
+            "rental_period": "2024-09-09",
+            "rental_stock":3,
+            "has_premium":false,
+            "premium": false
+        }
+    },
+    {
+        "pk": 8,
+        "model": "store.rentalproduct",
+        "fields": {
+            "product": 11,
+            "rental_sku": "TSSVN0201",
+            "rental_price": 11.89,
+            "rental_period": "2024-09-09",
+            "rental_stock":3,
+            "has_premium":true,
+            "premium": false
+        }
+    },
+    {
+        "pk": 9,
+        "model": "store.rentalproduct",
+        "fields": {
+            "product": 12,
+            "rental_sku": "TSSVN0201",
+            "rental_price": 11.89,
+            "rental_period": "2024-09-09",
+            "rental_stock":3,
+            "has_premium":false,
+            "premium": false
+        }
+    },
+    {
+        "pk": 10,
+        "model": "store.rentalproduct",
+        "fields": {
+            "product": 13,
+            "rental_sku": "TSSVN0201",
+            "rental_price": 11.89,
+            "rental_period": "2024-09-09",
+            "rental_stock":3,
+            "has_premium":false,
+            "premium": false
+        }
+    },
+    {
+        "pk": 11,
+        "model": "store.rentalproduct",
+        "fields": {
+            "product": 15,
+            "rental_sku": "TSSVN0201",
+            "rental_price": 11.89,
+            "rental_period": "2024-09-09",
+            "rental_stock":3,
+            "has_premium":false,
+            "premium": false
+        }
+    },
+    {
+        "pk": 12,
+        "model": "store.rentalproduct",
+        "fields": {
+            "product": 15,
+            "rental_sku": "TSSVN0201",
+            "rental_price": 11.89,
+            "rental_period": "2024-09-09",
+            "rental_stock":3,
+            "has_premium":true,
+            "premium": false
+        }
+    },
+    {
+        "pk": 13,
+        "model": "store.rentalproduct",
+        "fields": {
+            "product": 17,
+            "rental_sku": "TSSVN0201",
+            "rental_price": 11.89,
+            "rental_period": "2024-09-09",
+            "rental_stock":3,
+            "has_premium":false,
+            "premium": false
+        }
+    },
+    {
+        "pk": 14,
+        "model": "store.rentalproduct",
+        "fields": {
+            "product": 19,
+            "rental_sku": "TSSVN0201",
+            "rental_price": 11.89,
+            "rental_period": "2024-09-09",
+            "rental_stock":3,
+            "has_premium":false,
+            "premium": false
+        }
+    },
+    {
+        "pk": 15,
+        "model": "store.rentalproduct",
+        "fields": {
+            "product": 21,
+            "rental_sku": "TSSVN0201",
+            "rental_price": 11.89,
+            "rental_period": "2024-09-09",
+            "rental_stock":3,
+            "has_premium":false,
+            "premium": false
+        }
+    },
+    {
+        "pk": 16,
+        "model": "store.rentalproduct",
+        "fields": {
+            "product": 21,
+            "rental_sku": "TSSVN0201",
+            "rental_price": 11.89,
+            "rental_period": "2024-09-09",
+            "rental_stock":3,
+            "has_premium":true,
+            "premium": false
+        }
+    },
+    {
+        "pk": 17,
+        "model": "store.rentalproduct",
+        "fields": {
+            "product": 22,
+            "rental_sku": "TSSVN0201",
+            "rental_price": 11.89,
+            "rental_period": "2024-09-09",
+            "rental_stock":3,
+            "has_premium":false,
+            "premium": false
+        }
+    },
+    {
+        "pk": 18,
+        "model": "store.rentalproduct",
+        "fields": {
+            "product": 24,
+            "rental_sku": "TSSVN0201",
+            "rental_price": 11.89,
+            "rental_period": "2024-09-09",
+            "rental_stock":3,
+            "has_premium":false,
+            "premium": false
+        }
+    },
+    {
+        "pk": 19,
+        "model": "store.rentalproduct",
+        "fields": {
+            "product": 24,
+            "rental_sku": "TSSVN0201",
+            "rental_price": 11.89,
+            "rental_period": "2024-09-09",
+            "rental_stock":3,
+            "has_premium":true,
+            "premium": false
+        }
+    },
+    {
+        "pk": 20,
+        "model": "store.rentalproduct",
+        "fields": {
+            "product": 28,
+            "rental_sku": "TSSVN0201",
+            "rental_price": 11.89,
+            "rental_period": "2024-09-09",
+            "rental_stock":3,
+            "has_premium":false,
+            "premium": false
+        }
+    },
+    {
+        "pk": 21,
+        "model": "store.rentalproduct",
+        "fields": {
+            "product": 28,
+            "rental_sku": "TSSVN0201",
+            "rental_price": 11.89,
+            "rental_period": "2024-09-09",
+            "rental_stock":3,
+            "has_premium":true,
+            "premium": false
+        }
+    },
+    {
+        "pk": 22,
+        "model": "store.rentalproduct",
+        "fields": {
+            "product": 29,
+            "rental_sku": "TSSVN0201",
+            "rental_price": 11.89,
+            "rental_period": "2024-09-09",
+            "rental_stock":3,
+            "has_premium":false,
+            "premium": false
+        }
+    },
+    {
+        "pk": 23,
+        "model": "store.rentalproduct",
+        "fields": {
+            "product": 30,
+            "rental_sku": "TSSVN0201",
+            "rental_price": 11.89,
+            "rental_period": "2024-09-09",
+            "rental_stock":3,
+            "has_premium":false,
+            "premium": false
+        }
+    },
+    {
+        "pk": 24,
+        "model": "store.rentalproduct",
+        "fields": {
+            "product": 31,
+            "rental_sku": "TSSVN0201",
+            "rental_price": 11.89,
+            "rental_period": "2024-09-09",
+            "rental_stock":3,
+            "has_premium":false,
+            "premium": false
+        }
+    },
+    {
+        "pk": 25,
+        "model": "store.rentalproduct",
+        "fields": {
+            "product": 31,
+            "rental_sku": "TSSVN0201",
+            "rental_price": 11.89,
+            "rental_period": "2024-09-09",
+            "rental_stock":3,
+            "has_premium":true,
+            "premium": false
+        }
+    },
+    {
+        "pk": 26,
+        "model": "store.rentalproduct",
+        "fields": {
+            "product": 32,
+            "rental_sku": "TSSVN0201",
+            "rental_price": 11.89,
+            "rental_period": "2024-09-09",
+            "rental_stock":3,
+            "has_premium":false,
+            "premium": false
+        }
+    },
+    {
+        "pk": 27,
+        "model": "store.rentalproduct",
+        "fields": {
+            "product": 32,
+            "rental_sku": "TSSVN0201",
+            "rental_price": 11.89,
+            "rental_period": "2024-09-09",
+            "rental_stock":3,
+            "has_premium":true,
+            "premium": false
+        }
+    },
+    {
+        "pk": 28,
+        "model": "store.rentalproduct",
+        "fields": {
+            "product": 33,
+            "rental_sku": "TSSVN0201",
+            "rental_price": 11.89,
+            "rental_period": "2024-09-09",
+            "rental_stock":3,
+            "has_premium":false,
+            "premium": false
+        }
+    },
+    {
+        "pk": 29,
+        "model": "store.rentalproduct",
+        "fields": {
+            "product": 33,
+            "rental_sku": "TSSVN0201",
+            "rental_price": 11.89,
+            "rental_period": "2024-09-09",
+            "rental_stock":3,
+            "has_premium":true,
+            "premium": false
+        }
+    },
+    {
+        "pk": 30,
+        "model": "store.rentalproduct",
+        "fields": {
+            "product": 35,
+            "rental_sku": "TSSVN0201",
+            "rental_price": 11.89,
+            "rental_period": "2024-09-09",
+            "rental_stock":3,
+            "has_premium":false,
+            "premium": false
+        }
+    },
+    {
+        "pk": 31,
+        "model": "store.rentalproduct",
+        "fields": {
+            "product": 35,
+            "rental_sku": "TSSVN0201",
+            "rental_price": 11.89,
+            "rental_period": "2024-09-09",
+            "rental_stock":3,
+            "has_premium":true,
+            "premium": false
+        }
+    },
+    {
+        "pk": 32,
+        "model": "store.rentalproduct",
+        "fields": {
+            "product": 37,
+            "rental_sku": "TSSVN0201",
+            "rental_price": 11.89,
+            "rental_period": "2024-09-09",
+            "rental_stock":3,
+            "has_premium":false,
+            "premium": false
+        }
+    },
+    {
+        "pk": 33,
+        "model": "store.rentalproduct",
+        "fields": {
+            "product": 37,
+            "rental_sku": "TSSVN0201",
+            "rental_price": 11.89,
+            "rental_period": "2024-09-09",
+            "rental_stock":3,
+            "has_premium":true,
+            "premium": false
+        }
+    },
+    {
+        "pk": 34,
+        "model": "store.rentalproduct",
+        "fields": {
+            "product": 38,
+            "rental_sku": "TSSVN0201",
+            "rental_price": 11.89,
+            "rental_period": "2024-09-09",
+            "rental_stock":3,
+            "has_premium":false,
+            "premium": false
+        }
+    },
+    {
+        "pk": 35,
+        "model": "store.rentalproduct",
+        "fields": {
+            "product": 38,
+            "rental_sku": "TSSVN0201",
+            "rental_price": 11.89,
+            "rental_period": "2024-09-09",
+            "rental_stock":3,
+            "has_premium":true,
+            "premium": false
+        }
+    },
+    {
+        "pk": 36,
+        "model": "store.rentalproduct",
+        "fields": {
+            "product": 39,
+            "rental_sku": "TSSVN0201",
+            "rental_price": 11.89,
+            "rental_period": "2024-09-09",
+            "rental_stock":3,
+            "has_premium":false,
+            "premium": false
+        }
+    },
+    {
+        "pk": 37,
+        "model": "store.rentalproduct",
+        "fields": {
+            "product": 39,
+            "rental_sku": "TSSVN0201",
+            "rental_price": 11.89,
+            "rental_period": "2024-09-09",
+            "rental_stock":3,
+            "has_premium":true,
+            "premium": false
+        }
+    },
+    {
+        "pk": 38,
+        "model": "store.rentalproduct",
+        "fields": {
+            "product": 40,
+            "rental_sku": "TSSVN0201",
+            "rental_price": 11.89,
+            "rental_period": "2024-09-09",
+            "rental_stock":3,
+            "has_premium":false,
+            "premium": false
+        }
+    },
+    {
+        "pk": 39,
+        "model": "store.rentalproduct",
+        "fields": {
+            "product": 40,
+            "rental_sku": "TSSVN0201",
+            "rental_price": 11.89,
+            "rental_period": "2024-09-09",
+            "rental_stock":3,
+            "has_premium":true,
+            "premium": false
+        }
+    },
+    {
+        "pk": 40,
+        "model": "store.rentalproduct",
+        "fields": {
+            "product": 41,
+            "rental_sku": "TSSVN0201",
+            "rental_price": 11.89,
+            "rental_period": "2024-09-09",
+            "rental_stock":3,
+            "has_premium":false,
+            "premium": false
+        }
+    },
+    {
+        "pk": 41,
+        "model": "store.rentalproduct",
+        "fields": {
+            "product": 41,
+            "rental_sku": "TSSVN0201",
+            "rental_price": 11.89,
+            "rental_period": "2024-09-09",
+            "rental_stock":3,
+            "has_premium":true,
+            "premium": false
+        }
+    },
+    {
+        "pk": 42,
+        "model": "store.rentalproduct",
+        "fields": {
+            "product": 42,
+            "rental_sku": "TSSVN0201",
+            "rental_price": 11.89,
+            "rental_period": "2024-09-09",
+            "rental_stock":3,
+            "has_premium":false,
+            "premium": false
+        }
+    },
+    {
+        "pk": 43,
+        "model": "store.rentalproduct",
+        "fields": {
+            "product": 42,
+            "rental_sku": "TSSVN0201",
+            "rental_price": 11.89,
+            "rental_period": "2024-09-09",
+            "rental_stock":3,
+            "has_premium":true,
+            "premium": false
+        }
+    },
+    {
+        "pk": 44,
+        "model": "store.rentalproduct",
+        "fields": {
+            "product": 43,
+            "rental_sku": "TSSVN0201",
+            "rental_price": 11.89,
+            "rental_period": "2024-09-09",
+            "rental_stock":3,
+            "has_premium":false,
+            "premium": false
+        }
+    },
+    {
+        "pk": 45,
+        "model": "store.rentalproduct",
+        "fields": {
+            "product": 43,
+            "rental_sku": "TSSVN0201",
+            "rental_price": 11.89,
+            "rental_period": "2024-09-09",
+            "rental_stock":3,
+            "has_premium":true,
+            "premium": false
+        }
+    },
+    {
+        "pk": 46,
+        "model": "store.rentalproduct",
+        "fields": {
+            "product": 44,
+            "rental_sku": "TSSVN0201",
+            "rental_price": 11.89,
+            "rental_period": "2024-09-09",
+            "rental_stock":3,
+            "has_premium":false,
+            "premium": false
+        }
+    },
+    {
+        "pk": 47,
+        "model": "store.rentalproduct",
+        "fields": {
+            "product": 44,
+            "rental_sku": "TSSVN0201",
+            "rental_price": 11.89,
+            "rental_period": "2024-09-09",
+            "rental_stock":3,
+            "has_premium":true,
+            "premium": false
+        }
+    },
+    {
+        "pk": 48,
+        "model": "store.rentalproduct",
+        "fields": {
+            "product": 45,
+            "rental_sku": "TSSVN0201",
+            "rental_price": 11.89,
+            "rental_period": "2024-09-09",
+            "rental_stock":3,
+            "has_premium":false,
+            "premium": false
+        }
+    },
+    {
+        "pk": 49,
+        "model": "store.rentalproduct",
+        "fields": {
+            "product": 45,
+            "rental_sku": "TSSVN0201",
+            "rental_price": 11.89,
+            "rental_period": "2024-09-09",
+            "rental_stock":3,
+            "has_premium":true,
+            "premium": false
+        }
+    },
+    {
+        "pk": 50,
+        "model": "store.rentalproduct",
+        "fields": {
+            "product": 46,
+            "rental_sku": "TSSVN0201",
+            "rental_price": 11.89,
+            "rental_period": "2024-09-09",
+            "rental_stock":3,
+            "has_premium":false,
+            "premium": false
+        }
+    },
+    {
+        "pk": 51,
+        "model": "store.rentalproduct",
+        "fields": {
+            "product": 46,
+            "rental_sku": "TSSVN0201",
+            "rental_price": 11.89,
+            "rental_period": "2024-09-09",
+            "rental_stock":3,
+            "has_premium":true,
+            "premium": false
+        }
+    },
+    {
+        "pk": 52,
+        "model": "store.rentalproduct",
+        "fields": {
+            "product": 47,
+            "rental_sku": "TSSVN0201",
+            "rental_price": 11.89,
+            "rental_period": "2024-09-09",
+            "rental_stock":3,
+            "has_premium":false,
+            "premium": false
+        }
+    },
+    {
+        "pk": 53,
+        "model": "store.rentalproduct",
+        "fields": {
+            "product": 47,
+            "rental_sku": "TSSVN0201",
+            "rental_price": 11.89,
+            "rental_period": "2024-09-09",
+            "rental_stock":3,
+            "has_premium":true,
+            "premium": false
+        }
+    },
+    {
+        "pk": 54,
+        "model": "store.rentalproduct",
+        "fields": {
+            "product": 48,
+            "rental_sku": "TSSVN0201",
+            "rental_price": 11.89,
+            "rental_period": "2024-09-09",
+            "rental_stock":3,
+            "has_premium":false,
+            "premium": false
+        }
+    },
+    {
+        "pk": 55,
+        "model": "store.rentalproduct",
+        "fields": {
+            "product": 48,
+            "rental_sku": "TSSVN0201",
+            "rental_price": 11.89,
+            "rental_period": "2024-09-09",
+            "rental_stock":3,
+            "has_premium":true,
+            "premium": false
+        }
+    },
+    {
+        "pk": 56,
+        "model": "store.rentalproduct",
+        "fields": {
+            "product": 49,
+            "rental_sku": "TSSVN0201",
+            "rental_price": 11.89,
+            "rental_period": "2024-09-09",
+            "rental_stock":3,
+            "has_premium":false,
+            "premium": false
+        }
+    },
+    {
+        "pk": 57,
+        "model": "store.rentalproduct",
+        "fields": {
+            "product": 49,
+            "rental_sku": "TSSVN0201",
+            "rental_price": 11.89,
+            "rental_period": "2024-09-09",
+            "rental_stock":3,
+            "has_premium":true,
+            "premium": false
+        }
+    },
+    {
+        "pk": 58,
+        "model": "store.rentalproduct",
+        "fields": {
+            "product": 50,
+            "rental_sku": "TSSVN0201",
+            "rental_price": 11.89,
+            "rental_period": "2024-09-09",
+            "rental_stock":3,
+            "has_premium":false,
+            "premium": false
+        }
+    },
+    {
+        "pk": 59,
+        "model": "store.rentalproduct",
+        "fields": {
+            "product": 50,
+            "rental_sku": "TSSVN0201",
+            "rental_price": 11.89,
+            "rental_period": "2024-09-09",
+            "rental_stock":3,
+            "has_premium":true,
+            "premium": false
+        }
+    },
+    {
+        "pk": 60,
+        "model": "store.rentalproduct",
+        "fields": {
+            "product": 51,
+            "rental_sku": "TSSVN0201",
+            "rental_price": 11.89,
+            "rental_period": "2024-09-09",
+            "rental_stock":3,
+            "has_premium":false,
+            "premium": false
+        }
+    },
+    {
+        "pk": 61,
+        "model": "store.rentalproduct",
+        "fields": {
+            "product": 51,
+            "rental_sku": "TSSVN0201",
+            "rental_price": 11.89,
+            "rental_period": "2024-09-09",
+            "rental_stock":3,
+            "has_premium":true,
+            "premium": false
+        }
+    },
+    {
+        "pk": 62,
+        "model": "store.rentalproduct",
+        "fields": {
+            "product": 52,
+            "rental_sku": "TSSVN0201",
+            "rental_price": 11.89,
+            "rental_period": "2024-09-09",
+            "rental_stock":3,
+            "has_premium":false,
+            "premium": false
+        }
+    },
+    {
+        "pk": 63,
+        "model": "store.rentalproduct",
+        "fields": {
+            "product": 52,
+            "rental_sku": "TSSVN0201",
+            "rental_price": 11.89,
+            "rental_period": "2024-09-09",
+            "rental_stock":3,
+            "has_premium":true,
+            "premium": false
+        }
+    },
+    {
+        "pk": 64,
+        "model": "store.rentalproduct",
+        "fields": {
+            "product": 56,
+            "rental_sku": "TSSVN0201",
+            "rental_price": 11.89,
+            "rental_period": "2024-09-09",
+            "rental_stock":3,
+            "has_premium":false,
+            "premium": false
+        }
+    },
+    {
+        "pk": 65,
+        "model": "store.rentalproduct",
+        "fields": {
+            "product": 57,
+            "rental_sku": "TSSVN0201",
+            "rental_price": 11.89,
+            "rental_period": "2024-09-09",
+            "rental_stock":3,
+            "has_premium":false,
+            "premium": false
+        }
+    },
+    {
+        "pk": 66,
+        "model": "store.rentalproduct",
+        "fields": {
+            "product": 64,
+            "rental_sku": "TSSVN0201",
+            "rental_price": 11.89,
+            "rental_period": "2024-09-09",
+            "rental_stock":3,
+            "has_premium":false,
+            "premium": false
+        }
+    },
+    {
+        "pk": 67,
+        "model": "store.rentalproduct",
+        "fields": {
+            "product": 65,
+            "rental_sku": "TSSVN0201",
+            "rental_price": 11.89,
+            "rental_period": "2024-09-09",
+            "rental_stock":3,
+            "has_premium":false,
+            "premium": false
         }
     }
 ]
