@@ -379,7 +379,7 @@ def delete_auction(request, auction_id):
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
 
-    auction = get_object_or_404(AuctionForm, pk=auction_id)
+    auction = get_object_or_404(AuctionProduct, pk=auction_id)
     auction.delete()
     messages.success(request, 'auction deleted!')
     return redirect(reverse('auction'))
