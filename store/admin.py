@@ -44,7 +44,7 @@ class AuctionAdmin(admin.ModelAdmin):
         'condition',
         'base_price',
         'auction_period',
-        # 'purchased',
+        'purchased',
         'seller',
         'owner',
         'bidders'
