@@ -3,12 +3,32 @@ from .models import Category, Product, AuctionProduct, RentalProduct
 
 # Register your models here.
 class CategoryAdmin(admin.ModelAdmin):
+    """
+    Summary or Description of the Function
+
+    Parameters:
+    argument1 (int): Description of arg1
+
+    Returns:
+    int:Returning value
+    """
+    
     list_display = (
         'name',
         'friendly_name'
     )
 
 class ProductAdmin(admin.ModelAdmin):
+    """
+    Summary or Description of the Function
+
+    Parameters:
+    argument1 (int): Description of arg1
+
+    Returns:
+    int:Returning value
+    """
+    
     list_display = (
         'sku',
         'name',
@@ -23,6 +43,16 @@ class ProductAdmin(admin.ModelAdmin):
     ordering = ('sku',)
 
 class RentalAdmin(admin.ModelAdmin):
+    """
+    Summary or Description of the Function
+
+    Parameters:
+    argument1 (int): Description of arg1
+
+    Returns:
+    int:Returning value
+    """
+    
     list_display = (
         'product',
         'rental_sku',
@@ -36,6 +66,16 @@ class RentalAdmin(admin.ModelAdmin):
     ordering = ('rental_sku',)
 
 class AuctionAdmin(admin.ModelAdmin):
+    """
+    Summary or Description of the Function
+
+    Parameters:
+    argument1 (int): Description of arg1
+
+    Returns:
+    int:Returning value
+    """
+    
     list_display = (
         'title',
         'description',

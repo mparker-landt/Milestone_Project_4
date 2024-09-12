@@ -9,8 +9,13 @@ import datetime
 # Create your models here.
 class Enquiry(models.Model):
     """
-    A user profile model for maintaining shipping
-    delivery information and order history
+    Summary or Description of the Function
+
+    Parameters:
+    argument1 (int): Description of arg1
+
+    Returns:
+    int:Returning value
     """
 
     class Meta:

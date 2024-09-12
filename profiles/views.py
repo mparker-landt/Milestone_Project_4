@@ -9,7 +9,16 @@ from checkout.models import Order
 
 @login_required
 def profile(request):
-    """ Display the user's profile. """
+    """
+    Summary or Description of the Function
+
+    Parameters:
+    argument1 (int): Description of arg1
+
+    Returns:
+    int:Returning value
+    """
+    
     profile = get_object_or_404(UserProfile, user=request.user)
 
     if request.method == 'POST':
@@ -35,6 +44,16 @@ def profile(request):
 
 
 def order_history(request, order_number):
+    """
+    Summary or Description of the Function
+
+    Parameters:
+    argument1 (int): Description of arg1
+
+    Returns:
+    int:Returning value
+    """
+    
     order = get_object_or_404(Order, order_number=order_number)
 
     messages.info(request, (

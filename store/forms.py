@@ -4,7 +4,16 @@ from .models import Product, Category, RentalProduct, AuctionProduct, Bid
 
 
 class ProductForm(forms.ModelForm):
+    """
+    Summary or Description of the Function
 
+    Parameters:
+    argument1 (int): Description of arg1
+
+    Returns:
+    int:Returning value
+    """
+    
     class Meta:
         model = Product
         fields = '__all__'
@@ -22,7 +31,16 @@ class ProductForm(forms.ModelForm):
 
 
 class RentalForm(forms.ModelForm):
+    """
+    Summary or Description of the Function
 
+    Parameters:
+    argument1 (int): Description of arg1
+
+    Returns:
+    int:Returning value
+    """
+    
     class Meta:
         model = RentalProduct
         fields = '__all__'
@@ -43,7 +61,16 @@ class RentalForm(forms.ModelForm):
 
 
 class AuctionForm(forms.ModelForm):
+    """
+    Summary or Description of the Function
 
+    Parameters:
+    argument1 (int): Description of arg1
+
+    Returns:
+    int:Returning value
+    """
+    
     class Meta:
         model = AuctionProduct
         fields = '__all__'
@@ -64,7 +91,16 @@ class AuctionForm(forms.ModelForm):
 
 
 class BidForm(forms.ModelForm):
+    """
+    Summary or Description of the Function
 
+    Parameters:
+    argument1 (int): Description of arg1
+
+    Returns:
+    int:Returning value
+    """
+    
     class Meta:
         model = Bid
         fields = '__all__'

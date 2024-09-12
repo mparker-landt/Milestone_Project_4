@@ -20,6 +20,16 @@ import json
 
 @require_POST
 def cache_checkout_data(request):
+    """
+    Summary or Description of the Function
+
+    Parameters:
+    argument1 (int): Description of arg1
+
+    Returns:
+    int:Returning value
+    """
+    
     try:
         pid = request.POST.get('client_secret').split('_secret')[0]
         stripe.api_key = settings.STRIPE_SECRET_KEY
@@ -37,6 +47,16 @@ def cache_checkout_data(request):
 # Create your views here.
 # Create your views here.
 def checkout(request):
+    """
+    Summary or Description of the Function
+
+    Parameters:
+    argument1 (int): Description of arg1
+
+    Returns:
+    int:Returning value
+    """
+    
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
 
@@ -149,8 +169,15 @@ def checkout(request):
 
 def checkout_success(request, order_number):
     """
-    Handle successful checkouts
+    Summary or Description of the Function
+
+    Parameters:
+    argument1 (int): Description of arg1
+
+    Returns:
+    int:Returning value
     """
+    
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
 
@@ -219,28 +246,38 @@ def checkout_success(request, order_number):
 # Using Django
 @csrf_exempt
 def stripe_webhook(request):
-  payload = request.body
-  event = None
+    """
+    Summary or Description of the Function
 
-  try:
-    event = stripe.Event.construct_from(
-      json.loads(payload), stripe.api_key
-    )
-  except ValueError as e:
-    # Invalid payload
-    return HttpResponse(status=400)
+    Parameters:
+    argument1 (int): Description of arg1
 
-  # Handle the event
-  if event.type == 'payment_intent.succeeded':
-    payment_intent = event.data.object # contains a stripe.PaymentIntent
-    # Then define and call a method to handle the successful payment intent.
-    # handle_payment_intent_succeeded(payment_intent)
-  elif event.type == 'payment_method.attached':
-    payment_method = event.data.object # contains a stripe.PaymentMethod
-    # Then define and call a method to handle the successful attachment of a PaymentMethod.
-    # handle_payment_method_attached(payment_method)
-  # ... handle other event types
-  else:
-    print('Unhandled event type {}'.format(event.type))
+    Returns:
+    int:Returning value
+    """
+    
+    payload = request.body
+    event = None
 
-  return HttpResponse(status=200)
+    try:
+        event = stripe.Event.construct_from(
+        json.loads(payload), stripe.api_key
+        )
+    except ValueError as e:
+        # Invalid payload
+        return HttpResponse(status=400)
+
+    # Handle the event
+    if event.type == 'payment_intent.succeeded':
+        payment_intent = event.data.object # contains a stripe.PaymentIntent
+        # Then define and call a method to handle the successful payment intent.
+        # handle_payment_intent_succeeded(payment_intent)
+    elif event.type == 'payment_method.attached':
+        payment_method = event.data.object # contains a stripe.PaymentMethod
+        # Then define and call a method to handle the successful attachment of a PaymentMethod.
+        # handle_payment_method_attached(payment_method)
+    # ... handle other event types
+    else:
+        print('Unhandled event type {}'.format(event.type))
+
+    return HttpResponse(status=200)

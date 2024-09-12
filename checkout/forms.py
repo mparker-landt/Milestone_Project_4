@@ -3,6 +3,16 @@ from .models import Order
 
 
 class OrderForm(forms.ModelForm):
+    """
+    Summary or Description of the Function
+
+    Parameters:
+    argument1 (int): Description of arg1
+
+    Returns:
+    int:Returning value
+    """
+    
     class Meta:
         model = Order
         fields = ('full_name', 'email', 'phone_number',

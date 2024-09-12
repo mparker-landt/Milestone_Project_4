@@ -10,7 +10,16 @@ from django.db.models import Q
 
 # Create your views here.
 def store(request):
-    """ A view that renders the bag contents page """
+    """
+    Summary or Description of the Function
+
+    Parameters:
+    argument1 (int): Description of arg1
+
+    Returns:
+    int:Returning value
+    """
+    
     products = Product.objects.all()
 
     query = None
@@ -58,9 +67,18 @@ def store(request):
 
     return render(request, 'store/store.html', context)
 
-def product_detail(request, product_id):
-    """ A view to show individual product details """
 
+def product_detail(request, product_id):
+    """
+    Summary or Description of the Function
+
+    Parameters:
+    argument1 (int): Description of arg1
+
+    Returns:
+    int:Returning value
+    """
+    
     product = get_object_or_404(Product, pk=product_id)
 
     context = {
@@ -69,9 +87,19 @@ def product_detail(request, product_id):
 
     return render(request, 'store/product_detail.html', context)
 
+
 @login_required
 def add_product(request):
-    """ Add a product to the store """
+    """
+    Summary or Description of the Function
+
+    Parameters:
+    argument1 (int): Description of arg1
+
+    Returns:
+    int:Returning value
+    """
+    
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
@@ -94,9 +122,19 @@ def add_product(request):
 
     return render(request, template, context)
 
+
 @login_required
 def edit_product(request, product_id):
-    """ Edit a product in the store """
+    """
+    Summary or Description of the Function
+
+    Parameters:
+    argument1 (int): Description of arg1
+
+    Returns:
+    int:Returning value
+    """
+    
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
@@ -122,9 +160,19 @@ def edit_product(request, product_id):
 
     return render(request, template, context)
 
+
 @login_required
 def delete_product(request, product_id):
-    """ Delete a product from the store """
+    """
+    Summary or Description of the Function
+
+    Parameters:
+    argument1 (int): Description of arg1
+
+    Returns:
+    int:Returning value
+    """
+    
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
@@ -137,7 +185,16 @@ def delete_product(request, product_id):
 
 # Create your views here.
 def rental(request):
-    """ A view that renders the bag contents page """
+    """
+    Summary or Description of the Function
+
+    Parameters:
+    argument1 (int): Description of arg1
+
+    Returns:
+    int:Returning value
+    """
+    
     rentals = RentalProduct.objects.all()
 
     query = None
@@ -185,8 +242,18 @@ def rental(request):
 
     return render(request, 'store/store_rentals.html', context)
 
+
 def rental_detail(request, rental_id):
-    """ A view to show individual product details """
+    """
+    Summary or Description of the Function
+
+    Parameters:
+    argument1 (int): Description of arg1
+
+    Returns:
+    int:Returning value
+    """
+    
 
     rental = get_object_or_404(RentalProduct, pk=rental_id)
 
@@ -196,9 +263,19 @@ def rental_detail(request, rental_id):
 
     return render(request, 'store/rental_detail.html', context)
 
+
 @login_required
 def add_rental(request):
-    """ Add a rental to the store """
+    """
+    Summary or Description of the Function
+
+    Parameters:
+    argument1 (int): Description of arg1
+
+    Returns:
+    int:Returning value
+    """
+    
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
@@ -221,9 +298,19 @@ def add_rental(request):
 
     return render(request, template, context)
 
+
 @login_required
 def edit_rental(request, rental_id):
-    """ Edit a rental in the store """
+    """
+    Summary or Description of the Function
+
+    Parameters:
+    argument1 (int): Description of arg1
+
+    Returns:
+    int:Returning value
+    """
+    
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
@@ -249,9 +336,19 @@ def edit_rental(request, rental_id):
 
     return render(request, template, context)
 
+
 @login_required
 def delete_rental(request, rental_id):
-    """ Delete a rental from the store """
+    """
+    Summary or Description of the Function
+
+    Parameters:
+    argument1 (int): Description of arg1
+
+    Returns:
+    int:Returning value
+    """
+    
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
@@ -264,7 +361,16 @@ def delete_rental(request, rental_id):
 
 # Create your views here.
 def auction(request):
-    """ A view that renders the bag contents page """
+    """"
+    Summary or Description of the Function
+
+    Parameters:
+    argument1 (int): Description of arg1
+
+    Returns:
+    int:Returning value
+    """
+    
     auctions = AuctionProduct.objects.all()
 
     query = None
@@ -311,8 +417,18 @@ def auction(request):
 
     return render(request, 'store/store_auction.html', context)
 
+
 def auction_detail(request, auction_id):
-    """ A view to show individual product details """
+    """
+    Summary or Description of the Function
+
+    Parameters:
+    argument1 (int): Description of arg1
+
+    Returns:
+    int:Returning value
+    """
+    
 
     auction = get_object_or_404(AuctionProduct, pk=auction_id)
 
@@ -322,9 +438,19 @@ def auction_detail(request, auction_id):
 
     return render(request, 'store/auction_detail.html', context)
 
+
 @login_required
 def add_auction(request):
-    """ Add a rental to the store """
+    """
+    Summary or Description of the Function
+
+    Parameters:
+    argument1 (int): Description of arg1
+
+    Returns:
+    int:Returning value
+    """
+    
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
@@ -348,8 +474,19 @@ def add_auction(request):
 
     return render(request, template, context)
 
+
 @login_required
 def add_bid(request):
+    """
+    Summary or Description of the Function
+
+    Parameters:
+    argument1 (int): Description of arg1
+
+    Returns:
+    int:Returning value
+    """
+    
     if request.method == 'POST':
         form = BidForm(request.POST, request.FILES)
         if form.is_valid():
@@ -371,7 +508,16 @@ def add_bid(request):
 
 @login_required
 def edit_auction(request, auction_id):
-    """ Edit a rental in the store """
+    """
+    Summary or Description of the Function
+
+    Parameters:
+    argument1 (int): Description of arg1
+
+    Returns:
+    int:Returning value
+    """
+    
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
@@ -398,9 +544,19 @@ def edit_auction(request, auction_id):
 
     return render(request, template, context)
 
+
 @login_required
 def delete_auction(request, auction_id):
-    """ Delete a rental from the store """
+    """
+    Summary or Description of the Function
+
+    Parameters:
+    argument1 (int): Description of arg1
+
+    Returns:
+    int:Returning value
+    """
+    
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))

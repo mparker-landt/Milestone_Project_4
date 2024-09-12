@@ -13,6 +13,15 @@ MONTH = 30 * DAY
 
 # Create your models here.
 class Category(models.Model):
+    """
+    Summary or Description of the Function
+
+    Parameters:
+    argument1 (int): Description of arg1
+
+    Returns:
+    int:Returning value
+    """
     
     class Meta:
         verbose_name_plural = 'Categories'
@@ -29,6 +38,15 @@ class Category(models.Model):
 
 # Create your models here.
 class Product(models.Model):
+    """
+    Summary or Description of the Function
+
+    Parameters:
+    argument1 (int): Description of arg1
+
+    Returns:
+    int:Returning value
+    """
     
     class Meta:
         verbose_name_plural = 'Products'
@@ -51,6 +69,15 @@ class Product(models.Model):
 
 # Create your models here.
 class RentalProduct(models.Model):
+    """
+    Summary or Description of the Function
+
+    Parameters:
+    argument1 (int): Description of arg1
+
+    Returns:
+    int:Returning value
+    """
     
     class Meta:
         verbose_name_plural = 'Rentals'
@@ -68,11 +95,30 @@ class RentalProduct(models.Model):
 
 
 class Bid(models.Model):
+    """
+    Summary or Description of the Function
+
+    Parameters:
+    argument1 (int): Description of arg1
+
+    Returns:
+    int:Returning value
+    """
+    
     buyer = models.ForeignKey(UserProfile, on_delete=models.SET_NULL, null=True, blank=True, related_name='auction_buyer')
     price = models.DecimalField(max_digits=6, decimal_places=2, default=0)
 
 # Create your models here.	
 class AuctionProduct(models.Model):
+    """
+    Summary or Description of the Function
+
+    Parameters:
+    argument1 (int): Description of arg1
+
+    Returns:
+    int:Returning value
+    """
     
     class Meta:
         verbose_name_plural = 'Auctions'
