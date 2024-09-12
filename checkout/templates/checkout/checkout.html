@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load cart_tools %}
 
 {% block extra_css %}
     <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
@@ -47,7 +48,7 @@
                             <p>Qty: {{ item.quantity }}</p>
                         </div>
                         <div>
-                            {% comment %} <p class="my-0 small text-muted">${{ item.product.price | calc_subtotal:item.quantity }}</p> {% endcomment %}
+                            <p class="my-0 small text-muted">${{ item.product.price | calc_subtotal:item.quantity }}</p>
                         </div>
                     </div>
                 {% endfor %}
@@ -55,13 +56,13 @@
                 <div>
                     <div>
                         <p>Order Total:</p>
-                        {% comment %} <p>Delivery:</p> {% endcomment %}
-                        {% comment %} <p>Grand Total:</p> {% endcomment %}
+                        <p>Delivery:</p>
+                        <p>Grand Total:</p>
                     </div>
                     <div>
                         <p>£{{ total | floatformat:2 }}</p>
-                        {% comment %} <p>£{{ delivery | floatformat:2 }}</p> {% endcomment %}
-                        {% comment %} <p><strong>£{{ grand_total | floatformat:2 }}</strong></p> {% endcomment %}
+                        <p>£{{ delivery | floatformat:2 }}</p>
+                        <p><strong>£{{ grand_total | floatformat:2 }}</strong></p>
                     </div>
                 </div>
             </div>
