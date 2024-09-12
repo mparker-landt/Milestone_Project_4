@@ -9,32 +9,54 @@
 {% endblock %}
 
 {% block content %}
-    {% comment %} <div class="categories">
-        <div class="category-select">
-            Strings
-        </div>
-        <div class="category-select">
-            Brass
-        </div>
-        <div class="category-select">
-            Woodwind
-        </div>
-        <div class="category-select">
-            Percussion
-        </div>
-        <div class="category-select">
-            Keyboards
-        </div>
-        <div class="category-select">
-            Accessories
-        </div>
-    </div> {% endcomment %}
-
     <div>
         <p>The community auction is a place for users to sell and buy products from each other. To sell a user needs to have a profile and be logged in.</p>
         <p>Wether an item in bad condition being sold for spare parts or a unique item being sold for a collection you can sell and buy everything here.</p>
         <br>
         <p>If you have a enquiry about auctions please feel free to use the contact page here.</p>
+    </div>
+
+    <div>
+        <form class="pure-form" method="GET" action="{% url 'auction' %}">
+            <div>
+                <input type="text" name="q" placeholder="Search the auctions">
+                <div>
+                    <button class="pure-button" type="submit">
+                        <span class="icon">
+                            <i class="fas fa-search"></i>
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div>
+        <div>
+            <div>
+                <select id="sort-selector" class="custom-select custom-select-sm rounded-0 border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
+                    <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
+                    <option value="base_price_asc" {% if current_sorting == 'base_price_asc' %}selected{% endif %}>Price (low to high)</option>
+                    <option value="base_price_desc" {% if current_sorting == 'base_price_desc' %}selected{% endif %}>Price (high to low)</option>
+                    <option value="instrument_asc" {% if current_sorting == 'instrument_asc' %}selected{% endif %}>Instrument (low to high)</option>
+                    <option value="instrument_desc" {% if current_sorting == 'instrument_desc' %}selected{% endif %}>Instrument (high to low)</option>
+                    <option value="title_asc" {% if current_sorting == 'title_asc' %}selected{% endif %}>Name (A-Z)</option>
+                    <option value="title_desc" {% if current_sorting == 'title_desc' %}selected{% endif %}>Name (Z-A)</option>
+                </select>
+            </div>
+            <div>
+                <input type="checkbox" id="availability" name="availability" value="purchased">
+                <label for="availability">Hide purchased</label>
+            </div>
+        </div>
+        <div>
+            <p>
+                {% if search_term or current_categories or current_sorting != 'None_None' %}
+                    <span class="small"><a href="{% url 'auction' %}">Auction Home</a> | </span>
+                {% endif %}
+                {{ auction|length }} Products{% if search_term %} found for <strong>"{{ search_term }}"</strong>{% endif %}
+            </p>
+        </div>
     </div>
 
     {% if request.user.is_authenticated %}
@@ -59,24 +81,23 @@
                     {% endif %}
                     <div>
                         <p>{{ auction.title }}</p>
+                        <p>{{ auction.instrument}}</p>
+                        <p>{{ auction.auction_period|date }}</p>
+                        <p>{{ auction.remaining_days }} days left </p>
                     </div>
                     <div>
                         <div>
                             <div>
-                                <p>£{{ auction.auction_price }}</p>
-                                {% if auction.category %}
-                                    <p>
-                                        {% comment %} <a href="{% url 'products' %}?category={{ auction.category.name }}">
-                                            <i class="fas fa-tag mr-1"></i>{{ auction.category.friendly_name }}
-                                        </a> {% endcomment %}
-                                    </p>
-                                {% endif %}
-                                <p>{{ auction.auction_period }}</p>
-                                
-                                {% if auction.purchased %}
-                                    <p>Available</p>
+                                {% if auction.bidders.price  %}
+                                    <p>£{{ auction.bidders.price }}</p>
                                 {% else %}
+                                    <p>£{{ auction.base_price }}</p>
+                                {% endif %}
+
+                                {% if auction.purchased %}
                                     <p>Purchased</p>
+                                {% else %}
+                                    <p>Available</p>
                                 {% endif %}
 
                                 {% if request.user.is_superuser %}
@@ -90,6 +111,33 @@
                     </div>
                 </div>
             </div>
+        </div>
         {% endfor %}
     </div>
+{% endblock %}
+
+{% block postloadjs %}
+    {{ block.super }}
+    <script type="text/javascript">
+        $('#sort-selector').change(function() {
+            var selector = $(this);
+            var currentUrl = new URL(window.location);
+
+            var selectedVal = selector.val();
+            if(selectedVal != "reset"){
+                var sort = selectedVal.split("_")[0];
+                var direction = selectedVal.split("_")[1];
+
+                currentUrl.searchParams.set("sort", sort);
+                currentUrl.searchParams.set("direction", direction);
+
+                window.location.replace(currentUrl);
+            } else {
+                currentUrl.searchParams.delete("sort");
+                currentUrl.searchParams.delete("direction");
+
+                window.location.replace(currentUrl);
+            }
+        })
+    </script>
 {% endblock %}

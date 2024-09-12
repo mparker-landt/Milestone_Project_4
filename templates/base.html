@@ -12,20 +12,22 @@
         {% endblock %}
 
         {% block corecss %}
+            <link
+                rel="stylesheet"
+                href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+              />
+
             <link rel="preconnect" href="https://fonts.googleapis.com">
             <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
             <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
             <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap" rel="stylesheet">
 
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css" integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls" crossorigin="anonymous">
+            {% comment %} <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> {% endcomment %}
             {% comment %} <link rel="stylesheet" href="{% static 'css/materialize.min.css' %}"> {% endcomment %}
             <link rel="stylesheet" href="{% static 'css/base.css' %}">
         {% endblock %}
         {% block extra_css %}
-            <!-- Required Core Stylesheet -->
-            <link rel="stylesheet" href="{% static 'css/glide.core.min.css' %}">
-            <!-- Optional Theme Stylesheet -->
-            <link rel="stylesheet" href="{% static 'css/glide.theme.min.css' %}">
         {% endblock %}
 
         {% block corejs %}
@@ -37,10 +39,13 @@
             <!-- Stripe -->
             <script src="https://js.stripe/v3/"></script>
 
-            <script type="text/javascript" src="{% static 'js/materialize.min.js' %}"></script>
-            <script type="text/javascript" src="{% static 'js/glide.min.js' %}"></script>
+            <script type="text/javascript" src="{% static 'javascript/materialize.min.js' %}"></script>
+            <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
         {% endblock %}
         {% block extra_js %}
+            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
         {% endblock %}
 
         <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}"/>
@@ -54,7 +59,7 @@
                     <div id="mainbar-store">
                         <ul class="nav-ul">
                             <li class='nav-link'><a href="{% url 'store' %}">Store</a></li>
-                            <li class='nav-link'><a href="{% url 'auction' %}">Auction</a></li>
+                            <li class='nav-link'><a href="{% url 'rental' %}">Rentals</a></li>
                         </ul>
                     </div>
                     <div id="mainbar-title">
@@ -62,38 +67,11 @@
                     </div>
                     <div id="mainbar-support">
                         <ul class="nav-ul">
-                            <li class='nav-link'><a href="{% url 'rental' %}">Rentals</a></li>
+                            <li class='nav-link'><a href="{% url 'auction' %}">Auction</a></li>
                             <li class='nav-link'><a href="{% url 'contact' %}">Contact Us</a></li>
                         </ul>
                     </div>
                 </div>
-
-                {% comment %} <div id="subbar">
-                    <div class="subbar-content">
-                        <div class="dropdown">
-                            <a class='subbar-link dropbtn' href="{% url 'profile' %}">
-                                <img src="{% static 'images/bxs-user-account.svg' %}" alt="My Account">
-                            </a>
-                        
-                            <div class="dropdown-content">
-                                {% if request.user.is_authenticated %}
-                                    {% if request.user.is_superuser %}
-                                        <a href="{% url 'add_product' %}" class="dropdown-item">Product Management</a>
-                                        <a href="{% url 'enquiries' %}" class="dropdown-item">Enquiries</a>
-                                        {% comment %} <a href="{% url 'orders' %}" class="dropdown-item">Orders</a> 
-                                    {% endif %}
-                                    <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
-                                    <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
-                                {% else %}
-                                    <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
-                                    <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
-                                {% endif %}
-                            </div>
-                        </div>
-                        
-                        <a class='subbar-link' href="{% url 'cart' %}"><img src="{% static 'images/bx-shopping-bag.svg' %}" alt="Shopping Bag"></a>
-                    </div>
-                </div> {% endcomment %}
 
                 <div id="subbar" class="pure-menu pure-menu-horizontal">
                     <div class="subbar-content">
@@ -146,6 +124,24 @@
             {% endblock %}
         </div>
 
+        {% if messages %}
+        <div class="message-container">
+            {% for message in messages %}
+                {% with message.level as level %}
+                    {% if level == 40 %}
+                        {% include 'notifications/message.html' %}
+                    {% elif level == 30 %}
+                        {% include 'notifications/message.html' %}
+                    {% elif level == 25 %}
+                        {% include 'notifications/message.html' %}
+                    {% else %}
+                        {% include 'notifications/message.html' %}
+                    {% endif %}
+                {% endwith %}
+            {% endfor %}
+        </div>
+    {% endif %}
+
         <footer>
             <div class="footer-top">
                 <div class="footer-content">
@@ -163,8 +159,8 @@
                     <div class="footer-content-panel">
                         <h3>Experience</h3>
                         <a href="{% url 'store' %}" class="shop">Shop</a>
-                        <a href="{% url 'auction' %}" class="shop">Auction</a>
                         <a href="{% url 'rental' %}" class="shop">Rentals</a>
+                        <a href="{% url 'auction' %}" class="shop">Auction</a>
                     </div>
                 </div>
             </div>
@@ -192,6 +188,24 @@
         </footer>
 
         {% block postloadjs %}
+            {% comment %} <script>
+                function launch_toast(notification, message) {
+                    var x = document.getElementById("toast")
+                    document.getElementById("toast-img").innerHTML = notification;
+                    document.getElementById("toast-desc").innerHTML = message;
+                    x.className = "show";
+                    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 5000);
+                }
+            </script> {% endcomment %}
+
+            <script type="text/javascript">
+                document.addEventListener( 'DOMContentLoaded', function() {
+                    var splide = new Splide( '.splide' );
+                    splide.mount();
+                  } );
+
+                $('.toast').toast('show');
+            </script>
         {% endblock %}
     </body>
 </html>

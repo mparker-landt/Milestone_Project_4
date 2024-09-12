@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.contrib import messages
 
 from .models import Enquiry
 from .forms import EnquiryForm
@@ -27,10 +28,12 @@ def contact(request):
         if form.is_valid():
             enquiry = form.save(commit=False)
             enquiry.save()
+            messages.success(request, f'Enquiry submitted')
+
             # process the data in form.cleaned_data as required
             # ...
             # redirect to a new URL:
-            return redirect(reverse('contact'))
+            return redirect(reverse('enquiry', args=[enquiry.enquiry_number]))
 
     # if a GET (or any other method) we'll create a blank form
     else:
@@ -70,6 +73,23 @@ def enquiries(request):
     }
 
     return render(request, 'home/enquiries.html', context)
+
+
+def enquiry(request, enquiry_number):
+    enquiry = get_object_or_404(Enquiry, enquiry_number=enquiry_number)
+
+    messages.info(request, (
+        f'This is a past confirmation for enquiry{enquiry_number}. '
+        'A confirmation email was sent on the order date.'
+    ))
+
+    template = 'home/enquiry.html'
+    context = {
+        'enquiry': enquiry,
+        'from_profile': True,
+    }
+
+    return render(request, template, context)
 
 
 # Create your views here.

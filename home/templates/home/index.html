@@ -30,47 +30,70 @@
         </div>
     </div>
 
-    <div class="home-banner"> 
-
-        
-
-        <div class="slider-wrapper">
-            <button class="slide-arrow" id="slide-arrow-prev">
-            &#8249;
-            </button>
-            <button class="slide-arrow" id="slide-arrow-next">
-            &#8250;
-            </button>
-            <ul class="slides-container" id="slides-container">
-            <li class="slide"></li>
-            <li class="slide"></li>
-            <li class="slide"></li>
-            <li class="slide"></li>
-            </ul>
-        </div> 
+    <div id="reviews" class="home-banner"> 
+        <div class="swiper">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+                <!-- Slides -->
+                <div class="swiper-slide">
+                    <p>Who knew this flugelhorn would change my life.</p>
+                    <p>The amalgamation of the most perfect materials into a form that creates musical mastery.</p>
+                    <p>I would highly recommend purchasing a flugelhorn from The Stave.</p>
+                    <p>Fantastic quality that will endure the test of time, I am certain. Thank you!</p>
+                    <p>Cat Rogers</p>
+                </div>
+                <div class="swiper-slide">
+                    <p>The Stave is awesome!</p>
+                    <p>They have a huge selection of instruments, and the quality is top-notch.</p>
+                    <p>I bought a guitar, and it sounds amazing. Plus, their customer service is super helpful and shipping was really fast.</p>
+                    <p>Highly recommend!</p>
+                    <p>Colin Pilot</p>
+                </div>
+                <div class="swiper-slide">
+                    <p>I came across The Stave as a experience musician.</p>
+                    <p>Learning about their rental service has changed my life and greatly helped for when I've given sole performances.</p>
+                    <p>I have also used their auction page to acquire surprising instruments at a great price.</p>
+                    <p>The Stave is a shop I would highly recommend and keep coming back to.</p>
+                    <p>Marcus Parker</p>
+                </div>
+            </div>
+            <!-- If we need pagination -->
+            <div class="swiper-pagination"></div>
+          
+            <!-- If we need navigation buttons -->
+            {% comment %} <div class="swiper-button-prev"></div> {% endcomment %}
+            {% comment %} <div class="swiper-button-next"></div> {% endcomment %}
+          
+            <!-- If we need scrollbar -->
+            {% comment %} <div class="swiper-scrollbar"></div> {% endcomment %}
+          </div>
     </div>
 </div>
 {% endblock %}
 
 {% block postloadjs %}
-<script>
-
-
-    const slidesContainer = document.getElementById("slides-container");
-    const slide = document.querySelector(".slide");
-    const prevButton = document.getElementById("slide-arrow-prev");
-    const nextButton = document.getElementById("slide-arrow-next");
-    
-    nextButton.addEventListener("click", () => {
-      const slideWidth = slide.clientWidth;
-      slidesContainer.scrollLeft += slideWidth;
-    });
-    
-    prevButton.addEventListener("click", () => {
-      const slideWidth = slide.clientWidth;
-      slidesContainer.scrollLeft -= slideWidth;
-    });
-    
-    
-</script>
+    <script>
+        const swiper = new Swiper('.swiper', {
+            // Optional parameters
+            direction: 'horizontal',
+            loop: true,
+          
+            // If we need pagination
+            pagination: {
+              el: '.swiper-pagination',
+            },
+          
+            // Navigation arrows
+            navigation: {
+              nextEl: '.swiper-button-next',
+              prevEl: '.swiper-button-prev',
+            },
+          
+            // And if we need scrollbar
+            scrollbar: {
+              el: '.swiper-scrollbar',
+            },
+          });
+          
+    </script>
 {% endblock %}

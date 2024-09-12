@@ -7,12 +7,12 @@ templates - text document or a Python string marked-up using the Django template
 templatetags - allows us to to do some programming on the server before sending HTML to the client
 
 admin - display your models in the Django admin panel
-apps
+apps - where you put the AppConfig classes so that Django can find them. And the AppConfig classes (can) define an app
 contexts - Python functions that can be used to modify the context data passed to a template
 forms - web forms and how they are handled in Django
 models - A model is the single, definitive source of information about your data. It contains the essential fields and behaviors of the data you're storing. Generally, each model maps to a single database table
 signals - Signals in Django are a notification system that allows certain “senders” to notify a set of “receivers” when certain actions take place
-tests
+tests - preferred way to write tests in Django is using the unittest module built-in to the Python standard library
 urls - mapping between URL path expressions to Python functions (your views)
 views - Python functions that takes http requests and returns http response, like HTML documents
 webhook_handler

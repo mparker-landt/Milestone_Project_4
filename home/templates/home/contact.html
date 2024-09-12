@@ -25,7 +25,7 @@
                 <div class="form-field">{{ form.phone_number|as_crispy_field }}</div>
                 <div class="form-field">{{ form.subject|as_crispy_field }}</div>
                 <div class="form-field">{{ form.message|as_crispy_field }}</div>
-                <div class="form-field">{{ form.signup|as_crispy_field }}</div>
+                {% comment %} <div class="form-field">{{ form.signup|as_crispy_field }}</div> {% endcomment %}
             </fieldset>
             <button class="pure-button">Submit Enquiry</button>
         </form>

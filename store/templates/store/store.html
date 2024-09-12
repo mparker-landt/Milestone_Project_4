@@ -9,24 +9,78 @@
 {% endblock %}
 
 {% block content %}
+    <div class="pure-group">
+        <p>In our store you can find all of our new products, seperated out into their respective instrument families.</p>
+        <p>Our products are all high quality and when available sizes are offered to make sure the right product fits the right user.</p>
+        <p>We hope you enjoy browsing.</p>
+        <br>
+        <p>If you have a enquiry about our products please feel free to use the contact page here.</p>
+    </div>
+
+    <div>
+        <form class="pure-form" method="GET" action="{% url 'store' %}">
+            <div>
+                <input type="text" name="q" placeholder="Search the store">
+                <div>
+                    <button class="pure-button" type="submit">
+                        <span class="icon">
+                            <i class="fas fa-search"></i>
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div>
+        <div>
+            <div>
+                <select id="sort-selector" class="custom-select custom-select-sm rounded-0 border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
+                    <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
+                    <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price (low to high)</option>
+                    <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price (high to low)</option>
+                    <option value="name_asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>Name (A-Z)</option>
+                    <option value="name_desc" {% if current_sorting == 'name_desc' %}selected{% endif %}>Name (Z-A)</option>
+                    <option value="category_asc" {% if current_sorting == 'category_asc' %}selected{% endif %}>Category (A-Z)</option>
+                    <option value="category_desc" {% if current_sorting == 'category_desc' %}selected{% endif %}>Category (Z-A)</option>
+                </select>
+            </div>
+        </div>
+        <div>
+            <p>
+                {% if search_term or current_categories or current_sorting != 'None_None' %}
+                    <span class="small"><a href="{% url 'store' %}">Store Home</a> | </span>
+                {% endif %}
+                {{ auction|length }} Products{% if search_term %} found for <strong>"{{ search_term }}"</strong>{% endif %}
+            </p>
+        </div>
+    </div>
+
     <div class="categories">
         <div class="category-select" id="store-category-strings">
-            Strings
+            <a href="{% url 'store' %}?category=string_instruments">
+                <i class="fas fa-tag mr-1"></i>String Instruments
+            </a>
         </div>
         <div class="category-select" id="store-category-brass">
-            Brass
+            <a href="{% url 'store' %}?category=brass_instruments">
+                <i class="fas fa-tag mr-1"></i>Brass Instruments
+            </a>
         </div>
         <div class="category-select" id="store-category-woodwind">
-            Woodwind
+            <a href="{% url 'store' %}?category=woodwind_instruments">
+                <i class="fas fa-tag mr-1"></i>Woodwind Instruments
+            </a>
         </div>
         <div class="category-select" id="store-category-percussion">
-            Percussion
+            <a href="{% url 'store' %}?category=percussion_instruments">
+                <i class="fas fa-tag mr-1"></i>Percussion Instruments
+            </a>
         </div>
         <div class="category-select" id="store-category-keyboards">
-            Keyboards
-        </div>
-        <div class="category-select" id="store-category-accessories">
-            Accessories
+            <a href="{% url 'store' %}?category=keyboard_instruments">
+                <i class="fas fa-tag mr-1"></i>Keyboard Instruments
+            </a>
         </div>
     </div>
 
@@ -46,18 +100,12 @@
                     {% endif %}
                     <div>
                         <p>{{ product.name }}</p>
+                        <p>{{ product.category.friendly_name}}</p>
                     </div>
                     <div>
                         <div>
                             <div>
                                 <p>£{{ product.price }}</p>
-                                {% if product.category %}
-                                    <p>
-                                        {% comment %} <a href="{% url 'products' %}?category={{ product.category.name }}">
-                                            <i class="fas fa-tag mr-1"></i>{{ product.category.friendly_name }}
-                                        </a> {% endcomment %}
-                                    </p>
-                                {% endif %}
                                 {% if product.has_sizes %}
                                     <small>{{ product.size }} size</small>
                                 {% endif %}
@@ -96,4 +144,30 @@
             {% endif %} {% endcomment %}
         {% endfor %}
     </div>
+{% endblock %}
+
+{% block postloadjs %}
+    {{ block.super }}
+    <script type="text/javascript">
+        $('#sort-selector').change(function() {
+            var selector = $(this);
+            var currentUrl = new URL(window.location);
+
+            var selectedVal = selector.val();
+            if(selectedVal != "reset"){
+                var sort = selectedVal.split("_")[0];
+                var direction = selectedVal.split("_")[1];
+
+                currentUrl.searchParams.set("sort", sort);
+                currentUrl.searchParams.set("direction", direction);
+
+                window.location.replace(currentUrl);
+            } else {
+                currentUrl.searchParams.delete("sort");
+                currentUrl.searchParams.delete("direction");
+
+                window.location.replace(currentUrl);
+            }
+        })
+    </script>
 {% endblock %}

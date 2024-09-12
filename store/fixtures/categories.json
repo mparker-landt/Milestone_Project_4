@@ -38,29 +38,5 @@
             "name": "keyboard_instruments",
             "friendly_name": "Keyboards Instruments"
         }
-    },
-    {
-        "pk": 6,
-        "model": "store.category",
-        "fields": {
-            "name": "accessories",
-            "friendly_name": "Accessories"
-        }
-    },
-    {
-        "pk": 7,
-        "model": "store.category",
-        "fields": {
-            "name": "auction",
-            "friendly_name": "Auction"
-        }
-    },
-    {
-        "pk": 8,
-        "model": "store.category",
-        "fields": {
-            "name": "rentals",
-            "friendly_name": "Rentals"
-        }
     }
 ]

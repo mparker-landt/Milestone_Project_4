@@ -37,19 +37,20 @@ class RentalAdmin(admin.ModelAdmin):
 
 class AuctionAdmin(admin.ModelAdmin):
     list_display = (
-        'auction_id',
         'title',
         'description',
+        'instrument',
         'image',
         'condition',
         'base_price',
-        'auction_price',
         'auction_period',
         'purchased',
-        'seller'
+        'seller',
+        'owner',
+        'bidders'
     )
 
-    ordering = ('auction_id',)
+    ordering = ('title',)
 
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Product, ProductAdmin)

@@ -5,7 +5,7 @@ class EnquiryForm(forms.ModelForm):
     class Meta:
         model = Enquiry
         fields = ('full_name', 'email', 'phone_number',
-                  'subject', 'message', 'signup',)
+                  'subject', 'message',)
 
     def __init__(self, *args, **kwargs):
         """
@@ -19,7 +19,6 @@ class EnquiryForm(forms.ModelForm):
             'phone_number': 'Phone Number',
             'subject': 'General Enquiry',
             'message': '',
-            'signup': False,
         }
 
         self.fields['subject'].widget.attrs['full_name'] = True

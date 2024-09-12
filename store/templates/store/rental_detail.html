@@ -29,20 +29,16 @@
                 <div>
                     <p>{{ rental.product.name }}</p>
                     <p>£{{ rental.price }}</p>
-                    {% if product.category %}
-                    <p>
-                        {% comment %} <a href="{% url 'products' %}?category={{ product.category.name }}">
-                            <i class="fas fa-tag mr-1"></i>{{ product.category.friendly_name }}
-                        </a> {% endcomment %}
-                    </p>
-                    {% endif %}
+                    <p>{{ rental.rental_period }}</p>
+
                     {% if rental.has_premium %}
-                        <small><i class="fas fa-star mr-1"></i>{{ rental.rating }}</small>
-                    {% else %}
-                        <small>No Rating</small>
+                        <small>Premium Available</small>
                     {% endif %}
+
                     <p>{{ rental.product.description }}</p>
-                    <form class="form" action="{% url 'add_to_cart' rental.product.id %}" method="POST">
+                    <p>{{ rental.rental_stock }} in stock</p>
+
+                    <form class="pure-form" action="{% url 'add_to_cart' rental.product.id %}" method="POST">
                         {% csrf_token %}
                         <div>
                             <div>
@@ -55,13 +51,13 @@
                             </div>
 
                             <div>
-                                <a href="{% url 'rental' %}">
+                                <a class="pure-button" href="{% url 'rental' %}">
                                     <span>
                                         <i class="fas fa-chevron-left"></i>
                                     </span>
                                     <span>Keep Shopping</span>
                                 </a>
-                                <input type="submit" value="Add to Bag">
+                                <input class="pure-button" type="submit" value="Add to Bag">
                             </div>
                             <input type="hidden" name="redirect_url" value="{{ request.path }}">
                         </div>

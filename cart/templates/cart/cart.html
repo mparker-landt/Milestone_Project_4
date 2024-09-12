@@ -108,13 +108,13 @@
                             </tr>
                             <tr>
                                 <td colspan="5">
-                                    <a href="{% url 'store' %}">
+                                    <a class="pure-button" href="{% url 'store' %}">
                                         <span>
                                             <i class="fas fa-chevron-left"></i>
                                         </span>
                                         <span>Keep Shopping</span>
                                     </a>
-                                    <a href="{% url 'checkout' %}">
+                                    <a class="pure-button" href="{% url 'checkout' %}">
                                         <span>Secure Checkout</span>
                                         <span>
                                             <i class="fas fa-lock"></i>
@@ -126,14 +126,14 @@
                     </div>
                 {% else %}
                     <p>Your bag is empty.</p>
-                    <a href="{% url 'store' %}">
+                    <a class="pure-button" href="{% url 'store' %}">
                         <span>
                             <i class="fas fa-chevron-left"></i>
                         </span>
                         <span class="text-uppercase">Keep Shopping</span>
                     </a>
 
-                    <a href="{% url 'checkout' %}">
+                    <a class="pure-button" href="{% url 'checkout' %}">
                         <span>Secure Checkout</span>
                         <span>
                             <i class="fas fa-lock"></i>

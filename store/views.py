@@ -1,8 +1,12 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
+from django.db.models.functions import Lower
 from django.contrib.auth.decorators import login_required
-from .models import Product, Category, AuctionProduct, RentalProduct
-from .forms import ProductForm, RentalForm, AuctionForm
+from .models import Product, Category, Bid, AuctionProduct, RentalProduct
+from .forms import ProductForm, RentalForm, AuctionForm, BidForm
+from datetime import datetime
+
+from django.db.models import Q
 
 # Create your views here.
 def store(request):
@@ -158,16 +162,16 @@ def rental(request):
             
         if 'category' in request.GET:
             categories = request.GET['category'].split(',')
-            rentals = rentals.filter(category__name__in=categories)
+            rentals = rentals.filter(product__category__name__in=categories)
             categories = Category.objects.filter(name__in=categories)
 
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
                 messages.error(request, "You didn't enter any search criteria!")
-                return redirect(reverse('store'))
+                return redirect(reverse('rental'))
             
-            queries = Q(name__icontains=query) | Q(description__icontains=query)
+            queries = Q(product__name__icontains=query) | Q(product__description__icontains=query)
             rentals = rentals.filter(queries)
 
     current_sorting = f'{sort}_{direction}'
@@ -272,9 +276,9 @@ def auction(request):
         if 'sort' in request.GET:
             sortkey = request.GET['sort']
             sort = sortkey
-            if sortkey == 'name':
+            if sortkey == 'title':
                 sortkey = 'lower_name'
-                auctions = auctions.annotate(lower_name=Lower('name'))
+                auctions = auctions.annotate(lower_name=Lower('title'))
             if sortkey == 'category':
                 sortkey = 'category__name'
             if 'direction' in request.GET:
@@ -294,7 +298,7 @@ def auction(request):
                 messages.error(request, "You didn't enter any search criteria!")
                 return redirect(reverse('store_auction'))
             
-            queries = Q(name__icontains=query) | Q(description__icontains=query)
+            queries = Q(title__icontains=query) | Q(description__icontains=query)
             auctions = auctions.filter(queries)
 
     current_sorting = f'{sort}_{direction}'
@@ -302,7 +306,6 @@ def auction(request):
     context = {
         'auctions': auctions,
         'search_term': query,
-        'current_categories': categories,
         'current_sorting': current_sorting,
     }
 
@@ -329,6 +332,7 @@ def add_auction(request):
     if request.method == 'POST':
         form = AuctionForm(request.POST, request.FILES)
         if form.is_valid():
+            form.instance.owner = request.user
             auction = form.save()
             messages.success(request, 'Successfully added auction!')
             return redirect(reverse('auction_detail', args=[auction.id]))
@@ -345,6 +349,27 @@ def add_auction(request):
     return render(request, template, context)
 
 @login_required
+def add_bid(request):
+    if request.method == 'POST':
+        form = BidForm(request.POST, request.FILES)
+        if form.is_valid():
+            auction = form.save()
+            messages.success(request, 'Successfully added auction!')
+            return redirect(reverse('auction_detail', args=[auction.id]))
+        else:
+            messages.error(request, 'Failed to add auction. Please ensure the form is valid.')
+    else:
+        form = BidForm()
+        
+    template = 'store/auction.html'
+    context = {
+        'form': form,
+    }
+
+    return render(request, template, context)
+
+
+@login_required
 def edit_auction(request, auction_id):
     """ Edit a rental in the store """
     if not request.user.is_superuser:
@@ -355,6 +380,7 @@ def edit_auction(request, auction_id):
     if request.method == 'POST':
         form = AuctionForm(request.POST, request.FILES, instance=auction)
         if form.is_valid():
+            form.instance.owner = request.user
             form.save()
             messages.success(request, 'Successfully updated auction!')
             return redirect(reverse('auction_detail', args=[auction.id]))

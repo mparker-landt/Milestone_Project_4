@@ -31,18 +31,21 @@
                     <p>£{{ product.price }}</p>
                     {% if product.category %}
                     <p>
-                        {% comment %} <a href="{% url 'products' %}?category={{ product.category.name }}">
-                            <i class="fas fa-tag mr-1"></i>{{ product.category.friendly_name }}
-                        </a> {% endcomment %}
+                        <a href="{% url 'store' %}?category={{ product.category.name }}">
+                            {{ product.category.friendly_name }}
+                        </a>
                     </p>
                     {% endif %}
-                    {% if product.rating %}
-                        <small><i class="fas fa-star mr-1"></i>{{ product.rating }} / 5</small>
-                    {% else %}
-                        <small>No Rating</small>
+                    {% if product.has_sizes %}
+                        <small><i></i>{{ product.size }} size</small>
                     {% endif %}
                     <p>{{ product.description }}</p>
-                    <form class="form" action="{% url 'add_to_cart' product.id %}" method="POST">
+                    {% if product.stock == 0 %}
+                        <p>Product Unavailable</p>
+                    {% else %}
+                        <p>{{product.stock}} in stock</p>
+                    {% endif%}
+                    <form class="pure-form" action="{% url 'add_to_cart' product.id %}" method="POST">
                         {% csrf_token %}
                         <div>
                             <div>
@@ -55,13 +58,13 @@
                             </div>
 
                             <div>
-                                <a href="{% url 'store' %}">
+                                <a class="pure-button" href="{% url 'store' %}">
                                     <span>
                                         <i class="fas fa-chevron-left"></i>
                                     </span>
                                     <span>Keep Shopping</span>
                                 </a>
-                                <input type="submit" value="Add to Bag">
+                                <input class="pure-button" type="submit" value="Add to Bag">
                             </div>
                             <input type="hidden" name="redirect_url" value="{{ request.path }}">
                         </div>

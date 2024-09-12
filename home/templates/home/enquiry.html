@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'home/css/home.css' %}">
+{% endblock %}
+
+{% block page_header %}
+{% endblock %}
+
+{% block content %}
+    <div class="overlay"></div>
+    <div>
+        <div>
+            <div>
+                <hr>
+                <h2>Thank You</h2>
+                <hr>
+                <p>Thank you for your enquiry. Our admins have been notified and the manner will be looked into as soon as we can.</p>
+            </div>
+        </div>
+
+        <div>
+            <div>
+                <div>
+                    <div>
+                        <div>
+                            <h4>Enquiry Info:</h4>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div>
+                            <p>Enquiry Number</p>
+                        </div>
+                        <div>
+                            <p>{{ enquiry.enquiry_number }}</p>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div>
+                            <p>Date</p>
+                        </div>
+                        <div>
+                            <p>{{ enquiry.create_date }}</p>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div>
+                            <p>Contact Name</p>
+                        </div>
+                        <div>
+                            <p>{{ enquiry.full_name }}</p>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div>
+                            <p>Contact Email</p>
+                        </div>
+                        <div>
+                            <p>{{ enquiry.email }}</p>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div>
+                            <p>Contact Number</p>
+                        </div>
+                        <div>
+                            <p>{{ enquiry.phone_number }}</p>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div>
+                            <p>Subject</p>
+                        </div>
+                        <div>
+                            <p>{{ enquiry.subject }}</p>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div>
+                            <p>Description</p>
+                        </div>
+                        <div>
+                            <p>{{ enquiry.message }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block postloadjs %}
+{% endblock %}

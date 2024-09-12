@@ -24,16 +24,18 @@
             <div>
                 <form class="pure-form" method="POST" action="{% url 'add_auction' %}" enctype="multipart/form-data">
                     {% csrf_token %}
-                    {% for field in form %}
-                        {% if field.name != 'image' %}
-                            {{ field | as_crispy_field }}
-                        {% else %}
-                            {{ field }}
-                        {% endif %}
-                    {% endfor %}
+                    <fieldset>Auction Details</fieldset>
+                    <div class="form-field">{{ form.title|as_crispy_field }}</div>
+                    <div class="form-field">{{ form.description|as_crispy_field }}</div>
+                    <div class="form-field">{{ form.instrument|as_crispy_field }}</div>
+                    <div class="form-field">{{ form.image_url|as_crispy_field }}</div>
+                    <div class="form-field">{{ form.image }}</div>
+                    <div class="form-field">{{ form.auction_period|as_crispy_field }}</div>
+                    <div class="form-field">{{ form.condition|as_crispy_field }}</div>
+                    <div class="form-field">{{ form.base_price|as_crispy_field }}</div>
                     <div>
-                        <a href="{% url 'auction' %}">Cancel</a>
-                        <button type="submit">Add Product</button>
+                        <a class="pure-button" href="{% url 'auction' %}">Cancel</a>
+                        <button class="pure-button" type="submit">Add Product</button>
                     </div>
                 </form>
             </div>  
