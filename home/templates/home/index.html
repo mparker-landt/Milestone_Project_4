@@ -21,12 +21,12 @@
     </div>
 
     <div class="home-half">
-        <div class="home-half-banner">
-            ABOUT
+        <div class="home-half-banner banner-left">
+            <a href="{% url 'about' %}">About Us</a>
         </div>
     
-        <div class="home-half-banner">
-            FAQ
+        <div class="home-half-banner banner-right">
+            <a href="{% url 'faq' %}">FAQ</a>
         </div>
     </div>
 
@@ -50,7 +50,7 @@
                     <p>Colin Pilot</p>
                 </div>
                 <div class="swiper-slide">
-                    <p>I came across The Stave as a experience musician.</p>
+                    <p>I came across The Stave as a experienced musician.</p>
                     <p>Learning about their rental service has changed my life and greatly helped for when I've given sole performances.</p>
                     <p>I have also used their auction page to acquire surprising instruments at a great price.</p>
                     <p>The Stave is a shop I would highly recommend and keep coming back to.</p>
@@ -61,11 +61,8 @@
             <div class="swiper-pagination"></div>
           
             <!-- If we need navigation buttons -->
-            {% comment %} <div class="swiper-button-prev"></div> {% endcomment %}
-            {% comment %} <div class="swiper-button-next"></div> {% endcomment %}
-          
-            <!-- If we need scrollbar -->
-            {% comment %} <div class="swiper-scrollbar"></div> {% endcomment %}
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
           </div>
     </div>
 </div>
@@ -79,8 +76,8 @@
             loop: true,
             speed: 400,
             autoplay: {
-                delay: 5000,
-              },
+                delay: 7500,
+            },
           
             // If we need pagination
             pagination: {
@@ -92,12 +89,6 @@
               nextEl: '.swiper-button-next',
               prevEl: '.swiper-button-prev',
             },
-          
-            // And if we need scrollbar
-            scrollbar: {
-              el: '.swiper-scrollbar',
-            },
-          });
-          
+        });  
     </script>
 {% endblock %}

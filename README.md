@@ -213,9 +213,10 @@ If the user hits an error Error Pages are displayed explaining the particular er
 - https://coolors.co - Colour Palette
 - google fonts
 - https://www.freepik.com/ - Error Page images
-- PureCss
+- [PureCss](https://purecss.io)
 - https://swiperjs.com
 - https://codepen.io/plenco/pen/vYdojKW
+- https://github.com/CodeSeven/toastr
 
 ## Testing
 

@@ -15,7 +15,7 @@
             <link
                 rel="stylesheet"
                 href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-              />
+            />
 
             <link rel="preconnect" href="https://fonts.googleapis.com">
             <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,8 +23,7 @@
             <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap" rel="stylesheet">
 
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css" integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls" crossorigin="anonymous">
-            {% comment %} <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> {% endcomment %}
-            {% comment %} <link rel="stylesheet" href="{% static 'css/materialize.min.css' %}"> {% endcomment %}
+            <link rel="stylesheet" type="text/css" href="{% static 'css/toastr.css' %}" media="all">
             <link rel="stylesheet" href="{% static 'css/base.css' %}">
         {% endblock %}
         {% block extra_css %}
@@ -39,12 +38,10 @@
             <!-- Stripe -->
             <script src="https://js.stripe/v3/"></script>
 
-            <script type="text/javascript" src="{% static 'javascript/materialize.min.js' %}"></script>
             <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
         {% endblock %}
         {% block extra_js %}
-            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+            <script src="{% static 'js/toastr.js' %}"></script>  
             <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
         {% endblock %}
 
@@ -108,7 +105,7 @@
                             </ul>
                         </li>
                         <li class="pure-menu-item pure-menu-selected">
-                            <a href="{% url 'cart' %}" class="pure-menu-link"><img src="{% static 'images/bx-shopping-bag.svg' %}" alt="Shopping Bag"></a>
+                            <a href="{% url 'cart' %}" class="pure-menu-link"><img src="{% static 'images/bx-shopping-bag.svg' %}" alt="Shopping Bag"> <small class="cart-quantity">{{product_count}}</small></a>
                         </li>
                     </ul>
                 </div>
@@ -119,28 +116,24 @@
         {% block page_header %}
         {% endblock %}
 
-        <div>
+        <div class="main-outlet">
             {% block content %}
             {% endblock %}
         </div>
 
         {% if messages %}
-        <div class="message-container">
             {% for message in messages %}
-                {% with message.level as level %}
-                    {% if level == 40 %}
-                        {% include 'notifications/message.html' %}
-                    {% elif level == 30 %}
-                        {% include 'notifications/message.html' %}
-                    {% elif level == 25 %}
-                        {% include 'notifications/message.html' %}
-                    {% else %}
-                        {% include 'notifications/message.html' %}
-                    {% endif %}
-                {% endwith %}
+                {% if message.tags == 'success'%}
+                    <script type=text/javascript>toastr.{{ message.tags }}('{{ message }}')</script>
+                {% elif message.tags == 'info' %}
+                    <script type=text/javascript>toastr.{{ message.tags }}('{{ message }}')</script>
+                {% elif message.tags == 'warning' %}
+                    <script type=text/javascript>toastr.{{ message.tags }}('{{ message }}')</script>
+                {% elif message.tags == 'error' %}
+                    <script type=text/javascript>toastr.{{ message.tags }}('{{ message }}')</script>
+                {% endif %}
             {% endfor %}
-        </div>
-    {% endif %}
+        {% endif %}
 
         <footer>
             <div class="footer-top">
@@ -188,23 +181,21 @@
         </footer>
 
         {% block postloadjs %}
-            {% comment %} <script>
-                function launch_toast(notification, message) {
-                    var x = document.getElementById("toast")
-                    document.getElementById("toast-img").innerHTML = notification;
-                    document.getElementById("toast-desc").innerHTML = message;
-                    x.className = "show";
-                    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 5000);
-                }
-            </script> {% endcomment %}
+            <script>
+                {% comment %} document.addEventListener( 'DOMContentLoaded', function() {
+                    $(function () {
+                        if ($(".cart-quantity").text() == "0") {
+                            $(".cart-quantity").hide();
+                        }
+                    });
+                } ); {% endcomment %}
+            </script>
 
             <script type="text/javascript">
                 document.addEventListener( 'DOMContentLoaded', function() {
                     var splide = new Splide( '.splide' );
                     splide.mount();
-                  } );
-
-                $('.toast').toast('show');
+                } );
             </script>
         {% endblock %}
     </body>

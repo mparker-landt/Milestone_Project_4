@@ -61,3 +61,9 @@ def cart_contents(request):
     }
 
     return context
+
+def cart_quantity(request):
+    cart_items = []
+    total = 0
+    product_count = 0
+    cart = request.session.get('cart', {})

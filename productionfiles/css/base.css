@@ -18,6 +18,8 @@ header {
     top: 0;
 
     background: whitesmoke;
+
+    z-index: 1;
 }
 
 nav {
@@ -33,6 +35,8 @@ nav {
 
     font-family: "Cinzel", serif;
     text-transform: uppercase;
+
+    background: whitesmoke;
 }
 
 #mainbar-store {
@@ -266,6 +270,19 @@ footer a:hover {
     /* height: 500px; */
     margin: 2%;
     /* background: lightblue; */
+}
+
+.main-outlet {
+    min-height: 75vh;
+}
+
+.cart-quantity {
+    display: inline-block;
+    border-radius: 45%;
+    width: 15px;
+    height: 15px;
+    background: #BB4430;
+    color: white;
 }
 
 

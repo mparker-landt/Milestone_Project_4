@@ -9,10 +9,6 @@
 {% endblock %}
 
 {% block content %}
-    {% comment %} <div class="store-banner" id="checkout-banner">
-        CHECKOUT
-    </div> {% endcomment %}
-
     <div class="overlay"></div>
     <div class="container">
         <div>
@@ -71,7 +67,7 @@
             </div>
             <div>
                 <p>Please fill out the form below to complete your order</p>
-                <form action="{% url 'checkout' %}" method="POST" id="payment-form">
+                <form class="pure-form" action="{% url 'checkout' %}" method="POST" id="payment-form">
                     {% csrf_token %}
                     <fieldset>
                         <legend>Details</legend>
@@ -110,7 +106,7 @@
                     </fieldset>
 
                     <div>                    
-						<a href="{% url 'cart' %}">
+						<a class="pure-button" href="{% url 'cart' %}">
 							<span>
 								<i class="fas fa-chevron-left"></i>
 							</span>
