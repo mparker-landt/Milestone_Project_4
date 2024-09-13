@@ -95,18 +95,18 @@ TBC
 ## Features
 ### Models
 The available models are available on the site split into their respective apps.
-CHECKOUT
-Order
-OrderLineItem
-HOME
-Enquiry
-PROFILES
-UserProfile
-STORE
-Category
-Product
-Auction
-Rentals
+* Checkout
+  - Order
+  - OrderLineItem
+* Home
+  - Enquiry
+* Profiles
+  - UserProfile
+* Store
+  - Category
+  - Product
+  - Auction
+  - Rentals
 
 ### Functional Features
 #### Static Pages
@@ -215,7 +215,6 @@ If the user hits an error Error Pages are displayed explaining the particular er
 - https://www.freepik.com/ - Error Page images
 - [PureCss](https://purecss.io)
 - https://swiperjs.com
-- https://codepen.io/plenco/pen/vYdojKW
 - https://github.com/CodeSeven/toastr
 
 ## Testing

@@ -26,6 +26,10 @@ nav {
     display: block;
 }
 
+.pure-menu-link:hover {
+    background: none;
+}
+
 #mainbar {
     display: flex;
     height: 70px;
@@ -247,12 +251,12 @@ footer {
 }
 
 footer a {
-    color: #56666B;
+    color: white;
     text-decoration: none;
 }
 
 footer a:hover {
-    color: white;
+    color: #BB4430;
     /* background: #38182F; */
 }
 
@@ -260,11 +264,6 @@ footer a:hover {
     color: #56666B;
     margin: 0 2%;
 }
-
-.footer-media-content a:hover {
-    border: 1px solid #38182F;
-}
-
 
 .store-banner {
     /* height: 500px; */

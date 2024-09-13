@@ -74,7 +74,7 @@
                     <div class="subbar-content">
                     <ul class="pure-menu-list">
                         <li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover">
-                            <a href="#" id="menuLink1" class="pure-menu-link"><img src="{% static 'images/bxs-user-account.svg' %}" alt="My Account"></a>
+                            <a href="#" id="menuLink1" class="pure-menu-link"><box-icon name='user-account' type='solid' animation='tada-hover' color='#ffffff'></box-icon></a>
                             <ul class="pure-menu-children">
                                 {% if request.user.is_authenticated %}
                                     {% if request.user.is_superuser %}
@@ -105,9 +105,10 @@
                             </ul>
                         </li>
                         <li class="pure-menu-item pure-menu-selected">
-                            <a href="{% url 'cart' %}" class="pure-menu-link"><img src="{% static 'images/bx-shopping-bag.svg' %}" alt="Shopping Bag"> <small class="cart-quantity">{{product_count}}</small></a>
+                            <a href="{% url 'cart' %}" class="pure-menu-link"><box-icon name='cart-alt' animation='tada-hover' color='#ffffff'></box-icon><small class="cart-quantity">{{product_count}}</small></a>
                         </li>
                     </ul>
+                    
                 </div>
                 </div>
             </nav>
@@ -161,19 +162,19 @@
                 <div class="footer-media">
                     <div class="footer-media-content">
                         <a href="https://www.facebook.com" target="_blank">
-                            <box-icon class="icon" name='facebook' type='logo' color='#56666b' ></box-icon>
+                            <box-icon class="icon" name='facebook' type='logo' animation='tada-hover' color='#56666b' ></box-icon>
                         </a>
                         <a href="https://x.com" target="_blank">
-                            <box-icon name='twitter' type='logo' color='#56666b' ></box-icon>
+                            <box-icon name='twitter' type='logo' animation='tada-hover' color='#56666b' ></box-icon>
                         </a>
                         <a href="https://www.instagram.com/" target="_blank">
-                            <box-icon name='instagram' type='logo' color='#56666b' ></box-icon>
+                            <box-icon name='instagram' type='logo' animation='tada-hover' color='#56666b' ></box-icon>
                         </a>
                         <a href="https://www.youtube.com/" target="_blank">
-                            <box-icon name='youtube' type='logo' color='#56666b' ></box-icon>
+                            <box-icon name='youtube' type='logo' animation='tada-hover' color='#56666b' ></box-icon>
                         </a>
                         <a href="https://www.linkedin.com" target="_blank">
-                            <box-icon name='linkedin' type='logo' color='#56666b' ></box-icon>
+                            <box-icon name='linkedin' type='logo' animation='tada-hover' color='#56666b' ></box-icon>
                         </a>
                     </div>
                 </div>

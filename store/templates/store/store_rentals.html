@@ -57,26 +57,33 @@
         </div>
     </div>
 
-    {% comment %} <div class="categories">
-        <div class="category-select">
-            Strings
+    <div class="categories">
+        <div class="category-select" id="rental-category-strings">
+            <a href="{% url 'rental' %}?category=string_instruments">
+                <i class="fas fa-tag mr-1"></i>String Instruments
+            </a>
         </div>
-        <div class="category-select">
-            Brass
+        <div class="category-select" id="rental-category-brass">
+            <a href="{% url 'rental' %}?category=brass_instruments">
+                <i class="fas fa-tag mr-1"></i>Brass Instruments
+            </a>
         </div>
-        <div class="category-select">
-            Woodwind
+        <div class="category-select" id="rental-category-woodwind">
+            <a href="{% url 'rental' %}?category=woodwind_instruments">
+                <i class="fas fa-tag mr-1"></i>Woodwind Instruments
+            </a>
         </div>
-        <div class="category-select">
-            Percussion
+        <div class="category-select" id="rental-category-percussion">
+            <a href="{% url 'rental' %}?category=percussion_instruments">
+                <i class="fas fa-tag mr-1"></i>Percussion Instruments
+            </a>
         </div>
-        <div class="category-select">
-            Keyboards
+        <div class="category-select" id="rental-category-keyboards">
+            <a href="{% url 'rental' %}?category=keyboard_instruments">
+                <i class="fas fa-tag mr-1"></i>Keyboard Instruments
+            </a>
         </div>
-        <div class="category-select">
-            Accessories
-        </div>
-    </div> {% endcomment %}
+    </div>
 
     <div class="store-banner">
         {% for rental in rentals %}
@@ -96,6 +103,7 @@
                             <div>
                                 <div>
                                     <p>{{rental.product.name}}</p>
+                                    <p>{{ rental.product.category.friendly_name}}</p>
                                     {% if rental.product.has_sizes%}
                                         <p>{{rental.product.size}}</p>
                                     {% endif %}

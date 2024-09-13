@@ -52,7 +52,7 @@
                                 <p><strong>Quantity:</strong></p>
                                 <div>
                                     <div>
-                                        <input type="number" name="quantity" value="1" min="1" max="99" data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
+                                        <input type="number" name="quantity" value="1" min="1" max={{product.stock}} data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
                                     </div>
                                 </div>
                             </div>
@@ -64,7 +64,11 @@
                                     </span>
                                     <span>Keep Shopping</span>
                                 </a>
-                                <input class="pure-button" type="submit" value="Add to Bag">
+                                {% if product.stock == 0 %}
+                                    <input class="pure-button" type="submit" value="Add to Bag" disabled>
+                                {% else %}
+                                    <input class="pure-button" type="submit" value="Add to Bag">
+                                {% endif %}
                             </div>
                             <input type="hidden" name="redirect_url" value="{{ request.path }}">
                         </div>

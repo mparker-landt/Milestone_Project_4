@@ -451,9 +451,9 @@ def add_auction(request):
     int:Returning value
     """
     
-    if not request.user.is_superuser:
-        messages.error(request, 'Sorry, only store owners can do that.')
-        return redirect(reverse('home'))
+    # if not request.user.is_superuser:
+    #     messages.error(request, 'Sorry, only store owners can do that.')
+    #     return redirect(reverse('home'))
 
     if request.method == 'POST':
         form = AuctionForm(request.POST, request.FILES)
