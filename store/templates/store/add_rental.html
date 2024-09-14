@@ -24,13 +24,13 @@
             <div>
                 <form class="pure-form" method="POST" action="{% url 'add_rental' %}" enctype="multipart/form-data">
                     {% csrf_token %}
-                    {% for field in form %}
-                        {% if field.name != 'image' %}
-                            {{ field | as_crispy_field }}
-                        {% else %}
-                            {{ field }}
-                        {% endif %}
-                    {% endfor %}
+                    <div class="form-field">{{ form.product.name|add:'_'|add:form.product.size|as_crispy_field }}</div>
+                    <div class="form-field">{{ form.rental_sku|as_crispy_field }}</div>
+                    <div class="form-field">{{ form.rental_price|as_crispy_field }}</div>
+                    {% comment %} <div class="form-field">{{ form.image_url|as_crispy_field }}</div> {% endcomment %}
+                    {% comment %} <div class="form-field">{{ form.image }}</div> {% endcomment %}
+                    <div class="form-field">{{ form.rental_stock|as_crispy_field }}</div>
+                    <div class="form-field">{{ form.has_premium|as_crispy_field }}</div>
                     <div>
                         <a class="pure-button" href="{% url 'rental' %}">Cancel</a>
                         <button class="pure-button" type="submit">Add</button>

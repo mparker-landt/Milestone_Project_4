@@ -4,23 +4,22 @@ from django.contrib import messages
 from .models import Enquiry
 from .forms import EnquiryForm
 
-# Create your views here.
+
 def index(request):
     """ A view to return the index page """
 
     return render(request, 'home/index.html')
 
 
-# Create your views here.
 def about(request):
     """ A view to return the about us webpage """
 
     return render(request, 'home/about.html')
 
 
-# Create your views here.
 def contact(request):
-    """ A view to return the about us webpage """
+    """ A view to return the contact us webpage """
+
     if request.method == "POST":
         # create a form instance and populate it with data from the request:
         form = EnquiryForm(request.POST)
@@ -48,23 +47,21 @@ def contact(request):
 
     return render(request, template, context)
 
-# Create your views here.
+
 def contact_success(request):
-    """ A view to return the about us webpage """
+    """ A view to return the contact successful webpage """
 
     return render(request, 'home/contact_success.html')
 
 
-# Create your views here.
 def cookies(request):
-    """ A view to return the about us webpage """
+    """ A view to return the cookie policy webpage """
 
     return render(request, 'home/cookies.html')
 
 
-# Create your views here.
 def enquiries(request):
-    """ A view to return the about us webpage """
+    """ A view to return the admin enquiries webpage """
 
     enquiries = Enquiry.objects.all()
 
@@ -76,6 +73,8 @@ def enquiries(request):
 
 
 def enquiry(request, enquiry_number):
+    """ A view to return a specific enquiry webpage """
+
     enquiry = get_object_or_404(Enquiry, enquiry_number=enquiry_number)
 
     messages.info(request, (
@@ -92,15 +91,13 @@ def enquiry(request, enquiry_number):
     return render(request, template, context)
 
 
-# Create your views here.
 def faq(request):
-    """ A view to return the about us webpage """
+    """ A view to return the FAQ webpage """
 
     return render(request, 'home/faq.html')
 
 
-# Create your views here.
 def privacy(request):
-    """ A view to return the about us webpage """
+    """ A view to return the Privacy Policy webpage """
 
     return render(request, 'home/privacy.html')

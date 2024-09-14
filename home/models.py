@@ -6,17 +6,9 @@ from django.dispatch import receiver
 from django.utils import timezone
 import datetime
 
-# Create your models here.
+
 class Enquiry(models.Model):
-    """
-    Summary or Description of the Function
-
-    Parameters:
-    argument1 (int): Description of arg1
-
-    Returns:
-    int:Returning value
-    """
+    """ Enquiry model that has requester and enquiry details """
 
     class Meta:
         verbose_name_plural = 'Enquiries'

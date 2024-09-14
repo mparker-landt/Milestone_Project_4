@@ -3,15 +3,12 @@ from django.conf import settings
 from django.shortcuts import get_object_or_404
 from store.models import Product
 
-def cart_contents(request):
-    """
-    Summary or Description of the Function
 
-    Parameters:
-    argument1 (int): Description of arg1
+def cart_contents(request):
+    """ Decribes all contents of the shopping cart with quantities and prices
 
     Returns:
-    int:Returning value
+    cart items and quantities, delivery and total costs
     """
 
     cart_items = []
@@ -44,7 +41,7 @@ def cart_contents(request):
     delivery = Decimal(9.95) #total * Decimal(settings.STANDARD_DELIVERY_PERCENTAGE / 100)
     # free_delivery_delta = settings.FREE_DELIVERY_THRESHOLD - total
     grand_total = delivery + total
-    
+
     context = {
         'cart_items': cart_items,
         'total': total,
@@ -56,9 +53,3 @@ def cart_contents(request):
     }
 
     return context
-
-def cart_quantity(request):
-    cart_items = []
-    total = 0
-    product_count = 0
-    cart = request.session.get('cart', {})

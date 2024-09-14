@@ -3,31 +3,15 @@ from .models import Order, OrderLineItem
 
 
 class OrderLineItemAdminInline(admin.TabularInline):
-    """
-    Summary or Description of the Function
+    """ Fields for OrderlineItem Model to show on admin page """
 
-    Parameters:
-    argument1 (int): Description of arg1
-
-    Returns:
-    int:Returning value
-    """
-    
     model = OrderLineItem
     readonly_fields = ('lineitem_total',)
 
 
 class OrderAdmin(admin.ModelAdmin):
-    """
-    Summary or Description of the Function
+    """ Fields for Order Model to show on admin page """
 
-    Parameters:
-    argument1 (int): Description of arg1
-
-    Returns:
-    int:Returning value
-    """
-    
     inlines = (OrderLineItemAdminInline,)
 
     readonly_fields = ('order_number', 'date',
@@ -47,5 +31,6 @@ class OrderAdmin(admin.ModelAdmin):
                     'grand_total',)
 
     ordering = ('-date',)
+
 
 admin.site.register(Order, OrderAdmin)

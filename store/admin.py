@@ -1,34 +1,19 @@
 from django.contrib import admin
 from .models import Category, Product, AuctionProduct, RentalProduct
 
-# Register your models here.
+
 class CategoryAdmin(admin.ModelAdmin):
-    """
-    Summary or Description of the Function
+    """ Fields for Cateogry Model to show on admin page """
 
-    Parameters:
-    argument1 (int): Description of arg1
-
-    Returns:
-    int:Returning value
-    """
-    
     list_display = (
         'name',
         'friendly_name'
     )
 
+
 class ProductAdmin(admin.ModelAdmin):
-    """
-    Summary or Description of the Function
+    """Fields for Product Model to show on admin page"""
 
-    Parameters:
-    argument1 (int): Description of arg1
-
-    Returns:
-    int:Returning value
-    """
-    
     list_display = (
         'sku',
         'name',
@@ -42,17 +27,10 @@ class ProductAdmin(admin.ModelAdmin):
 
     ordering = ('sku',)
 
+
 class RentalAdmin(admin.ModelAdmin):
-    """
-    Summary or Description of the Function
+    """ Fields for Rental Model to show on admin page """
 
-    Parameters:
-    argument1 (int): Description of arg1
-
-    Returns:
-    int:Returning value
-    """
-    
     list_display = (
         'product',
         'rental_sku',
@@ -65,17 +43,10 @@ class RentalAdmin(admin.ModelAdmin):
 
     ordering = ('rental_sku',)
 
+
 class AuctionAdmin(admin.ModelAdmin):
-    """
-    Summary or Description of the Function
+    """ Fields for Auction Model to show on admin page """
 
-    Parameters:
-    argument1 (int): Description of arg1
-
-    Returns:
-    int:Returning value
-    """
-    
     list_display = (
         'title',
         'description',
@@ -83,14 +54,15 @@ class AuctionAdmin(admin.ModelAdmin):
         'image',
         'condition',
         'base_price',
+        'auction_price',
         'auction_period',
         'purchased',
-        'seller',
         'owner',
         'bidders'
     )
 
     ordering = ('title',)
+
 
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Product, ProductAdmin)

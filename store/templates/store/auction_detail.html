@@ -34,9 +34,10 @@
                     {% if auction.purchased %}
                         <p>Sorry, this product has ended.</p>
                     {% else %}
-                        {% if auction.bidders.price  %}
-                            <p>Current bid = £{{ auction.bidders.price }}</p>
+                        {% if auction_price  %}
+                            <p>Current bid = £{{ auction_price }}</p>
                         {% else %}
+                            <p>Bidder={{auction.bidders}}</p>
                             <p>Current price = £{{ auction.base_price }}</p>
                         {% endif %}
                     {% endif %}
@@ -52,18 +53,19 @@
                     {% else %}
                         {% if request.user.is_authenticated%}
                             {% if request.user != auction.owner %}
-                                <form class="pure-form" action="{% url 'add_bid' %}" method="POST">
+                                <form class="pure-form" action="{% url 'add_bid' auction.id %}" method="POST" enctype="multipart/form-data">
                                     {% csrf_token %}
                                     <div>
                                         <div>
                                             <p><strong>Enter bid:</strong></p>
                                             <div>
                                                 <div>
-                                                    {% if auction.bidders.price  %}
-                                                        <input type="number" min={{ auction.bidders.price|add:1.0 }} value={{ auction.bidders.price|add:1.0 }} step="0.01" name="quantity" data-item_id="{{ auction.id }}" id="id_qty_{{ auction.id }}">
+                                                    <div class="form-field">{{ form.auction_price|as_crispy_field }}</div>
+                                                    {% comment %} {% if auction.bidders.price  %}
+                                                        <input type="number" min={{ auction.auction_price|add:1.0 }} value={{ auction.auction_price|add:1.0 }} step="0.01" name="quantity" data-item_id="{{ auction.id }}" id="id_qty_{{ auction.id }}">
                                                     {% else %}
                                                         <input type="number" min={{ auction.base_price }} value={{ auction.base_price }} step="0.01" name="quantity" data-item_id="{{ auction.id }}" id="id_qty_{{ auction.id }}">
-                                                    {% endif %}
+                                                    {% endif %} {% endcomment %}
                                                 </div>
                                             </div>
                                         </div>

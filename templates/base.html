@@ -12,17 +12,13 @@
         {% endblock %}
 
         {% block corecss %}
-            <link
-                rel="stylesheet"
-                href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-            />
-
             <link rel="preconnect" href="https://fonts.googleapis.com">
             <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
             <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
             <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap" rel="stylesheet">
 
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css" integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls" crossorigin="anonymous">
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
             <link rel="stylesheet" type="text/css" href="{% static 'css/toastr.css' %}" media="all">
             <link rel="stylesheet" href="{% static 'css/base.css' %}">
         {% endblock %}
@@ -42,7 +38,6 @@
         {% endblock %}
         {% block extra_js %}
             <script src="{% static 'js/toastr.js' %}"></script>  
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
         {% endblock %}
 
         <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}"/>
@@ -50,8 +45,10 @@
     </head>
 
     <body>
+        <!-- Header -->
         <header>
             <nav id="navbar">
+                <!-- Header mainbar with links to Stores and Enquires pages -->
                 <div id="mainbar">
                     <div id="mainbar-store">
                         <ul class="nav-ul">
@@ -70,6 +67,7 @@
                     </div>
                 </div>
 
+                <!-- Header subbar with User Profile dropdown and Shopping Cart link -->
                 <div id="subbar" class="pure-menu pure-menu-horizontal">
                     <div class="subbar-content">
                     <ul class="pure-menu-list">
@@ -114,14 +112,17 @@
             </nav>
         </header>
 
+        <!-- Content for page title, not used in this project -->
         {% block page_header %}
         {% endblock %}
 
+        <!-- Content for main body, called from other pages via Django templates -->
         <div class="main-outlet">
             {% block content %}
             {% endblock %}
         </div>
 
+        <!-- Toast notifications with levels -->
         {% if messages %}
             {% for message in messages %}
                 {% if message.tags == 'success'%}
@@ -136,7 +137,9 @@
             {% endfor %}
         {% endif %}
 
+        <!-- Footer -->
         <footer>
+            <!-- Footer mainbar with links to all of the website -->
             <div class="footer-top">
                 <div class="footer-content">
                     <div class="footer-content-panel">
@@ -158,6 +161,7 @@
                     </div>
                 </div>
             </div>
+            <!-- Footer subbar, has external links to social media accoutns -->
             <div class="footer-bottom">
                 <div class="footer-media">
                     <div class="footer-media-content">
@@ -181,23 +185,8 @@
             </div>
         </footer>
 
+        <!-- JS Scripts -->
         {% block postloadjs %}
-            <script>
-                {% comment %} document.addEventListener( 'DOMContentLoaded', function() {
-                    $(function () {
-                        if ($(".cart-quantity").text() == "0") {
-                            $(".cart-quantity").hide();
-                        }
-                    });
-                } ); {% endcomment %}
-            </script>
-
-            <script type="text/javascript">
-                document.addEventListener( 'DOMContentLoaded', function() {
-                    var splide = new Splide( '.splide' );
-                    splide.mount();
-                } );
-            </script>
         {% endblock %}
     </body>
 </html>

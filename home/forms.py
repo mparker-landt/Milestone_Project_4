@@ -1,17 +1,10 @@
 from django import forms
 from .models import Enquiry
 
+
 class EnquiryForm(forms.ModelForm):
-    """
-    Summary or Description of the Function
+    """ Form for Enquiry model with fields to use and placeholders for those fields """
 
-    Parameters:
-    argument1 (int): Description of arg1
-
-    Returns:
-    int:Returning value
-    """
-    
     class Meta:
         model = Enquiry
         fields = ('full_name', 'email', 'phone_number',

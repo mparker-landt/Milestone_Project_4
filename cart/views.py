@@ -2,31 +2,15 @@ from django.shortcuts import render, redirect, reverse, HttpResponse, get_object
 from django.contrib import messages
 from store.models import Product
 
-# Create your views here.
+
 def cart(request):
-    """
-    Summary or Description of the Function
-
-    Parameters:
-    argument1 (int): Description of arg1
-
-    Returns:
-    int:Returning value
-    """
+    """ Link to the cart HTML page """
 
     return render(request, 'cart/cart.html')
 
 
 def add_to_cart(request, item_id):
-    """
-    Summary or Description of the Function
-
-    Parameters:
-    argument1 (int): Description of arg1
-
-    Returns:
-    int:Returning value
-    """
+    """ Adds a product from one of the stores to the shopping cart """
 
     product = get_object_or_404(Product, pk=item_id)
     quantity = int(request.POST.get('quantity'))
@@ -60,16 +44,8 @@ def add_to_cart(request, item_id):
 
 
 def adjust_cart(request, item_id):
-    """
-    Summary or Description of the Function
+    """ Changes the quantities or removes a product from the cart """
 
-    Parameters:
-    argument1 (int): Description of arg1
-
-    Returns:
-    int:Returning value
-    """
-    
     product = get_object_or_404(Product, pk=item_id)
     quantity = int(request.POST.get('quantity'))
     size = None
@@ -96,18 +72,10 @@ def adjust_cart(request, item_id):
 
     request.session['cart'] = cart
     return redirect(reverse('cart'))
-    
+
 
 def remove_from_cart(request, item_id):
-    """
-    Summary or Description of the Function
-
-    Parameters:
-    argument1 (int): Description of arg1
-
-    Returns:
-    int:Returning value
-    """
+    """ Removes all quantities of a product from the shopping cart """
 
     try:
         product = get_object_or_404(Product, pk=item_id)

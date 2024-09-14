@@ -1,19 +1,11 @@
 from django import forms
 from .widgets import CustomClearableFileInput
-from .models import Product, Category, RentalProduct, AuctionProduct, Bid
+from .models import Product, Category, RentalProduct, AuctionProduct
 
 
 class ProductForm(forms.ModelForm):
-    """
-    Summary or Description of the Function
+    """ Form for product model with fields to use and placeholders for those fields """
 
-    Parameters:
-    argument1 (int): Description of arg1
-
-    Returns:
-    int:Returning value
-    """
-    
     class Meta:
         model = Product
         fields = '__all__'
@@ -31,16 +23,8 @@ class ProductForm(forms.ModelForm):
 
 
 class RentalForm(forms.ModelForm):
-    """
-    Summary or Description of the Function
+    """ Form for Rental model with fields to use and placeholders for those fields """
 
-    Parameters:
-    argument1 (int): Description of arg1
-
-    Returns:
-    int:Returning value
-    """
-    
     class Meta:
         model = RentalProduct
         fields = '__all__'
@@ -61,19 +45,13 @@ class RentalForm(forms.ModelForm):
 
 
 class AuctionForm(forms.ModelForm):
-    """
-    Summary or Description of the Function
+    """ Form for Auction model with fields to use and placeholders for those fields """
 
-    Parameters:
-    argument1 (int): Description of arg1
-
-    Returns:
-    int:Returning value
-    """
-    
     class Meta:
         model = AuctionProduct
-        fields = '__all__'
+        fields = ('title', 'description', 'instrument',
+                  'image_url', 'image', 'condition',
+                  'base_price', 'auction_period',  )
         widgets = {
             'auction_period': forms.TextInput(attrs={'type': 'date'})
         }
@@ -91,19 +69,11 @@ class AuctionForm(forms.ModelForm):
 
 
 class BidForm(forms.ModelForm):
-    """
-    Summary or Description of the Function
+    """ Form for bid in Auction model with fields to use and placeholders for those fields """
 
-    Parameters:
-    argument1 (int): Description of arg1
-
-    Returns:
-    int:Returning value
-    """
-    
     class Meta:
-        model = Bid
-        fields = '__all__'
+        model = AuctionProduct
+        fields = ('bidders', 'auction_price' )
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

@@ -1,6 +1,7 @@
 from django.urls import path
 from . import views
 
+
 urlpatterns = [
     path('', views.store, name='store'),
     path('product_detail/<int:product_id>/', views.product_detail, name='product_detail'),
@@ -17,7 +18,7 @@ urlpatterns = [
     path('auction', views.auction, name='auction'),
     path('auction_detail/<int:auction_id>/', views.auction_detail, name='auction_detail'),
     path('add_auction/', views.add_auction, name='add_auction'),
-    path('add_bid/', views.add_bid, name='add_bid'),
+    path('add_bid/<int:auction_id>/', views.add_bid, name='add_bid'),
     path('edit_auction/<int:auction_id>/', views.edit_auction, name='edit_auction'),
     path('delete_auction/<int:auction_id>/', views.delete_auction, name='delete_auction'),
 ]

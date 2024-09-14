@@ -2,24 +2,16 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.db.models.functions import Lower
 from django.contrib.auth.decorators import login_required
-from .models import Product, Category, Bid, AuctionProduct, RentalProduct
+from .models import Product, Category, AuctionProduct, RentalProduct
 from .forms import ProductForm, RentalForm, AuctionForm, BidForm
 from datetime import datetime
 
 from django.db.models import Q
 
-# Create your views here.
+
 def store(request):
-    """
-    Summary or Description of the Function
+    """ Returns main store page with all main store product and search/order filtering """
 
-    Parameters:
-    argument1 (int): Description of arg1
-
-    Returns:
-    int:Returning value
-    """
-    
     products = Product.objects.all()
 
     query = None
@@ -41,7 +33,7 @@ def store(request):
                 if direction == 'desc':
                     sortkey = f'-{sortkey}'
             products = products.order_by(sortkey)
-            
+
         if 'category' in request.GET:
             categories = request.GET['category'].split(',')
             products = products.filter(category__name__in=categories)
@@ -52,7 +44,7 @@ def store(request):
             if not query:
                 messages.error(request, "You didn't enter any search criteria!")
                 return redirect(reverse('store'))
-            
+
             queries = Q(name__icontains=query) | Q(description__icontains=query)
             products = products.filter(queries)
 
@@ -69,16 +61,8 @@ def store(request):
 
 
 def product_detail(request, product_id):
-    """
-    Summary or Description of the Function
+    """ Returns details for a specific main store product """
 
-    Parameters:
-    argument1 (int): Description of arg1
-
-    Returns:
-    int:Returning value
-    """
-    
     product = get_object_or_404(Product, pk=product_id)
 
     context = {
@@ -90,16 +74,8 @@ def product_detail(request, product_id):
 
 @login_required
 def add_product(request):
-    """
-    Summary or Description of the Function
+    """ Returns a form that can be used to submit a main store product to be added """
 
-    Parameters:
-    argument1 (int): Description of arg1
-
-    Returns:
-    int:Returning value
-    """
-    
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
@@ -114,7 +90,7 @@ def add_product(request):
             messages.error(request, 'Failed to add product. Please ensure the form is valid.')
     else:
         form = ProductForm()
-        
+
     template = 'store/add_product.html'
     context = {
         'form': form,
@@ -125,16 +101,8 @@ def add_product(request):
 
 @login_required
 def edit_product(request, product_id):
-    """
-    Summary or Description of the Function
+    """ Returns a form that can be used to edit a main store product to be added """
 
-    Parameters:
-    argument1 (int): Description of arg1
-
-    Returns:
-    int:Returning value
-    """
-    
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
@@ -163,16 +131,8 @@ def edit_product(request, product_id):
 
 @login_required
 def delete_product(request, product_id):
-    """
-    Summary or Description of the Function
+    """ Removes a specific product from the main store page """
 
-    Parameters:
-    argument1 (int): Description of arg1
-
-    Returns:
-    int:Returning value
-    """
-    
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
@@ -183,18 +143,9 @@ def delete_product(request, product_id):
     return redirect(reverse('store'))
 
 
-# Create your views here.
 def rental(request):
-    """
-    Summary or Description of the Function
+    """ Returns rental store page with all rental store product and search/order filtering """
 
-    Parameters:
-    argument1 (int): Description of arg1
-
-    Returns:
-    int:Returning value
-    """
-    
     rentals = RentalProduct.objects.all()
 
     query = None
@@ -216,7 +167,7 @@ def rental(request):
                 if direction == 'desc':
                     sortkey = f'-{sortkey}'
             rentals = rentals.order_by(sortkey)
-            
+
         if 'category' in request.GET:
             categories = request.GET['category'].split(',')
             rentals = rentals.filter(product__category__name__in=categories)
@@ -227,7 +178,7 @@ def rental(request):
             if not query:
                 messages.error(request, "You didn't enter any search criteria!")
                 return redirect(reverse('rental'))
-            
+
             queries = Q(product__name__icontains=query) | Q(product__description__icontains=query)
             rentals = rentals.filter(queries)
 
@@ -244,16 +195,7 @@ def rental(request):
 
 
 def rental_detail(request, rental_id):
-    """
-    Summary or Description of the Function
-
-    Parameters:
-    argument1 (int): Description of arg1
-
-    Returns:
-    int:Returning value
-    """
-    
+    """ Returns details for a specific rental store product """
 
     rental = get_object_or_404(RentalProduct, pk=rental_id)
 
@@ -266,16 +208,8 @@ def rental_detail(request, rental_id):
 
 @login_required
 def add_rental(request):
-    """
-    Summary or Description of the Function
+    """ Returns a form that can be used to submit a rental store product to be added """
 
-    Parameters:
-    argument1 (int): Description of arg1
-
-    Returns:
-    int:Returning value
-    """
-    
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
@@ -290,7 +224,7 @@ def add_rental(request):
             messages.error(request, 'Failed to add rental. Please ensure the form is valid.')
     else:
         form = RentalForm()
-        
+
     template = 'store/add_rental.html'
     context = {
         'form': form,
@@ -301,16 +235,8 @@ def add_rental(request):
 
 @login_required
 def edit_rental(request, rental_id):
-    """
-    Summary or Description of the Function
+    """ Returns a form that can be used to edit a rental store product to be added """
 
-    Parameters:
-    argument1 (int): Description of arg1
-
-    Returns:
-    int:Returning value
-    """
-    
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
@@ -339,16 +265,8 @@ def edit_rental(request, rental_id):
 
 @login_required
 def delete_rental(request, rental_id):
-    """
-    Summary or Description of the Function
+    """ Removes a specific product from the rental store page """
 
-    Parameters:
-    argument1 (int): Description of arg1
-
-    Returns:
-    int:Returning value
-    """
-    
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
@@ -359,18 +277,9 @@ def delete_rental(request, rental_id):
     return redirect(reverse('rental'))
 
 
-# Create your views here.
 def auction(request):
-    """"
-    Summary or Description of the Function
+    """ Returns auction store page with all auction store product and search/order filtering """
 
-    Parameters:
-    argument1 (int): Description of arg1
-
-    Returns:
-    int:Returning value
-    """
-    
     auctions = AuctionProduct.objects.all()
 
     query = None
@@ -392,7 +301,7 @@ def auction(request):
                 if direction == 'desc':
                     sortkey = f'-{sortkey}'
             auctions = auctions.order_by(sortkey)
-            
+
         # if 'category' in request.GET:
         #     categories = request.GET['category'].split(',')
         #     products = products.filter(category__name__in=categories)
@@ -403,7 +312,7 @@ def auction(request):
             if not query:
                 messages.error(request, "You didn't enter any search criteria!")
                 return redirect(reverse('store_auction'))
-            
+
             queries = Q(title__icontains=query) | Q(description__icontains=query)
             auctions = auctions.filter(queries)
 
@@ -419,21 +328,15 @@ def auction(request):
 
 
 def auction_detail(request, auction_id):
-    """
-    Summary or Description of the Function
-
-    Parameters:
-    argument1 (int): Description of arg1
-
-    Returns:
-    int:Returning value
-    """
-    
+    """ Returns details for a specific auction store product """
 
     auction = get_object_or_404(AuctionProduct, pk=auction_id)
+    form = BidForm()
 
     context = {
+        'auction_id':auction_id,
         'auction': auction,
+        'form': form
     }
 
     return render(request, 'store/auction_detail.html', context)
@@ -441,19 +344,7 @@ def auction_detail(request, auction_id):
 
 @login_required
 def add_auction(request):
-    """
-    Summary or Description of the Function
-
-    Parameters:
-    argument1 (int): Description of arg1
-
-    Returns:
-    int:Returning value
-    """
-    
-    # if not request.user.is_superuser:
-    #     messages.error(request, 'Sorry, only store owners can do that.')
-    #     return redirect(reverse('home'))
+    """ Returns a form that can be used to submit a auction store product to be added """
 
     if request.method == 'POST':
         form = AuctionForm(request.POST, request.FILES)
@@ -466,7 +357,7 @@ def add_auction(request):
             messages.error(request, 'Failed to add auction. Please ensure the form is valid.')
     else:
         form = AuctionForm()
-        
+
     template = 'store/add_auction.html'
     context = {
         'form': form,
@@ -476,48 +367,9 @@ def add_auction(request):
 
 
 @login_required
-def add_bid(request):
-    """
-    Summary or Description of the Function
-
-    Parameters:
-    argument1 (int): Description of arg1
-
-    Returns:
-    int:Returning value
-    """
-    
-    if request.method == 'POST':
-        form = BidForm(request.POST, request.FILES)
-        if form.is_valid():
-            auction = form.save()
-            messages.success(request, 'Successfully added auction!')
-            return redirect(reverse('auction_detail', args=[auction.id]))
-        else:
-            messages.error(request, 'Failed to add auction. Please ensure the form is valid.')
-    else:
-        form = BidForm()
-        
-    template = 'store/auction.html'
-    context = {
-        'form': form,
-    }
-
-    return render(request, template, context)
-
-
-@login_required
 def edit_auction(request, auction_id):
-    """
-    Summary or Description of the Function
+    """ Returns a form that can be used to edit a auction store product to be added """
 
-    Parameters:
-    argument1 (int): Description of arg1
-
-    Returns:
-    int:Returning value
-    """
-    
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
@@ -547,16 +399,8 @@ def edit_auction(request, auction_id):
 
 @login_required
 def delete_auction(request, auction_id):
-    """
-    Summary or Description of the Function
+    """ Removes a specific product from the auction store page """
 
-    Parameters:
-    argument1 (int): Description of arg1
-
-    Returns:
-    int:Returning value
-    """
-    
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
@@ -566,3 +410,29 @@ def delete_auction(request, auction_id):
     messages.success(request, 'auction deleted!')
     return redirect(reverse('auction'))
 
+
+@login_required
+def add_bid(request, auction_id):
+    """ Adds a bid with a user and price details to the auction model """
+
+    auction = get_object_or_404(AuctionProduct, pk=auction_id)
+    if request.method == 'POST':
+        form = BidForm(request.POST, request.FILES, instance=auction)
+        if form.is_valid():
+            form.instance.bidders = request.user
+            auction = form.save()
+            messages.success(request, 'Successfully added auction!')
+            return redirect(reverse('auction_detail', args=[auction.id]))
+        else:
+            messages.error(request, 'Failed to add auction. Please ensure the form is valid.')
+    else:
+        form = BidForm()
+
+    template = 'store/auction.html'
+    context = {
+        'auction_id':auction_id,
+        'auction': auction,
+        'form': form,
+    }
+
+    return render(request, 'store/auction_detail.html', context)

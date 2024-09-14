@@ -7,16 +7,8 @@ from django_countries.fields import CountryField
 
 
 class UserProfile(models.Model):
-    """
-    Summary or Description of the Function
+    """ UserProfile model that has personal user, shipping and billing details """
 
-    Parameters:
-    argument1 (int): Description of arg1
-
-    Returns:
-    int:Returning value
-    """
-    
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     user_title = models.CharField(max_length=20, null=True, blank=True)
     user_firstname = models.CharField(max_length=50, null=True, blank=True)
@@ -41,16 +33,8 @@ class UserProfile(models.Model):
 
 @receiver(post_save, sender=User)
 def create_or_update_user_profile(sender, instance, created, **kwargs):
-    """"
-    Summary or Description of the Function
+    """ Creates/updates a user profile on request """
 
-    Parameters:
-    argument1 (int): Description of arg1
-
-    Returns:
-    int:Returning value
-    """
-    
     if created:
         UserProfile.objects.create(user=instance)
     # Existing users: just save the profile

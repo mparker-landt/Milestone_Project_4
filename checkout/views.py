@@ -18,18 +18,11 @@ from cart.contexts import cart_contents
 import stripe
 import json
 
+
 @require_POST
 def cache_checkout_data(request):
-    """
-    Summary or Description of the Function
+    """ Stores checkout details in cache so not lost on reload """
 
-    Parameters:
-    argument1 (int): Description of arg1
-
-    Returns:
-    int:Returning value
-    """
-    
     try:
         pid = request.POST.get('client_secret').split('_secret')[0]
         stripe.api_key = settings.STRIPE_SECRET_KEY
@@ -44,19 +37,10 @@ def cache_checkout_data(request):
             processed right now. Please try again later.')
         return HttpResponse(content=e, status=400)
 
-# Create your views here.
-# Create your views here.
+
 def checkout(request):
-    """
-    Summary or Description of the Function
+    """ Returns checkout page with details of order and payment details """
 
-    Parameters:
-    argument1 (int): Description of arg1
-
-    Returns:
-    int:Returning value
-    """
-    
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
 
@@ -131,8 +115,6 @@ def checkout(request):
             currency=settings.STRIPE_CURRENCY,
         )
 
-        # print(intent)
-
         # Attempt to prefill the form with any info the user maintains in their profile
         if request.user.is_authenticated:
             try:
@@ -168,16 +150,8 @@ def checkout(request):
 
 
 def checkout_success(request, order_number):
-    """
-    Summary or Description of the Function
+    """ Returns template for checkout success with order details """
 
-    Parameters:
-    argument1 (int): Description of arg1
-
-    Returns:
-    int:Returning value
-    """
-    
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
 
@@ -243,7 +217,7 @@ def checkout_success(request, order_number):
 
 #     return HttpResponse(status=200)
 
-# Using Django
+
 @csrf_exempt
 def stripe_webhook(request):
     """
@@ -255,7 +229,7 @@ def stripe_webhook(request):
     Returns:
     int:Returning value
     """
-    
+
     payload = request.body
     event = None
 

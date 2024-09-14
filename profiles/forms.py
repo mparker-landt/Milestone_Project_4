@@ -3,16 +3,8 @@ from .models import UserProfile
 
 
 class UserProfileForm(forms.ModelForm):
-    """
-    Summary or Description of the Function
+    """ Form for UserProfile model with fields to use and placeholders for those fields """
 
-    Parameters:
-    argument1 (int): Description of arg1
-
-    Returns:
-    int:Returning value
-    """
-    
     class Meta:
         model = UserProfile
         exclude = ('user',)

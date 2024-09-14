@@ -11,18 +11,10 @@ HOUR = 60 * MINUTE
 DAY = 24 * HOUR
 MONTH = 30 * DAY
 
-# Create your models here.
+
 class Category(models.Model):
-    """
-    Summary or Description of the Function
+    """ Category model that has instrument category names """
 
-    Parameters:
-    argument1 (int): Description of arg1
-
-    Returns:
-    int:Returning value
-    """
-    
     class Meta:
         verbose_name_plural = 'Categories'
 
@@ -36,18 +28,9 @@ class Category(models.Model):
         return self.friendly_name
 
 
-# Create your models here.
 class Product(models.Model):
-    """
-    Summary or Description of the Function
+    """ Product model that has main store product details """
 
-    Parameters:
-    argument1 (int): Description of arg1
-
-    Returns:
-    int:Returning value
-    """
-    
     class Meta:
         verbose_name_plural = 'Products'
 
@@ -67,18 +50,9 @@ class Product(models.Model):
         return self.name
 
 
-# Create your models here.
 class RentalProduct(models.Model):
-    """
-    Summary or Description of the Function
+    """ Rental model that has rental store product details """
 
-    Parameters:
-    argument1 (int): Description of arg1
-
-    Returns:
-    int:Returning value
-    """
-    
     class Meta:
         verbose_name_plural = 'Rentals'
 
@@ -94,32 +68,9 @@ class RentalProduct(models.Model):
         return self.rental_sku
 
 
-class Bid(models.Model):
-    """
-    Summary or Description of the Function
-
-    Parameters:
-    argument1 (int): Description of arg1
-
-    Returns:
-    int:Returning value
-    """
-    
-    buyer = models.ForeignKey(UserProfile, on_delete=models.SET_NULL, null=True, blank=True, related_name='auction_buyer')
-    price = models.DecimalField(max_digits=6, decimal_places=2, default=0)
-
-# Create your models here.	
 class AuctionProduct(models.Model):
-    """
-    Summary or Description of the Function
+    """ Auction model that has auction store product details """
 
-    Parameters:
-    argument1 (int): Description of arg1
-
-    Returns:
-    int:Returning value
-    """
-    
     class Meta:
         verbose_name_plural = 'Auctions'
 
@@ -138,19 +89,17 @@ class AuctionProduct(models.Model):
     image = models.ImageField(null=True, blank=True)
     condition = models.CharField(max_length=20, choices=CONDITION)
     base_price = models.DecimalField(max_digits=6, decimal_places=2)
+    auction_price = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)
     auction_period = models.DateField()
     purchased = models.BooleanField(default=False, null=True, blank=True)
-    seller = models.ForeignKey(UserProfile, on_delete=models.SET_NULL, null=True, blank=True, related_name='auction_seller')
     owner = models.ForeignKey(User, blank=False, null=True, on_delete=models.CASCADE)
-    bidders = models.ForeignKey('Bid', on_delete=models.SET_NULL, null=True, blank=True, related_name='bid')
+    bidders = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True, related_name='bid')
 
     @property
     def remaining_days(self):
+        """ Calculates remaining days from today until auction period date """
         remaining_days = (self.auction_period - datetime.now().date()).days
         return remaining_days
 
     def __str__(self):
         return self.title
-
-
-
