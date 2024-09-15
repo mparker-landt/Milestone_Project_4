@@ -9,9 +9,8 @@
 {% endblock %}
 
 {% block content %}
-    <div class="overlay"></div>
-    <div>
-        <div>
+    <div class="home-left">
+        <div style="padding-bottom:10px">
             <div>
                 <hr>
                 <h2>Thank You</h2>
@@ -25,183 +24,172 @@
                 <div>
                     <div>
                         <div>
-                            <small>Order Info:</small>
+                            <h3 style="padding-bottom:10px">Order Info</h3>
+                        </div>
+                    </div>
+
+                    <div class="info-set">
+                        <div>
+                            <div>
+                                <strong>Order Number:</strong>
+                            </div>
+                            <div>
+                                <p>{{ order.order_number }}</p>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div>
+                                <strong>Order Date:</strong>
+                            </div>
+                            <div>
+                                <p>{{ order.date }}</p>
+                            </div>
                         </div>
                     </div>
 
                     <div>
                         <div>
-                            <p>Order Number</p>
+                            <h3 style="padding-bottom:10px">Order Details:</h3>
                         </div>
+                    </div>
+
+                    <div class="info-set">
+                        {% for item in order.lineitems.all %}
+                            <div>
+                                <div>
+                                    <p>
+                                        {{ item.product.name }}{% if item.product_size %} - Size {{ item.product.size|upper }}{% endif %}
+                                    </p>
+                                </div>
+                                <div>
+                                    <p>{{ item.quantity }} @ ${{ item.product.price }} each</p>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+
+                    <div>
                         <div>
-                            <p>{{ order.order_number }}</p>
+                            <h3 style="padding-bottom:10px">Delivering To:</h3>
+                        </div>
+                    </div>
+
+                    <div class="info-set">
+                        <div>
+                            <div>
+                                <strong>Full Name:</strong>
+                            </div>
+                            <div>
+                                <p>{{ order.full_name }}</p>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div>
+                                <strong>Address 1:</strong>
+                            </div>
+                            <div>
+                                <p>{{ order.street_address1 }}</p>
+                            </div>
+                        </div>
+
+                        {% if order.street_address2 %}
+                        <div>
+                            <div>
+                                <strong>Address 2:</strong>
+                            </div>
+                            <div>
+                                <p>{{ order.street_address1 }}</p>
+                            </div>
+                        </div>
+                        {% endif %}
+
+                        {% if order.county %}
+                        <div>
+                            <div>
+                                <strong>County:</strong>
+                            </div>
+                            <div>
+                                <p>{{ order.county }}</p>
+                            </div>
+                        </div>
+                        {% endif %}
+
+                        <div>
+                            <div>
+                                <strong>Town or City:</strong>
+                            </div>
+                            <div>
+                                <p>{{ order.town_or_city }}</p>
+                            </div>
+                        </div>
+
+                        {% if order.postcode %}
+                        <div>
+                            <div>
+                                <strong>Postal Code:</strong>
+                            </div>
+                            <div>
+                                <p>{{ order.postcode }}</p>
+                            </div>
+                        </div>
+                        {% endif %}
+
+                        <div>
+                            <div>
+                                <strong>Country:</strongp>
+                            </div>
+                            <div>
+                                <p>{{ order.country }}</p>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div>
+                                <strong>Phone Number:</strong>
+                            </div>
+                            <div>
+                                <p>{{ order.phone_number }}</p>
+                            </div>
                         </div>
                     </div>
 
                     <div>
                         <div>
-                            <p>Order Date</p>
-                        </div>
-                        <div>
-                            <p>{{ order.date }}</p>
+                            <h3 style="padding-bottom:10px">Billing Info:</h3>
                         </div>
                     </div>
 
-                    <div>
+                    <div class="info-set">
                         <div>
-                            <small>Order Details:</small>
+                            <div>
+                                <strong>Order Total:</strong>
+                            </div>
+                            <div>
+                                <p>{{ order.order_total }}</p>
+                            </div>
                         </div>
-                    </div>
 
-                    {% for item in order.lineitems.all %}
-                    <div>
                         <div>
-                            <p>
-                                {{ item.product.name }}{% if item.product_size %} - Size {{ item.product.size|upper }}{% endif %}
-                            </p>
+                            <div>
+                                <strong>Delivery:</strong>
+                            </div>
+                            <div>
+                                <p>{{ order.delivery_cost }}</p>
+                            </div>
                         </div>
-                        <div>
-                            <p>{{ item.quantity }} @ ${{ item.product.price }} each</p>
-                        </div>
-                    </div>
-                    {% endfor %}
 
-                    <div>
                         <div>
-                            <small>Delivering To:</small>
-                        </div>
-                    </div>
-
-                    <div>
-                        <div>
-                            <p>Full Name</p>
-                        </div>
-                        <div>
-                            <p>{{ order.full_name }}</p>
-                        </div>
-                    </div>
-
-                    <div>
-                        <div>
-                            <p>Address 1</p>
-                        </div>
-                        <div>
-                            <p>{{ order.street_address1 }}</p>
-                        </div>
-                    </div>
-
-                    {% if order.street_address2 %}
-                    <div>
-                        <div>
-                            <p>Address 2</p>
-                        </div>
-                        <div>
-                            <p>{{ order.street_address1 }}</p>
-                        </div>
-                    </div>
-                    {% endif %}
-
-                    {% if order.county %}
-                    <div>
-                        <div>
-                            <p>County</p>
-                        </div>
-                        <div>
-                            <p>{{ order.county }}</p>
-                        </div>
-                    </div>
-                    {% endif %}
-
-                    <div>
-                        <div>
-                            <p>Town or City</p>
-                        </div>
-                        <div>
-                            <p>{{ order.town_or_city }}</p>
-                        </div>
-                    </div>
-
-                    {% if order.postcode %}
-                    <div>
-                        <div>
-                            <p>Postal Code</p>
-                        </div>
-                        <div>
-                            <p>{{ order.postcode }}</p>
-                        </div>
-                    </div>
-                    {% endif %}
-
-                    <div>
-                        <div>
-                            <p>Country</p>
-                        </div>
-                        <div>
-                            <p>{{ order.country }}</p>
-                        </div>
-                    </div>
-
-                    <div>
-                        <div>
-                            <p>Phone Number</p>
-                        </div>
-                        <div>
-                            <p>{{ order.phone_number }}</p>
-                        </div>
-                    </div>
-
-                    <div>
-                        <div>
-                            <small>Billing Info:</small>
-                        </div>
-                    </div>
-
-                    <div>
-                        <div>
-                            <p>Order Total</p>
-                        </div>
-                        <div>
-                            <p>{{ order.order_total }}</p>
-                        </div>
-                    </div>
-
-                    <div>
-                        <div>
-                            <p>Delivery</p>
-                        </div>
-                        <div>
-                            <p>{{ order.delivery_cost }}</p>
-                        </div>
-                    </div>
-
-                    <div>
-                        <div>
-                            <p>Grand Total</p>
-                        </div>
-                        <div>
-                            <p>{{ order.grand_total }}</p>
+                            <div>
+                                <strong>Grand Total:</strong>
+                            </div>
+                            <div>
+                                <p>{{ order.grand_total }}</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div>
-            <div>
-                {% if from_profile %}
-                    <a href="{% url 'profile' %}" aria-label="Link to user profile page">
-                        <span class="icon mr-2">
-                            <i class="fas fa-angle-left"></i>
-                        </span>
-                        <span class="text-uppercase">Back to Profile</span>
-                    </a>
-                {% else %}
-                    <a href="{% url 'store' %}?category=new_arrivals,deals,clearance" aria-label="Link to store page">
-                        <span class="icon mr-2">
-                            <i class="fas fa-gifts"></i>
-                        </span>
-                        <span>Now check out the latest deals!</span>
-                    </a>
-                {% endif %}
             </div>
         </div>
     </div>

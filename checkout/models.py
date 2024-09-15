@@ -5,6 +5,7 @@ from django.db.models import Sum
 from django.conf import settings
 
 from django_countries.fields import CountryField
+from decimal import Decimal
 
 from store.models import Product
 from profiles.models import UserProfile
@@ -44,7 +45,7 @@ class Order(models.Model):
         accounting for delivery costs.
         """
         self.order_total = self.lineitems.aggregate(Sum('lineitem_total'))['lineitem_total__sum'] or 0
-        self.delivery_cost = 9.95
+        self.delivery_cost = Decimal(9.95)
         self.grand_total = self.order_total + self.delivery_cost
         self.save()
 
