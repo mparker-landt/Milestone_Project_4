@@ -6,7 +6,7 @@ A special part of the webstore is dedicated to the auction of antiques and speci
 The store also offers the services of rental of instruments and a notice board for lessons.\
 This project was created to meet the criteria of the Code Institute Milestone Project 4.
 
-![AmIResponsive Screenshot](static/images/readme/amiresponsive.png)
+![AmIResponsive Screenshot](media/readme/amiresponsive.png)
 
 View Repository in GitHub Pages:\
 https://github.com/mparker-landt/Milestone_Project_4
@@ -96,13 +96,18 @@ Github: [mparker-landt](https://github.com/mparker-landt)
 ### Design
 #### Wireframes
 Wireframes were drawn on paper as a rough draft and then made in [Draw.io](https://www.drawio.com/) digitally.\
-![Wireframes - Homepage](static/images/readme/wireframes-homepage.png)\
-![Wireframes - Static Pages](static/images/readme/wireframes-staticpage.png)\
-![Wireframes - Store](static/images/readme/wireframes-store.png)\
-![Wireframes - Product Details](static/images/readme/wireframes-details.png)\
-![Wireframes - Product Add Edit](static/images/readme/wireframes-addedit.png)\
-![Wireframes - User Profile](static/images/readme/wireframes-profile.png)\
-![Wireframes - Contact Us](static/images/readme/wireframes-contact.png)
+Homepage:\
+![Wireframes - Homepage](media/readme/wireframes-homepage.png)\
+Static:\
+![Wireframes - Static Pages](media/readme/wireframes-staticpage.png)\
+Store:\
+![Wireframes - Store](media/readme/wireframes-store.png)\
+Product Details:\
+![Wireframes - Product Details](media/readme/wireframes-details.png)\
+User Profile:\
+![Wireframes - User Profile](media/readme/wireframes-profile.png)\
+Contact:\
+![Wireframes - Contact Us](media/readme/wireframes-contact.png)
 
 #### Colour Scheme
 For the colour scheme [Coolors](https://coolors.co) was used to generate different schemes and then one was chosen.
@@ -172,83 +177,77 @@ The admins also have the ability to access the Django admin page where the infor
 The Header for the site contains links to the Store, Rental and Auction Product pages and Enquiry page.
 A subbar contains icon links to a User Profile with dropdown options or Shopping Cart page.
 On mobile the header collapses to to dropdowns, one for the pages and one for the User Profile and Shopping Cart.\
-![Design - Header Website](static/images/readme/design-header-large.png)\
-![Design - Header Mobile](static/images/readme/design-header-small.png)
+![Design - Header Website](media/readme/design-header.png)\
 
 #### Footer
 The Footer mirrors the Header and contains links to all of the website static pages as well as the Product pages and Enquiry Page.
 A subbar contains social media links which open the social media websites in a new page.\
-![Design - Footer](static/images/readme/design-footer.png)
+![Design - Footer](media/readme/design-footer.png)
 
 #### Homepage
 The homepage is used as a landing page where users can quickly navigate to most of the sites main attractions or information. The page is split into sections to allow for the user to navigate whilst being visually appealing.
 At the bottom of the page User Reviews are displayed in a carousel to attract positive attention to the site.\
-![Design - Homepage](static/images/readme/design-home.png)
 
 #### Static Pages
 The About Us, FAQ, Privacy Policy and Warranty Policy are all stylised in the same manner where the information is displayed simply yet effectively between the header and footer. External links referenced on the pages navigate to other parts of the site.\
-![Design - About Us](static/images/readme/design-static-about.png)\
-![Design - FAQ](static/images/readme/design-static-faq.png)\
-![Design - Cookie Policy](static/images/readme/design-static-cookies.png)\
-![Design - Privacy Policy](static/images/readme/design-static-privacy.png)
+![Design - About Us](media/readme/design-static-about.png)\
+![Design - FAQ](media/readme/design-static-faq.png)\
+![Design - Cookie Policy](media/readme/design-static-cookies.png)\
+![Design - Privacy Policy](media/readme/design-static-privacy.png)
 
 #### Contact Us Page
 The Enquries page contains information about making an enquiry and a form to submit information. Mandatory information is displayed via an asterisk and the subject of the enquiry can be chosend via a Dropdown box with the options.
 All Enquiries can be viewed by a logged in admin user on a specific enquiries page.\
-![Design - Enquiry Page](static/images/readme/design-enquiry.png)\
-![Design - Enquiries Page](static/images/readme/design-enquiries.png)
+![Design - Enquiry Page](media/readme/design-enquiry.png)\
+![Design - Enquiries Page](media/readme/design-enquiries.png)
 
 #### Store
 The Main Products Store page displays the available products in a grid pattern of cards with critical information for each product displayed to the user at a glance.
 At the top of the page information for the page is displayed with a searchbox and dropdown selection box to filter the products. If a admin is logged in this is where the ability to edit or delete a product is displayed.
 In the Product details page  specific product information is displayed and buttons to either return to the store main page or add the product to the shopping cart.\
-![Design - Store](static/images/readme/design-store.png)\
-![Design - Store Details](static/images/readme/design-store-details.png)\
-![Design - Store Add](static/images/readme/design-store-add.png)
+![Design - Store](media/readme/design-store.png)\
+![Design - Store Details](media/readme/design-store-details.png)\
+![Design - Store Add](media/readme/design-store-add.png)
 
 #### Rentals
 The Main Rentals Store page displays the available rental products in a grid pattern of cards with critical information for each rental product displayed to the user at a glance.
 At the top of the page information for the page is displayed with a searchbox and dropdown selection box to filter the rental products. If a admin is logged in this is where the ability to edit or delete a product is displayed.
 In the Rental Product details page specific rental product information is displayed, a datebox is displayed to choose the rental period and buttons to either return to the store main page or add the product to the shopping cart.\
-![Design - Rentals](static/images/readme/design-rental.png)\
-![Design - Rental Details](static/images/readme/design-rental-details.png)\
-![Design - Rental Add](static/images/readme/design-rental-add.png)
 
 #### Auctions
 The Main Auction Store page displays the available auctio products in a grid pattern of cards with critical information for each auction product displayed to the user at a glance.
 At the top of the page information for the page is displayed with a searchbox and dropdown selection box to filter the auction products. A button is displayed to a user to add a product if the user is logged in.
 If a admin is logged in this is where the ability to edit or delete a product is displayed. If a user is logged in who added the product a edit/delete for their added products is also displayed.
 In the Auction Product details page specific auction product information is displayed, a textbox to enter a price and buttons to either return to the store main page or submit their bid for the product.\
-![Design - Auction](static/images/readme/design-auction.png)\
-![Design - Auction Details](static/images/readme/design-auction-details.png)\
-![Design - Auction Add](static/images/readme/design-auction-add.png)
+![Design - Auction](media/readme/design-auction.png)\
+![Design - Auction Details](media/readme/design-auction-details.png)\
+![Design - Auction Add](media/readme/design-auction-add.png)
 
 #### Shopping Cart Page
 The Shopping Cart page displays either the products added to the Shopping Cart or that the Shopping Cart is empty. Main Products, Rental Products and Auction Products are displayed here if available to purchase.
 The ability to return to the website or navigate to a checkout are displayed at the bottom of the page.\
-![Design - Shopping Cart](static/images/readme/design-cart.png)
+![Design - Shopping Cart](media/readme/design-cart.png)
 
 #### Checkout Page
 When a purchase is to be made the Checkout page displays a form for users to add their Billing, Shipping and Card Information.\
-![Design - Checkout](static/images/readme/design-checkout.png)
+![Design - Checkout](media/readme/design-checkout.png)
 
 #### Checkout Success Page
 If purchased successfully a Checkout Success Page is displayed with information to summarise the order. A link to navigate to the website is displayed.\
-![Design - Checkout Success](static/images/readme/design-checkout-success.png)
+![Design - Checkout Success](media/readme/design-checkout-success.png)
 
 #### User Profile Page
 The User Profile dropdown displays the navigation to the User Profile page or the ability to logout. If a user is an admin links to add a main product or rental product are also displayed as well as the ability to navigate to an Enquiries page to see all available enquiries.\
-![Design - User Profile](static/images/readme/design-profile.png)
+![Design - User Profile](media/readme/design-profile.png)
 
 #### User Profile Control Pages
 The Register, Login and Logout pages are displayed as simply as possible whilst keeping the visual aspect of the website. Information is kept to a minimum and presented in a simple form manner.\
-![Design - Register](static/images/readme/design-register.png)\
-![Design - login](static/images/readme/design-login.png)\
-![Design - Logout](static/images/readme/design-logout.png)
+![Design - Register](media/readme/design-register.png)\
+![Design - login](media/readme/design-login.png)\
+![Design - Logout](media/readme/design-logout.png)
 
 #### Error Pages
 If the user hits an error Error Pages are displayed explaining the particular error and an image. The user can navigate back to anywhere on the site by using the header and footer which are still available.\
-![Design - 404 Page](static/images/readme/design-404.png)
 
 ### Future Features
 
@@ -298,7 +297,7 @@ If the user hits an error Error Pages are displayed explaining the particular er
 The website performance was tested using Google Chrome Developer Tools Lighthouse feature.\
 For the webpage the Performance, Best Practices and SEO were 97, 96 and 90 respectively.\
 The Accessibility score was 76 which although not bad could be improved throughout the website.\
-![Lighthouse Performance Screenshot](static/images/readme/lighthouse.png)
+![Lighthouse Performance Screenshot](media/readme/lighthouse.png)
 
 ### HTML Validator Testing
 
@@ -306,17 +305,17 @@ The Accessibility score was 76 which although not bad could be improved througho
 ### CSS Validator Testing
 https://jigsaw.w3.org/css-validator\
 There were no warning or errors in the CSS code file.\
-![CSS Lint Screenshot](static/images/readme/lint-css.png)
+![CSS Lint Screenshot](media/readme/lint-css.png)
 
 ### JS Testing
 https://jshint.com\
 Due to the JavaScript file being extremely simple there were no errors in jshint. The warnings visable were due to jquery being used and could be ignored.\
-![JS Lint Screenshot](static/images/readme/lint-js.png)
+![JS Lint Screenshot](media/readme/lint-js.png)
 
 ### Python Testing
 Python PEP8 standards were tested by installing the extension Pylint. This allowed for the easy visualisation of errors and warnings when working on the code.\
 Although not all warnings were got rid of the ones left were suggestions or Pylint not working fully as expected. \
-![Python Lint Screenshot](static/images/readme/lint-python.png)
+![Python Lint Screenshot](media/readme/lint-python.png)
 
 ## Development & Deployment
 ### Development
