@@ -27,7 +27,8 @@
                             <tr>
                                 <td>
                                     <a href="{% url 'enquiry' enquiry.enquiry_number %}"
-                                    title="{{ enquiry.enquiry_number }}">
+                                    title="{{ enquiry.enquiry_number }}"
+                                    aria-label="View a specific enquiry">
                                         {{ enquiry.enquiry_number|truncatechars:6 }}
                                     </a>
                                 </td>

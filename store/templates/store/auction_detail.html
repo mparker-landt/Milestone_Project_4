@@ -15,11 +15,11 @@
             <div>
                 <div>
                     {% if auction.image %}
-                        <a href="{{ auction.image.url }}" target="_blank">
+                        <a href="{{ auction.image.url }}" target="_blank" aria-label="View a specific products details">
                             <img src="{{ product.image.url }}" alt="{{ auction.title }}">
                         </a>
                         {% else %}
-                        <a href="">
+                        <a href="" aria-label="View a specific products details">
                             <img src="{{ MEDIA_URL }}noimage.png" alt="{{ auction.title }}">
                         </a>
                     {% endif %}
@@ -71,7 +71,7 @@
                                         </div>
 
                                         <div>
-                                            <a class="pure-button" href="{% url 'auction' %}">
+                                            <a class="pure-button" href="{% url 'auction' %}" aria-label="Return to auction page">
                                                 <span>
                                                     <i class="fas fa-chevron-left"></i>
                                                 </span>

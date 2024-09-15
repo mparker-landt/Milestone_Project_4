@@ -15,11 +15,11 @@
             <div>
                 <div>
                     {% if rental.product.image %}
-                        <a href="{{ rental.product.image.url }}" target="_blank">
+                        <a href="{{ rental.product.image.url }}" target="_blank" aria-label="View a specific product details">
                             <img src="{{ rental.product.image.url }}" alt="{{ rental.product.name }}">
                         </a>
                         {% else %}
-                        <a href="">
+                        <a href="" aria-label="View a specific product details">
                             <img src="{{ MEDIA_URL }}noimage.png" alt="{{ rental.product.name }}">
                         </a>
                     {% endif %}
@@ -51,7 +51,7 @@
                             </div>
 
                             <div>
-                                <a class="pure-button" href="{% url 'rental' %}">
+                                <a class="pure-button" href="{% url 'rental' %}" aria-label="Return to rental store">
                                     <span>
                                         <i class="fas fa-chevron-left"></i>
                                     </span>

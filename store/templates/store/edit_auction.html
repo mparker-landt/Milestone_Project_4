@@ -39,7 +39,7 @@
                     <div class="form-field">{{ form.condition|as_crispy_field }}</div>
                     <div class="form-field">{{ form.base_price|as_crispy_field }}</div>
                     <div>
-                        <a class="pure-button" href="{% url 'auction' %}">Cancel</a>
+                        <a class="pure-button" href="{% url 'auction' %}" aria-label="Return to auction store">Cancel</a>
                         <button class="pure-button" type="submit">Edit Product</button>
                     </div>
                 </form>

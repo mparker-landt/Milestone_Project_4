@@ -15,11 +15,11 @@
             <div>
                 <div>
                     {% if product.image %}
-                        <a href="{{ product.image.url }}" target="_blank">
+                        <a href="{{ product.image.url }}" target="_blank" aria-label="View a specific product details">
                             <img src="{{ product.image.url }}" alt="{{ product.name }}">
                         </a>
                         {% else %}
-                        <a href="">
+                        <a href="" aria-label="View a specific product details">
                             <img src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
                         </a>
                     {% endif %}
@@ -31,7 +31,7 @@
                     <p>£{{ product.price }}</p>
                     {% if product.category %}
                     <p>
-                        <a href="{% url 'store' %}?category={{ product.category.name }}">
+                        <a href="{% url 'store' %}?category={{ product.category.name }}" aria-label="Filter the store by instrument category">
                             {{ product.category.friendly_name }}
                         </a>
                     </p>
@@ -58,7 +58,7 @@
                             </div>
 
                             <div>
-                                <a class="pure-button" href="{% url 'store' %}">
+                                <a class="pure-button" href="{% url 'store' %}" aria-label="Return to main store">
                                     <span>
                                         <i class="fas fa-chevron-left"></i>
                                     </span>

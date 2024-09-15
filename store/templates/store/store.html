@@ -49,7 +49,7 @@
         <div>
             <p>
                 {% if search_term or current_categories or current_sorting != 'None_None' %}
-                    <span class="small"><a href="{% url 'store' %}">Store Home</a> | </span>
+                    <span class="small"><a href="{% url 'store' %}" aria-label="Return to main store page">Store Home</a> | </span>
                 {% endif %}
             </p>
         </div>
@@ -57,27 +57,27 @@
 
     <div class="categories">
         <div class="category-select" id="store-category-strings">
-            <a href="{% url 'store' %}?category=string_instruments">
+            <a href="{% url 'store' %}?category=string_instruments" aria-label="Filter rentals page by String Instruments">
                 <i class="fas fa-tag mr-1"></i>String Instruments
             </a>
         </div>
         <div class="category-select" id="store-category-brass">
-            <a href="{% url 'store' %}?category=brass_instruments">
+            <a href="{% url 'store' %}?category=brass_instruments" aria-label="Filter rentals page by Brass Instruments">
                 <i class="fas fa-tag mr-1"></i>Brass Instruments
             </a>
         </div>
         <div class="category-select" id="store-category-woodwind">
-            <a href="{% url 'store' %}?category=woodwind_instruments">
+            <a href="{% url 'store' %}?category=woodwind_instruments" aria-label="Filter rentals page by Woodwind Instruments">
                 <i class="fas fa-tag mr-1"></i>Woodwind Instruments
             </a>
         </div>
         <div class="category-select" id="store-category-percussion">
-            <a href="{% url 'store' %}?category=percussion_instruments">
+            <a href="{% url 'store' %}?category=percussion_instruments" aria-label="Filter rentals page by Percussion Instruments">
                 <i class="fas fa-tag mr-1"></i>Percussion Instruments
             </a>
         </div>
         <div class="category-select" id="store-category-keyboards">
-            <a href="{% url 'store' %}?category=keyboard_instruments">
+            <a href="{% url 'store' %}?category=keyboard_instruments" aria-label="Filter rentals page by Keyboard Instruments">
                 <i class="fas fa-tag mr-1"></i>Keyboard Instruments
             </a>
         </div>
@@ -89,11 +89,11 @@
             <div>
                 <div>
                     {% if product.image %}
-                        <a href="{% url 'product_detail' product.id %}">
+                        <a href="{% url 'product_detail' product.id %}" aria-label="View a specific product details">
                             <img src="{{ product.image.url }}" alt="{{ product.name }}">
                         </a>
                     {% else %}
-                        <a href="{% url 'product_detail' product.id %}">
+                        <a href="{% url 'product_detail' product.id %}" aria-label="View a specific product details">
                             <img src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
                         </a>
                     {% endif %}
@@ -111,8 +111,8 @@
                                 <p>{{ product.stock }} in stock</p>
                                 {% if request.user.is_superuser %}
                                     <small>
-                                        <a href="{% url 'edit_product' product.id %}">Edit</a> | 
-                                        <a href="{% url 'delete_product' product.id %}">Delete</a>
+                                        <a href="{% url 'edit_product' product.id %}" aria-label="Edit a products details">Edit</a> | 
+                                        <a href="{% url 'delete_product' product.id %}" aria-label="Delete a product from the main store">Delete</a>
                                     </small>
                                 {% endif %}
                             </div>

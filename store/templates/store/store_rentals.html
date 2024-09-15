@@ -51,7 +51,7 @@
         <div>
             <p>
                 {% if search_term or current_categories or current_sorting != 'None_None' %}
-                    <span class="small"><a href="{% url 'rental' %}">Rentals Home</a> | </span>
+                    <span class="small"><a href="{% url 'rental' %}" aria-label="Return to rentals page">Rentals Home</a> | </span>
                 {% endif %}
             </p>
         </div>
@@ -59,27 +59,27 @@
 
     <div class="categories">
         <div class="category-select" id="rental-category-strings">
-            <a href="{% url 'rental' %}?category=string_instruments">
+            <a href="{% url 'rental' %}?category=string_instruments" aria-label="Filter rentals page by String Instruments">
                 <i class="fas fa-tag mr-1"></i>String Instruments
             </a>
         </div>
         <div class="category-select" id="rental-category-brass">
-            <a href="{% url 'rental' %}?category=brass_instruments">
+            <a href="{% url 'rental' %}?category=brass_instruments" aria-label="Filter rentals page by Brass Instruments">
                 <i class="fas fa-tag mr-1"></i>Brass Instruments
             </a>
         </div>
         <div class="category-select" id="rental-category-woodwind">
-            <a href="{% url 'rental' %}?category=woodwind_instruments">
+            <a href="{% url 'rental' %}?category=woodwind_instruments" aria-label="Filter rentals page by Woodwing Instruments">
                 <i class="fas fa-tag mr-1"></i>Woodwind Instruments
             </a>
         </div>
         <div class="category-select" id="rental-category-percussion">
-            <a href="{% url 'rental' %}?category=percussion_instruments">
+            <a href="{% url 'rental' %}?category=percussion_instruments" aria-label="Filter rentals page by Percussion Instruments">
                 <i class="fas fa-tag mr-1"></i>Percussion Instruments
             </a>
         </div>
         <div class="category-select" id="rental-category-keyboards">
-            <a href="{% url 'rental' %}?category=keyboard_instruments">
+            <a href="{% url 'rental' %}?category=keyboard_instruments" aria-label="Filter rentals page by Keyboard Instruments">
                 <i class="fas fa-tag mr-1"></i>Keyboard Instruments
             </a>
         </div>
@@ -91,11 +91,11 @@
                 <div>
                     <div>
                         {% if rental.product.image %}
-                            <a href="{% url 'rental_detail' rental.product.id %}">
+                            <a href="{% url 'rental_detail' rental.product.id %}" aria-label="View a specific product details">
                                 <img src="{{ rental.product.image.url }}" alt="{{ rental.product.name }}">
                             </a>
                         {% else %}
-                            <a href="{% url 'rental_detail' rental.product.id %}">
+                            <a href="{% url 'rental_detail' rental.product.id %}" aria-label="View a specific product details">
                                 <img src="{{ MEDIA_URL }}noimage.png" alt="{{ rental.product.name }}">
                             </a>
                         {% endif %}
@@ -125,8 +125,8 @@
 
                                     {% if request.user.is_superuser %}
                                         <small>
-                                            <a href="{% url 'edit_rental' rental.id %}">Edit</a> | 
-                                            <a href="{% url 'delete_rental' rental.id %}">Delete</a>
+                                            <a href="{% url 'edit_rental' rental.id %}" aria-label="Edit a rental product details">Edit</a> | 
+                                            <a href="{% url 'delete_rental' rental.id %}" aria-label="Remove a product from the rentals store">Delete</a>
                                         </small>
                                     {% endif %}
                                 </div>

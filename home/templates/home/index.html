@@ -17,16 +17,16 @@
 <div class="home">
     <div class="home-banner">
         <img class="cover-image" src="{{ MEDIA_URL }}drum_cover.jpg" alt="">
-        <a class="cover-button" href="{% url 'store' %}">Store</a>
+        <a class="cover-button" href="{% url 'store' %}" aria-label="Link to main store page">Store</a>
     </div>
 
     <div class="home-half">
         <div class="home-half-banner banner-left">
-            <a href="{% url 'about' %}">About Us</a>
+            <a href="{% url 'about' %}" aria-label="Link to about us page">About Us</a>
         </div>
     
         <div class="home-half-banner banner-right">
-            <a href="{% url 'faq' %}">FAQ</a>
+            <a href="{% url 'faq' %}" aria-label="Link to FAQ page">FAQ</a>
         </div>
     </div>
 

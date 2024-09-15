@@ -34,7 +34,7 @@
                 {% for item in cart_items %}
                     <div>
                         <div>
-                            <a href="{% url 'product_detail' item.product.id %}">
+                            <a href="{% url 'product_detail' item.product.id %}" aria-label="View product details">
                                 {% if item.product.image %}
                                     <img class="w-100" src="{{ item.product.image.url }}" alt="{{ product.name }}">
                                 {% else %}
@@ -90,8 +90,8 @@
                                 <input type="checkbox" id="id-save-info" name="save-info" checked>
 							{% else %}
 								<label for="id-save-info">
-                                    <a href="{% url 'account_signup' %}">Create an account</a> or 
-                                    <a href="{% url 'account_login' %}">login</a> to save this information
+                                    <a href="{% url 'account_signup' %}" aria-label="Register for an account">Create an account</a> or 
+                                    <a href="{% url 'account_login' %}" aria-label="Log in to an account">login</a> to save this information
                                 </label>
 							{% endif %}
 						</div>
@@ -107,7 +107,7 @@
                     </fieldset>
 
                     <div>                    
-						<a class="pure-button" href="{% url 'cart' %}">
+						<a class="pure-button" href="{% url 'cart' %}" aria-label="Return to the shopping cart">
 							<span>
 								<i class="fas fa-chevron-left"></i>
 							</span>

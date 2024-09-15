@@ -26,6 +26,14 @@ nav {
     display: block;
 }
 
+.base {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+}
+
 .pure-menu-link:hover {
     background: none;
 }

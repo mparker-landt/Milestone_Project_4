@@ -84,8 +84,8 @@
                                                 </div>
                                             </div>
                                         </form>
-                                        <a class="update-link pure-button"><small>Update</small></a>
-                                        <a class="remove-item pure-button" id="remove_{{ item.item_id }}" data-product_size="{{ item.size }}"><small>Remove</small></a>
+                                        <a class="update-link pure-button" aria-label="Update the quantity of the product"><small>Update</small></a>
+                                        <a class="remove-item pure-button" id="remove_{{ item.item_id }}" data-product_size="{{ item.size }}" aria-label="Remove product from cart"><small>Remove</small></a>
                                     </td>
                                     <td>
                                         <p>£{{ item.product.price | calc_subtotal:item.quantity }}</p>
@@ -101,13 +101,13 @@
                             </tr>
                             <tr>
                                 <td colspan="5">
-                                    <a class="pure-button" href="{% url 'store' %}">
+                                    <a class="pure-button" href="{% url 'store' %}" aria-label="Return to the store">
                                         <span>
                                             <i class="fas fa-chevron-left"></i>
                                         </span>
                                         <span>Keep Shopping</span>
                                     </a>
-                                    <a class="pure-button" href="{% url 'checkout' %}">
+                                    <a class="pure-button" href="{% url 'checkout' %}" aria-label="Proceed to checkout page">
                                         <span>Secure Checkout</span>
                                         <span>
                                             <i class="fas fa-lock"></i>
@@ -119,14 +119,14 @@
                     </div>
                 {% else %}
                     <p>Your bag is empty.</p>
-                    <a class="pure-button" href="{% url 'store' %}">
+                    <a class="pure-button" href="{% url 'store' %}" aria-label="Return to the store">
                         <span>
                             <i class="fas fa-chevron-left"></i>
                         </span>
                         <span class="text-uppercase">Keep Shopping</span>
                     </a>
 
-                    <a class="pure-button" href="{% url 'checkout' %}">
+                    <a class="pure-button" href="{% url 'checkout' %}" aria-label="Proceed to checkout page">
                         <span>Secure Checkout</span>
                         <span>
                             <i class="fas fa-lock"></i>
