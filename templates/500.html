@@ -5,8 +5,8 @@
 {% endblock %}
 
 {% block content %}
-    500 - Internal Server Error
-{% endblock %}
-
-{% block postloadjs %}
+    <div class="base">
+        <h2>Error 500. Internal Server Error.</h2>
+        <img src="{{ MEDIA_URL }}500.png" style="height:75vh;" alt="Error 500." >
+    </div>
 {% endblock %}

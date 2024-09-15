@@ -117,7 +117,7 @@ For the colour scheme [Google Fonts](https://fonts.google.com/) was used to sour
 
 #### Images
 Images were sourced from TBC and TBC. These are freestock and licensed to use in a non-commercial setting.
-Icons for the website were acquired from [Boxicons](https://boxicons.com)
+Icons for the website were acquired from [Boxicons](https://boxicons.com) and [Flaticon](https://www.flaticon.com)
 
 ## Features
 ### Models
@@ -284,6 +284,7 @@ If the user hits an error Error Pages are displayed explaining the particular er
 - [Code Institute](https://learn.codeinstitute.net) - Development course website used for example project as base for ideas.
 - [Juliana Bicycles](https://www.julianabicycles.com) - Real webstore used a base idea and template for the project design.
 - [Boxicons](https://boxicons.com) - Used to acquire icons for the project.
+- [Flaticon](https://www.flaticon.com) - Used to acquire icons for the project
 - [Coolors](https://coolors.co) - Used to generate a colour palette for the project.
 - [Google Fonts](https://fonts.google.com) - Utility to browse and source fonts.
 - [Freepik](https://www.freepik.com/) - Error Page images

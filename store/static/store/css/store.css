@@ -61,6 +61,11 @@
     justify-content: space-evenly;
 }
 
+a {
+    text-decoration: none;
+    color: #2F394D;
+}
+
 @media screen and (max-width: 1200px) {
 }
 

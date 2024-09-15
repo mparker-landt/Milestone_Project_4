@@ -1,3 +1,13 @@
+.base {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+
+    margin: 2%;
+}
+
 .categories {
     /* width: 100%; */
     display: grid;
@@ -35,7 +45,7 @@
 
 .product-box {
     width: 150px;
-    height: 150px;
+    height: 175px;
     border: 1px solid brown;
 }
 
@@ -49,6 +59,11 @@
     align-items: flex-start;
     align-content: center;
     justify-content: space-evenly;
+}
+
+a {
+    text-decoration: none;
+    color: #2F394D;
 }
 
 @media screen and (max-width: 1200px) {

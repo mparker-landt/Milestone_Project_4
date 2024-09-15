@@ -26,6 +26,18 @@ nav {
     display: block;
 }
 
+.base {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+}
+
+.pure-menu-link:hover {
+    background: none;
+}
+
 #mainbar {
     display: flex;
     height: 70px;
@@ -247,12 +259,12 @@ footer {
 }
 
 footer a {
-    color: #56666B;
+    color: white;
     text-decoration: none;
 }
 
 footer a:hover {
-    color: white;
+    color: #BB4430;
     /* background: #38182F; */
 }
 
@@ -260,11 +272,6 @@ footer a:hover {
     color: #56666B;
     margin: 0 2%;
 }
-
-.footer-media-content a:hover {
-    border: 1px solid #38182F;
-}
-
 
 .store-banner {
     /* height: 500px; */
@@ -327,6 +334,23 @@ footer a:hover {
     
     overflow: hidden;
 	white-space: nowrap;
+}
+
+.img {
+    background-color: #cccccc;
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+    
+    width: auto;
+    height: 100px;
+
+    border-radius: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: #2F394D;
 }
 
 /* #toast.show {
