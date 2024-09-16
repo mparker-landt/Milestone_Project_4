@@ -295,27 +295,21 @@ If the user hits an error Error Pages are displayed explaining the particular er
 
 ### Performance Testing
 The website performance was tested using Google Chrome Developer Tools Lighthouse feature.\
-For the webpage the Performance, Best Practices and SEO were 97, 96 and 90 respectively.\
-The Accessibility score was 76 which although not bad could be improved throughout the website.\
-![Lighthouse Performance Screenshot](media/readme/lighthouse.png)
+This tested the Performance, Best Practices, SEO and Accessibility of the website.
 
 ### HTML Validator Testing
-
+https://validator.w3.org/
 
 ### CSS Validator Testing
 https://jigsaw.w3.org/css-validator\
-There were no warning or errors in the CSS code file.\
-![CSS Lint Screenshot](media/readme/lint-css.png)
 
 ### JS Testing
 https://jshint.com\
 Due to the JavaScript file being extremely simple there were no errors in jshint. The warnings visable were due to jquery being used and could be ignored.\
-![JS Lint Screenshot](media/readme/lint-js.png)
 
 ### Python Testing
 Python PEP8 standards were tested by installing the extension Pylint. This allowed for the easy visualisation of errors and warnings when working on the code.\
 Although not all warnings were got rid of the ones left were suggestions or Pylint not working fully as expected. \
-![Python Lint Screenshot](media/readme/lint-python.png)
 
 ## Development & Deployment
 ### Development
